@@ -9,7 +9,6 @@ title: Nollstead Studio
   <a href="/about/">About</a>
   <!-- Add other topics/pages here -->
 </nav>
-Projects count: {{ site.projects | size }}
 # Projects_2
 <div class="card-grid">
   {%- assign items = site.projects | sort: "weight" -%}
