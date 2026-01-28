@@ -3,15 +3,15 @@ layout: default
 title: Nollstead Studio
 ---
 
-<!-- Top navigation: add more non-project pages as you create them -->
+<!-- Simple top nav (non-project links). Adjust as needed. -->
 <nav class="top-links">
-  {{ "/" | relative_url }}Home</a>
-  {{ "/about/" | relative_url }}About</a>
+  /Home</a>
+  /about/About</a>
 </nav>
 
 # Projects
 
-<!-- If this prints a number, your collection is wired correctly. Remove later. -->
+<!-- Temporary diagnostic: should show a number (remove later) -->
 <p class="muted">Projects count: {{ site.projects | size }}</p>
 
 <div class="card-grid">
