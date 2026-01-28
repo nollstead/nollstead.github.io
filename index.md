@@ -5,8 +5,8 @@ title: Nollstead Studio
 
 <!-- Top navigation --> 
 <nav class="top-links">
-  <a href="{{ "/" | relative_url }}">Home</a>
-  <a href="{{ "/about/" | relative_url }}">About</a>
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <a href="{{ '/about/' | relative_url }}">About</a>
 </nav>
 
 # Projects
