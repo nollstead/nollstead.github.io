@@ -3,6 +3,7 @@ layout: project
 title: "project2"
 description: "Description of project 2"
 tags: [STM32, ESP32, Bluetooth]
+featured: false
 image: /images/project1.jpg
 weight: 10
 ---
