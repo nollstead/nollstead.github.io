@@ -69,7 +69,7 @@ To support as many target MCUs as possible, the DTR# pin can operate in one of t
 
 ## Documentation & Hookup Guides
 
-- [Loopback Test]({"/_projects/usbbuddy/loopback/") - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
+- [Loopback Test]({"/_projects/USBBuddy/loopback.md") - xHere we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
 - [Loopback Test]({{ "/_projects/usbbuddy/loopback/" | relative_url }}) - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
 - [Loopback Test](./USBBuddy/loopback.md) - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
 - [Loopback Test]({ "/usbbuddy/loopback/" | relative_url }) - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
