@@ -10,10 +10,6 @@ title: Nollstead Studio
 </nav>
 
 # Projects
-
-<!-- Temporary diagnostic: should show a number; remove later -->
-<p class="muted">Projects count: {{ site.projects | size }}</p>
-
 <div class="card-grid">
 {%- assign items = site.projects | sort: "weight" -%}
 {%- for p in items -%}
