@@ -5,8 +5,8 @@ title: Nollstead Studio
 
 <!-- Simple top nav -->
 <nav class="top-links">
-  {{ "/" | relative_url }}Home</a>
-  {{ "/about/" | relative_url }}About</a>
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <a href="{{ '/about/' | relative_url }}">About</a>
 </nav>
 
 # Projects
@@ -15,7 +15,7 @@ title: Nollstead Studio
 
 {%- comment -%}
 Build two lists:
-1. Featured projects (`featured == true`), ordered by weight (primary) then title.
+1. Featured projects (featured == true), ordered by weight (primary) then title.
 2. Non-featured projects, ordered the same way.
 Then combine them so featured items appear first.
 {%- endcomment -%}
@@ -36,7 +36,8 @@ Then combine them so featured items appear first.
 
 {%- for p in items -%}
   <article class="card">
-    {{ p.url | relative_url }}</a>
+    <!-- Full-card invisible link (correctly formed) -->
+    <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title }}"></a>
 
     {% if p.image %}
     <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
@@ -59,5 +60,4 @@ Then combine them so featured items appear first.
     </div>
   </article>
 {%- endfor -%}
-
 </div>
