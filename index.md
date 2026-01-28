@@ -1,4 +1,3 @@
-
 ---
 layout: home
 title: Welcome to Nollstead Studio
@@ -10,6 +9,6 @@ Welcome to my project hub. Here you’ll find the things I build, experiment wit
 
 ## Featured Projects
 
-- [Project 1](/project1)
-- /project2
+- [BTAudio](/BTAudio)
+- [Project 2](/project2)
 - [Project 3](/project3)
