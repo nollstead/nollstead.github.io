@@ -1,6 +1,7 @@
 title: Nollstead Studio
 description: Portfolio and project showcase by Craig Sweet.
 theme: jekyll-theme-cayman
+permalink: pretty
 
 # Projects collection (each file in _projects/ becomes a page)
 collections:
