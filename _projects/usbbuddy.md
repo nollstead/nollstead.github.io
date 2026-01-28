@@ -69,6 +69,6 @@ To support as many target MCUs as possible, the DTR# pin can operate in one of t
 
 ## Documentation & Hookup Guides
 
-- {{ "/usbbuddy/loopback/" | relative_url }}Loopback Test</a> - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
+- [Loopback Test]({{ "/usbbuddy/loopback/" | relative_url }}) - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
 - [Loopback Test](USBBuddy/loopback.md) - Here we'll cover the basics of connecting the adapter to your computer and performing a simple loopback test using a terminal emulator.
 - [Hello World with ATMega328p](/HelloATMega.md) - With the basics under our belt, let's do something more interesting.  Here we'll demonstrate how to load a sketch and send/receive serial text using the Arduino IDE.
