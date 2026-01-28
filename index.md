@@ -11,7 +11,29 @@ title: Nollstead Studio
 
 # Projects
 <div class="card-grid">
-{%- assign items = site.projects | sort: "weight" -%}
+
+{%- comment -%}
+Build two lists:
+1) featured projects (featured == true), sorted by weight
+2) regular projects (no featured flag), sorted by weight
+Then concatenate so featured items come first.
+Optionally: secondary sort by title for deterministic ordering.
+{%- endcomment -%}
+
+{%- assign featured = site.projects
+  | where_exp: "p", "p.featured == true"
+  | sort: "title"
+  | sort: "weight"
+-%}
+
+{%- assign regular = site.projects
+  | where_exp: "p", "p.featured != true"
+  | sort: "title"
+  | sort: "weight"
+-%}
+
+{%- assign items = featured | concat: regular -%}
+
 {%- for p in items -%}
   <article class="card">
     <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title }}"></a>
