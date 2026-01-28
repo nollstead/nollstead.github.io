@@ -3,7 +3,7 @@ layout: default
 title: Nollstead Studio
 ---
 
-<!-- Top navigation --> 
+<!-- Top navigation -->  
 <nav class="top-links">
   <a href="{{ '/' | relative_url }}">Home</a>
   <a href="{{ '/about/' | relative_url }}">About</a>
