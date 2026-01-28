@@ -2,26 +2,15 @@ title: Nollstead Studio
 description: Portfolio and project showcase by Craig Sweet.
 theme: jekyll-theme-cayman
 
-# Add a collection so each file under _projects/ becomes a page (e.g., /project1).
+# Projects collection (each file in _projects/ becomes a page)
 collections:
   projects:
     output: true
 
-# Optional: nice permalinks for projects (e.g., /projects/project1 or /project1)
-# Uncomment ONE of the following:
-
-# Put project pages at the site root (e.g., /project1)
- defaults:
-   - scope:
-       path: ""
-       type: projects
-     values:
-       permalink: "/:title/"
-
-# OR group under /projects/ (e.g., /projects/project1)
-# defaults:
-#   - scope:
-#       path: ""
-#       type: projects
-#     values:
-#       permalink: "/projects/:title/"
+# Make each project URL live at /project-slug/ (e.g., /project2/)
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      permalink: "/:title/"
