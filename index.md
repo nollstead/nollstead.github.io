@@ -3,22 +3,22 @@ layout: default
 title: Nollstead Studio
 ---
 
-<!-- Simple top nav (non-project links). Adjust as needed. -->
+<!-- Top navigation -->
 <nav class="top-links">
-  /Home</a>
-  /about/About</a>
+  <a href="{{ "/" | relative_url }}">Home</a>
+  <a href="{{ "/about/" | relative_url }}">About</a>
 </nav>
 
 # Projects
 
-<!-- Temporary diagnostic: should show a number (remove later) -->
+<!-- Temporary diagnostic: should show a number; remove later -->
 <p class="muted">Projects count: {{ site.projects | size }}</p>
 
 <div class="card-grid">
 {%- assign items = site.projects | sort: "weight" -%}
 {%- for p in items -%}
   <article class="card">
-    {{ p.url | relative_url }}</a>
+    <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title }}"></a>
 
     {% if p.image %}
     <div class="card-media" style="background-image:url('{{ p.image | relative_url }}');"></div>
