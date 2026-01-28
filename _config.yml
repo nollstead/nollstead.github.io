@@ -1,6 +1,10 @@
 title: Nollstead Studio
 description: Portfolio and project showcase by Craig Sweet.
-theme: minima
+theme: jekyll-theme-cayman      # bright, card-like landing look
+# theme: jekyll-theme-midnight  # dark, high-contrast
+# theme: jekyll-theme-slate     # clean docs/portfolio feel
+# theme: jekyll-theme-modernist # airy, serif-ish headings
+# theme: minima                  # current: very minimal typography
 markdown: kramdown
 collections:
   projects:
