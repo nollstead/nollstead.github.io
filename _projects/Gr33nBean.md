@@ -1,8 +1,8 @@
 ---
 layout: project
-title: "project2"
-description: "Description of project 2"
-tags: [STM32, ESP32, Bluetooth]
+title: "Gr33n Bean"
+description: "Description of Gr33n Bean"
+tags: [STM32]
 featured: false
 image: /images/project1.jpg
 weight: 10
