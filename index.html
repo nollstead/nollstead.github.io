@@ -1,1 +1,149 @@
-<h1>Nollstead Studio</h1>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nollstead Studio — Projects by Craig Sweet</title>
+  <meta name="description" content="Nollstead Studio — a showcase of selected projects by Craig Sweet." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Uses system fonts for performance; swap for a webfont later if you like -->
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'/>" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="/">Nollstead Studio</a>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">☾</button>
+      </div>
+    </nav>
+    <section class="hero container">
+      <div class="hero-text">
+        <h1>Hi, I’m Craig.</h1>
+        <p class="lead">
+          AVP of Cybersecurity, builder, and tinkerer. I like turning ideas into 
+          practical, well-engineered projects—from embedded systems to tooling that 
+          makes security measurable and humane.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">See the projects</a>
+          <a class="btn ghost" href="mailto:hello@nollsteadstudio.com">Contact</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="avatar">
+          <!-- Replace with /images/avatar.jpg if you have one -->
+          <svg viewBox="0 0 128 128" role="img" aria-label="Logo">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7c3aed" />
+                <stop offset="100%" stop-color="#06b6d4" />
+              </linearGradient>
+            </defs>
+            <circle cx="64" cy="64" r="60" fill="url(#g)" />
+            <text x="50%" y="54%" text-anchor="middle" fill="white" font-family="ui-sans-serif, system-ui" font-size="44" font-weight="700">NS</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="about" class="container section">
+      <h2>About</h2>
+      <p>
+        I lead cybersecurity initiatives by day and hack on hardware/software projects at night.
+        Lately I’ve been exploring USB audio, embedded Bluetooth, and building small tools
+        that make security teams faster without sacrificing rigor.
+      </p>
+    </section>
+
+    <section id="projects" class="container section">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <p class="muted">Selected work, with brief notes and links to write-ups or live demos.</p>
+      </div>
+
+      <div class="grid">
+        <!-- Project Card 1 -->
+        <article class="card">
+          <a class="card-media" href="/project1/">
+            <img src="/images/project1.jpg" alt="Project 1 preview" loading="lazy" />
+          </a>
+          <div class="card-body">
+            <h3><a href="/project1/">Project 1: USB Audio + BT Module</a></h3>
+            <p class="muted">
+              Moving USB audio handling to STM32/ESP32-WROOM with integrated BT and FCC-certified modules.
+            </p>
+            <div class="tags">
+              <span>STM32</span><span>ESP32</span><span>Bluetooth</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="card">
+          <a class="card-media" href="/project2/">
+            <img src="/images/project2.jpg" alt="Project 2 preview" loading="lazy" />
+          </a>
+          <div class="card-body">
+            <h3><a href="/project2/">Project 2: SecOps Dash</a></h3>
+            <p class="muted">
+              Lightweight operational dashboard to visualize security signals and DORA-ish metrics.
+            </p>
+            <div class="tags">
+              <span>Python</span><span>Metrics</span><span>SecOps</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="card">
+          <a class="card-media" href="/project3/">
+            <img src="/images/project3.jpg" alt="Project 3 preview" loading="lazy" />
+          </a>
+          <div class="card-body">
+            <h3><a href="/project3/">Project 3: Tooling Mini-Lab</a></h3>
+            <p class="muted">
+              A collection of small utilities that make security workflows less painful.
+            </p>
+            <div class="tags">
+              <span>CLI</span><span>Automation</span><span>Security</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="links" class="container section">
+      <h2>Elsewhere</h2>
+      <ul class="linklist">
+        <li><a href="https://github.com/nollstead" target="_blank" rel="noopener">GitHub</a></li>
+        <!-- Add LinkedIn/Bluesky/etc. -->
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted">© <span id="y"></span> Nollstead Studio · Built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Theme toggle (prefers-color-scheme aware)
+    const btn = document.getElementById('themeToggle');
+    const stored = localStorage.getItem('theme');
+    if (stored) document.documentElement.dataset.theme = stored;
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+  </script>
+</body>
+</html>
