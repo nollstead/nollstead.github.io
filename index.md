@@ -3,28 +3,36 @@ layout: default
 title: Nollstead Studio
 ---
 
-<!-- Simple top nav (non-project links). Adjust as needed. -->
+<!-- Top navigation: add more non-project pages as you create them -->
 <nav class="top-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <!-- Add other topics/pages here -->
+  {{ "/" | relative_url }}Home</a>
+  {{ "/about/" | relative_url }}About</a>
 </nav>
-# Projects_2
+
+# Projects
+
+<!-- If this prints a number, your collection is wired correctly. Remove later. -->
+<p class="muted">Projects count: {{ site.projects | size }}</p>
+
 <div class="card-grid">
-  {%- assign items = site.projects | sort: "weight" -%}
-  {%- for p in items -%}
-    <article class="card">
-      <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title }}"></a>
-      {% if p.image %}
-      <div class="card-media" style="background-image:url('{{ p.image | relative_url }}');"></div>
-      {% endif %}
-      <div class="card-body">
-        <h3 class="card-title">{{ p.title }}</h3>
-        <p class="card-desc">{{ p.description }}</p>
-        <div class="card-tags">
-          {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
-        </div>
+{%- assign items = site.projects | sort: "weight" -%}
+{%- for p in items -%}
+  <article class="card">
+    {{ p.url | relative_url }}</a>
+
+    {% if p.image %}
+    <div class="card-media" style="background-image:url('{{ p.image | relative_url }}');"></div>
+    {% endif %}
+
+    <div class="card-body">
+      <h3 class="card-title">{{ p.title }}</h3>
+      {% if p.description %}<p class="card-desc">{{ p.description }}</p>{% endif %}
+      {% if p.tags %}
+      <div class="card-tags">
+        {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
       </div>
-    </article>
-  {%- endfor -%}
+      {% endif %}
+    </div>
+  </article>
+{%- endfor -%}
 </div>
