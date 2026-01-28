@@ -1,3 +1,6 @@
+---
+title: USB Buddy — Loopback Test
+---
 # Loopback Test
 
 For our first example we'll keep it simple and just do a basic loopback test - essentially verifying the adapter is recognized by your computer and you understand the basic functionality.
