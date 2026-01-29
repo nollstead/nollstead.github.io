@@ -1,7 +1,7 @@
 ---
 title: "USB Buddy — Loopback Test"
 layout: project            # ensures it uses your project page layout
-permalink: /usbbuddy/loopback/   # optional: only if you want to force this exact URL
+permalink: /usbbuddy/loopback/   
 ---
 
 For our first example we'll keep it simple and just do a basic loopback test - essentially verifying the adapter is recognized by your computer and you understand the basic functionality.
