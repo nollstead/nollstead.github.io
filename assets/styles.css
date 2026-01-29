@@ -77,3 +77,8 @@
   font-weight: 600;
 }
 .inner-content { margin-top: 1.5rem; }
+
+/* Compact header for inner pages (no description) */
+.page-header:has(+ .main-content .inner-article) {
+  padding: 2rem 1rem;
+}
