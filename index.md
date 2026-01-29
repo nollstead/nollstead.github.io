@@ -1,77 +1,60 @@
 ---
 layout: default
-title: Nollstead Studio
+title: Nollstead Studio 
 ---
 
-{{ '/' | relative_url }}  {{ '/about/' | relative_url }}
+<!-- Simple top nav -->
+<nav class="top-links">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <a href="{{ '/about/' | relative_url }}">About</a>
+</nav>
 
 # Projects
 
-{%- comment -%}
-Strategy (Liquid-compatible across GitHub Pages):
-
-1) Sort the entire collection by title, then by weight
-   (double-sort pattern makes weight the primary key with a deterministic tiebreaker).
-2) Render featured first, then regular, using two passes.
-3) In each pass, include ONLY top-level documents:
-     "_projects/<file>.md" → p.path split size == 2  → keep
-     "_projects/<folder>/<file>.md" → size >= 3      → exclude
-{%- endcomment -%}
-
-{%- assign sorted = site.projects | sort: "title" | sort: "weight" -%}
-
 <div class="card-grid">
 
-  {%- comment -%} PASS 1: featured top-level items {%- endcomment -%}
-  {%- for p in sorted -%}
-    {%- assign parts = p.path | split: '/' -%}
-    {%- if parts.size == 2 and p.featured == true -%}
-      <article class="card">
-        {{ p.url | relative_url }}</a>
+{%- assign featured = site.projects
+  | where_exp: "p", "p.featured == true"
+  | sort: "title"
+  | sort: "weight"
+-%}
 
-        {%- if p.image -%}
-          <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
-        {%- endif -%}
+{%- assign regular = site.projects
+  | where_exp: "p", "p.featured != true"
+  | sort: "title"
+  | sort: "weight"
+-%}
 
-        <div class="card-body">
-          <h3 class="card-title">{{ p.title }}</h3>
-          {%- if p.description -%}
-            <p class="card-desc">{{ p.description }}</p>
-          {%- endif -%}
-          {%- if p.tags -%}
-            <div class="card-tags">
-              {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
-            </div>
-          {%- endif -%}
-        </div>
-      </article>
-    {%- endif -%}
-  {%- endfor -%}
+{%- assign items = featured | concat: regular -%}
 
-  {%- comment -%} PASS 2: regular (non-featured) top-level items {%- endcomment -%}
-  {%- for p in sorted -%}
-    {%- assign parts = p.path | split: '/' -%}
-    {%- if parts.size == 2 and p.featured != true -%}
-      <article class="card">
-        {{ p.url | relative_url }}</a>
+{%- for p in items -%}
+   {%- assign parts = p.path | split: '/' -%}
+   {%- if parts.size == 2 -%}
 
-        {%- if p.image -%}
-          <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
-        {%- endif -%}
+  <article class="card">
+    <!-- Full-card invisible link (correctly formed) -->
+    <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title }}"></a>
 
-        <div class="card-body">
-          <h3 class="card-title">{{ p.title }}</h3>
-          {%- if p.description -%}
-            <p class="card-desc">{{ p.description }}</p>
-          {%- endif -%}
-          {%- if p.tags -%}
-            <div class="card-tags">
-              {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
-            </div>
-          {%- endif -%}
-        </div>
-      </article>
-    {%- endif -%}
-  {%- endfor -%}
+    {% if p.image %}
+    <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
+    {% endif %}
 
+    <div class="card-body">
+      <h3 class="card-title">{{ p.title }}</h3>
+
+      {% if p.description %}
+      <p class="card-desc">{{ p.description }}</p>
+      {% endif %}
+
+      {% if p.tags %}
+      <div class="card-tags">
+        {%- for t in p.tags -%}
+          <span>{{ t }}</span>
+        {%- endfor -%}
+      </div>
+      {% endif %}
+    </div>
+  </article>
+{%- endif -%}  
+{%- endfor -%}
 </div>
