@@ -14,4 +14,4 @@ defaults:
       path: ""
       type: projects
     values:
-      permalink: "/:path/:basename/"
+      permalink: "/:path/:title/"
