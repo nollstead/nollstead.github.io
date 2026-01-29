@@ -1,62 +1,62 @@
 ---
 layout: default
-title: Nollstead Studio 
+title: Nollstead Studio
 ---
 
-<!-- Simple top nav -->
-<nav class="top-links">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/about/' | relative_url }}">About</a>
-</nav>
+[Home]({{ '/' | relative_url }})  [About]({{ '/about/' | relative_url }})
 
 # Projects
 
-<div class="card-grid">
-
 {%- comment -%}
-Build two lists:
-1. Featured projects (featured == true), ordered by weight (primary) then title.
-2. Non-featured projects, ordered the same way.
-Then combine them so featured items appear first.
+Only list *top-level* documents from the projects collection as tiles.
+"_projects/<file>.md"               → ("p.path" | split: "/") size == 2  → keep
+"_projects/<folder>/<file>.md"      → size >= 3                         → exclude
+This prevents inner pages (e.g., _projects/usbbuddy/loopback.md) from appearing as tiles.
 {%- endcomment -%}
-
-{%- assign featured = site.projects
-  | where_exp: "p", "p.featured == true"
-  | sort: "title"
-  | sort: "weight"
+{%- assign top_level = site.projects
+  | where_exp: "p", "(p.path | split: '/' | size) == 2"
 -%}
 
-{%- assign regular = site.projects
-  | where_exp: "p", "p.featured != true"
+{%- comment -%}
+Featured first (weight primary, title secondary), then regular (same sort).
+Sorting by title first and then by weight is a common Liquid pattern to get
+weight as the *primary* key while keeping a deterministic tiebreaker.
+{%- endcomment -%}
+{%- assign featured = top_level
   | sort: "title"
   | sort: "weight"
+  | where_exp: "p", "p.featured == true"
+-%}
+
+{ = top_level
+  | sort: "title"
+  | sort: "weight"
+  | where_exp: "p", "p.featured != true"
 -%}
 
 {%- assign items = featured | concat: regular -%}
 
+<div class="card-grid">
 {%- for p in items -%}
   <article class="card">
-    <!-- Full-card invisible link (correctly formed) -->
-    <a class="card-link" href="{{ p.url | relative_url }}" aria-label="{{ p.title }}"></a>
+    {{ p.url | relative_url }}</a>
 
-    {% if p.image %}
-    <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
-    {% endif %}
+    {%- if p.image -%}
+      <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
+    {%- endif -%}
 
     <div class="card-body">
       <h3 class="card-title">{{ p.title }}</h3>
 
-      {% if p.description %}
-      <p class="card-desc">{{ p.description }}</p>
-      {% endif %}
+      {%- if p.description -%}
+        <p class="card-desc">{{ p.description }}</p>
+      {%- endif -%}
 
-      {% if p.tags %}
-      <div class="card-tags">
-        {%- for t in p.tags -%}
-          <span>{{ t }}</span>
-        {%- endfor -%}
-      </div>
-      {% endif %}
+      {%- if p.tags -%}
+        <div class="card-tags">
+          {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
+        </div>
+      {%- endif -%}
     </div>
   </article>
 {%- endfor -%}
