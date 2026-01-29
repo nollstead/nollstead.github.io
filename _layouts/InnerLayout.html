@@ -2,60 +2,12 @@
 layout: default
 ---
 
-<!-- Hide Cayman's default large header (full-width gradient) -->
-<style>.page-header{display:none !important;}</style>
+<article class="project-article">
+  <header class="project-header">
+    <h1>{{ page.title }}</h1>
+  </header>
 
-<!-- Full-width Cayman-colored compact hero -->
-<header class="proj-hero" role="banner" aria-label="Page title">
-  <div class="proj-hero__inner">
-    <h1 class="proj-hero__title">{{ page.title }}</h1>
-    <!-- intentionally no description here -->
+  <div class="project-content">
+    {{ content }}
   </div>
-</header>
-
-<!-- Body: render only the page content (no repeated title/tags) -->
-<main class="proj-body">
-  {{ content }}
-</main>
-
-<style>
-  /* Match Cayman's gradient & text color */
-  :root{
-    --hero-cayman-1:#159957; /* same green as Cayman header */
-    --hero-cayman-2:#155799; /* same blue  as Cayman header */
-    --hero-text:#ffffff;
-    --content-max: min(980px,92vw);   /* Cayman-like content width */
-  }
-
-  /* Full width banner */
-  .proj-hero{
-    width:100%;
-    background: linear-gradient(120deg,var(--hero-cayman-1),var(--hero-cayman-2));
-    color:var(--hero-text);
-    /* about half the height of the default hero */
-    padding:0.9rem 0; /* tweak smaller/larger as you like */
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .proj-hero__inner{
-    width:var(--content-max);
-    margin:0 auto;
-    padding:0 1rem;
-  }
-  .proj-hero__title{
-    margin:0;
-    line-height:1.2;
-    font-weight:700;
-    /* keep Cayman look but smaller than the home hero */
-    font-size:clamp(1.4rem,2.6vw,1.9rem);
-    color:var(--hero-text);
-    text-shadow:0 1px 1px rgba(0,0,0,.08);
-  }
-
-  .proj-body{
-    width:var(--content-max);
-    margin:1.25rem auto 2.75rem;
-    padding:0 1rem;
-  }
-  .proj-body > h1:first-child,
-  .proj-body > h2:first-child{ display:none; } /* ensure no duplicate title */
-</style>
+</article>
