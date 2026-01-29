@@ -3,61 +3,75 @@ layout: default
 title: Nollstead Studio
 ---
 
-[Home]({{ '/' | relative_url }})  [About]({{ '/about/' | relative_url }})
+{{ '/' | relative_url }}  {{ '/about/' | relative_url }}
 
 # Projects
 
 {%- comment -%}
-Only list *top-level* documents from the projects collection as tiles.
-"_projects/<file>.md"               → ("p.path" | split: "/") size == 2  → keep
-"_projects/<folder>/<file>.md"      → size >= 3                         → exclude
-This prevents inner pages (e.g., _projects/usbbuddy/loopback.md) from appearing as tiles.
+Strategy (Liquid-compatible across GitHub Pages):
+
+1) Sort the entire collection by title, then by weight
+   (double-sort pattern makes weight the primary key with a deterministic tiebreaker).
+2) Render featured first, then regular, using two passes.
+3) In each pass, include ONLY top-level documents:
+     "_projects/<file>.md" → p.path split size == 2  → keep
+     "_projects/<folder>/<file>.md" → size >= 3      → exclude
 {%- endcomment -%}
-{%- assign top_level = site.projects
-  | where_exp: "p", "(p.path | split: '/' | size) == 2"
--%}
 
-{%- comment -%}
-Featured first (weight primary, title secondary), then regular (same sort).
-Sorting by title first and then by weight is a common Liquid pattern to get
-weight as the *primary* key while keeping a deterministic tiebreaker.
-{%- endcomment -%}
-{%- assign featured = top_level
-  | sort: "title"
-  | sort: "weight"
-  | where_exp: "p", "p.featured == true"
--%}
-
-{ = top_level
-  | sort: "title"
-  | sort: "weight"
-  | where_exp: "p", "p.featured != true"
--%}
-
-{%- assign items = featured | concat: regular -%}
+{%- assign sorted = site.projects | sort: "title" | sort: "weight" -%}
 
 <div class="card-grid">
-{%- for p in items -%}
-  <article class="card">
-    {{ p.url | relative_url }}</a>
 
-    {%- if p.image -%}
-      <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
-    {%- endif -%}
+  {%- comment -%} PASS 1: featured top-level items {%- endcomment -%}
+  {%- for p in sorted -%}
+    {%- assign parts = p.path | split: '/' -%}
+    {%- if parts.size == 2 and p.featured == true -%}
+      <article class="card">
+        {{ p.url | relative_url }}</a>
 
-    <div class="card-body">
-      <h3 class="card-title">{{ p.title }}</h3>
+        {%- if p.image -%}
+          <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
+        {%- endif -%}
 
-      {%- if p.description -%}
-        <p class="card-desc">{{ p.description }}</p>
-      {%- endif -%}
-
-      {%- if p.tags -%}
-        <div class="card-tags">
-          {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
+        <div class="card-body">
+          <h3 class="card-title">{{ p.title }}</h3>
+          {%- if p.description -%}
+            <p class="card-desc">{{ p.description }}</p>
+          {%- endif -%}
+          {%- if p.tags -%}
+            <div class="card-tags">
+              {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
+            </div>
+          {%- endif -%}
         </div>
-      {%- endif -%}
-    </div>
-  </article>
-{%- endfor -%}
+      </article>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- comment -%} PASS 2: regular (non-featured) top-level items {%- endcomment -%}
+  {%- for p in sorted -%}
+    {%- assign parts = p.path | split: '/' -%}
+    {%- if parts.size == 2 and p.featured != true -%}
+      <article class="card">
+        {{ p.url | relative_url }}</a>
+
+        {%- if p.image -%}
+          <div class="card-media" style="background-image:url('{{ p.image }}');"></div>
+        {%- endif -%}
+
+        <div class="card-body">
+          <h3 class="card-title">{{ p.title }}</h3>
+          {%- if p.description -%}
+            <p class="card-desc">{{ p.description }}</p>
+          {%- endif -%}
+          {%- if p.tags -%}
+            <div class="card-tags">
+              {%- for t in p.tags -%}<span>{{ t }}</span>{%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endif -%}
+  {%- endfor -%}
+
 </div>
