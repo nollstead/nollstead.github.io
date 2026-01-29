@@ -1,4 +1,8 @@
-# Hello ATMega
+---
+title: "Hello ATMega"
+layout: InnerLayout            
+permalink: /usbbuddy/HelloATMega/   
+---
 
 Here we'll demonstrate how to send and receive serial text using the Arduino IDE.  For this example, we'll use a ATMega328P/Pro Mini module as our microcontroller to keep it simple though the concepts can be applied to your custom modules as well.
 
