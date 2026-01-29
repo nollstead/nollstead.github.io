@@ -2,40 +2,59 @@
 layout: default
 ---
 
-<div class="inner-project-page">
+<!-- compact banner with the page title inside -->
+<header class="inner-banner">
+  <div class="inner-banner__container">
+    <h1 class="inner-banner__title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <p class="inner-banner__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </div>
+</header>
 
-  <header class="project-header">
-    <h1 class="project-title">{{ page.title }}</h1>
-  </header>
+<!-- main content (no title echoed here again) -->
+<main class="inner-content">
+  {{ content }}
+</main>
 
-  <main class="project-content">
-    {{ content }}
-  </main>
-
-</div>
-
+<!-- Inline style is fine; you can move this into assets/styles.css if you prefer -->
 <style>
-/* Smaller header / simpler page styling */
-.inner-project-page {
+/* Hide Cayman's big default banner on these inner pages */
+.page-header { display: none; }
+
+/* Banner */
+.inner-banner {
+  background: #f6f8fa;               /* light neutral to match Cayman */
+  border-bottom: 1px solid #eaecef;
+  padding: 1.1rem 0;                  /* short banner height */
+}
+
+.inner-banner__container,
+.inner-content {
   width: min(900px, 92vw);
-  margin: 2rem auto;
-  padding-bottom: 3rem;
+  margin-inline: auto;
 }
 
-.project-title {
-  font-size: 1.7rem;
-  margin-bottom: 1.2rem;
-  color: #333;
+.inner-banner__title {
+  margin: 0;
+  font-size: 1.35rem;                 /* smaller than home hero */
+  line-height: 1.2;
+  color: #24292e;                     /* Cayman body title color */
 }
 
-.project-content p {
-  line-height: 1.6;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+.inner-banner__subtitle {
+  margin: .35rem 0 0;
+  color: #57606a;                     /* muted */
+  font-size: .98rem;
 }
 
-/* Optionally hide built-in theme headings if needed */
-.page-header {
-  display: none;
+/* Body content area */
+.inner-content {
+  padding: 1.25rem 0 2.75rem;
 }
+
+.inner-content p { line-height: 1.65; }
+
+/* Optional: compact list spacing for how‑to pages */
+.inner-content ul, .inner-content ol { margin-top: .75rem; }
 </style>
