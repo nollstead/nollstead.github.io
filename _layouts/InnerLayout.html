@@ -2,59 +2,59 @@
 layout: default
 ---
 
-<!-- compact banner with the page title inside -->
-<header class="inner-banner">
-  <div class="inner-banner__container">
-    <h1 class="inner-banner__title">{{ page.title }}</h1>
-    {% if page.subtitle %}
-      <p class="inner-banner__subtitle">{{ page.subtitle }}</p>
-    {% endif %}
+<!-- Hide Cayman's big default page header on these inner pages -->
+<style>
+  .page-header { display:none; }
+</style>
+
+<!-- Compact full-width banner (Cayman-style, but shorter) -->
+<header class="proj-hero">
+  <div class="proj-hero__inner">
+    <h1 class="proj-hero__title">{{ page.title }}</h1>
+    {%- comment -%}
+    Intentionally NOT rendering description/subtitle here.
+    {%- endcomment -%}
   </div>
 </header>
 
-<!-- main content (no title echoed here again) -->
-<main class="inner-content">
+<!-- Body: render only the content (no title, no tag list) -->
+<main class="proj-body">
   {{ content }}
 </main>
 
-<!-- Inline style is fine; you can move this into assets/styles.css if you prefer -->
+<!-- Layout-scoped styles. Move into assets/styles.css later if you prefer -->
 <style>
-/* Hide Cayman's big default banner on these inner pages */
-.page-header { display: none; }
+  /* Colors aimed to coordinate with Cayman's palette */
+  :root {
+    --proj-hero-bg: #159957;  /* Cayman's green start */
+    --proj-hero-bg2:#155799;  /* Cayman's blue end  */
+    --proj-text:    #ffffff;
+    --proj-body-w:  min(900px, 92vw);
+  }
 
-/* Banner */
-.inner-banner {
-  background: #f6f8fa;               /* light neutral to match Cayman */
-  border-bottom: 1px solid #eaecef;
-  padding: 1.1rem 0;                  /* short banner height */
-}
+  /* Compact hero */
+  .proj-hero {
+    /* Use a gradient akin to Cayman's default header, but adjust height */
+    background: linear-gradient(120deg, var(--proj-hero-bg), var(--proj-hero-bg2));
+    color: var(--proj-text);
+    padding: 1.2rem 0;                 /* ~half the height of the big banner */
+  }
+  .proj-hero__inner {
+    width: var(--proj-body-w);
+    margin: 0 auto;
+  }
+  .proj-hero__title {
+    margin: 0;
+    line-height: 1.2;
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem); /* smaller than home hero */
+    font-weight: 700;
+  }
 
-.inner-banner__container,
-.inner-content {
-  width: min(900px, 92vw);
-  margin-inline: auto;
-}
-
-.inner-banner__title {
-  margin: 0;
-  font-size: 1.35rem;                 /* smaller than home hero */
-  line-height: 1.2;
-  color: #24292e;                     /* Cayman body title color */
-}
-
-.inner-banner__subtitle {
-  margin: .35rem 0 0;
-  color: #57606a;                     /* muted */
-  font-size: .98rem;
-}
-
-/* Body content area */
-.inner-content {
-  padding: 1.25rem 0 2.75rem;
-}
-
-.inner-content p { line-height: 1.65; }
-
-/* Optional: compact list spacing for how‑to pages */
-.inner-content ul, .inner-content ol { margin-top: .75rem; }
+  /* Body container */
+  .proj-body {
+    width: var(--proj-body-w);
+    margin: 1.25rem auto 2.75rem;
+  }
+  .proj-body p { line-height: 1.65; }
+  .proj-body ul, .proj-body ol { margin: .75rem 0 1.25rem; }
 </style>
