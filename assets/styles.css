@@ -82,3 +82,13 @@
 .page-header:has(+ .main-content .inner-article) {
   padding: 2rem 1rem;
 }
+
+/* Reduce banner height for project pages (has description but more compact) */
+.page-header:has(+ .main-content .project-article) {
+  padding: 2.5rem 1rem;
+}
+
+/* Add spacing between tags and content in project layout */
+.project-article .project-tags {
+  margin-bottom: 1.5rem;
+}
