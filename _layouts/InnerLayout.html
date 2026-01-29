@@ -2,59 +2,71 @@
 layout: default
 ---
 
-<!-- Hide Cayman's big default page header on these inner pages -->
-<style>
-  .page-header { display:none; }
-</style>
+<!-- Hide Cayman's default large header -->
+<style>.page-header{display:none;}</style>
 
-<!-- Compact full-width banner (Cayman-style, but shorter) -->
+<!-- Full-width, Cayman-colored compact banner -->
 <header class="proj-hero">
   <div class="proj-hero__inner">
     <h1 class="proj-hero__title">{{ page.title }}</h1>
-    {%- comment -%}
-    Intentionally NOT rendering description/subtitle here.
-    {%- endcomment -%}
+    <!-- intentionally no description here -->
   </div>
 </header>
 
-<!-- Body: render only the content (no title, no tag list) -->
+<!-- Body: only the page content (no repeated title/tags) -->
 <main class="proj-body">
   {{ content }}
 </main>
 
-<!-- Layout-scoped styles. Move into assets/styles.css later if you prefer -->
 <style>
-  /* Colors aimed to coordinate with Cayman's palette */
-  :root {
-    --proj-hero-bg: #159957;  /* Cayman's green start */
-    --proj-hero-bg2:#155799;  /* Cayman's blue end  */
-    --proj-text:    #ffffff;
-    --proj-body-w:  min(900px, 92vw);
+  /* ----- Compact full-width hero that matches Cayman’s gradient & font color ----- */
+  :root{
+    --proj-hero-bg1:#159957;   /* Cayman green */
+    --proj-hero-bg2:#155799;   /* Cayman blue  */
+    --proj-hero-text:#ffffff;  /* Cayman header text color */
+    --proj-maxw: min(980px, 92vw); /* match Cayman’s content width feel */
   }
 
-  /* Compact hero */
-  .proj-hero {
-    /* Use a gradient akin to Cayman's default header, but adjust height */
-    background: linear-gradient(120deg, var(--proj-hero-bg), var(--proj-hero-bg2));
-    color: var(--proj-text);
-    padding: 1.2rem 0;                 /* ~half the height of the big banner */
+  .proj-hero{
+    /* Full-width background like Cayman’s page-header */
+    width:100%;
+    background: linear-gradient(120deg, var(--proj-hero-bg1), var(--proj-hero-bg2));
+    color: var(--proj-hero-text);
+    /* ~half the visual height of the big hero; adjust if you want even smaller */
+    padding: 0.9rem 0; 
+    border-bottom: 1px solid rgba(255,255,255,.08);
   }
-  .proj-hero__inner {
-    width: var(--proj-body-w);
+
+  .proj-hero__inner{
+    /* Center the title inside a familiar content width */
+    width: var(--proj-maxw);
     margin: 0 auto;
+    padding: 0 1rem;
   }
-  .proj-hero__title {
+
+  .proj-hero__title{
+    /* Use Cayman’s h1 look (weight/line-height) but smaller */
     margin: 0;
     line-height: 1.2;
-    font-size: clamp(1.35rem, 2.6vw, 1.85rem); /* smaller than home hero */
     font-weight: 700;
+    /* Scale with viewport but keep it smaller than the big hero */
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    color: var(--proj-hero-text);
+    text-shadow: 0 1px 1px rgba(0,0,0,.08);
   }
 
-  /* Body container */
-  .proj-body {
-    width: var(--proj-body-w);
+  /* ----- Body area ----- */
+  .proj-body{
+    width: var(--proj-maxw);
     margin: 1.25rem auto 2.75rem;
+    padding: 0 1rem;
   }
-  .proj-body p { line-height: 1.65; }
-  .proj-body ul, .proj-body ol { margin: .75rem 0 1.25rem; }
+  .proj-body p{ line-height:1.65; }
+  .proj-body ul, .proj-body ol{ margin: .75rem 0 1.25rem; }
+
+  /* If your markdown content starts with a heading, hide it (no duplicate titles) */
+  .proj-body > h1:first-child,
+  .proj-body > h2:first-child{
+    display: none;
+  }
 </style>
