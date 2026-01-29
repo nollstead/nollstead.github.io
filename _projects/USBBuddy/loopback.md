@@ -1,6 +1,6 @@
 ---
 title: "USB Buddy — Loopback Test"
-layout: project            # ensures it uses your project page layout
+layout: InnerLayout            
 permalink: /usbbuddy/loopback/   
 ---
 
