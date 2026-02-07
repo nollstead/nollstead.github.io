@@ -1,5 +1,5 @@
 ---
-title: "BTAudio Testbed Setup - new"
+title: "BTAudio Testbed Setup"
 layout: InnerLayout            
 permalink: /btaudio/testbed/
 ---
