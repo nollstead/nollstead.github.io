@@ -2,8 +2,6 @@ title: Nollstead Studio
 description: Portfolio and project showcase by Craig Sweet.
 remote_theme: just-the-docs/just-the-docs
 #logo: # optional, you can add later
-search_enabled: true
-color_scheme: light
 
 permalink: pretty
 
@@ -24,4 +22,10 @@ defaults:
       type: projects
     values:
       permalink: "/:title/"
+
+
+just_the_docs:
+  color_scheme: light
+  search_enabled: true
+
 # permalink: "/:path/:title/"
