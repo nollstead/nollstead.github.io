@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About
-nav_order: 1
+nav_order: 2
 ---
 
 # Welcome to Nollstead Studio
