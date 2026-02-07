@@ -293,14 +293,14 @@ permalink: /btaudio/update/
         { usbVendorId: 0x1a86, usbProductId: 0x5523 }          // CH340 alt PID (common on some clones)
       ];
 
-      // Where the manifest is hosted
-      //const MANIFEST_URL  = 'https://nollstead.github.io/BTAudio/webflash/manifest.json';
-      const MANIFEST_URL = new URL('webflash/manifest.json', document.baseURI).href;
-      // Base used for relative part paths that live next to the manifest
-      const MANIFEST_BASE = new URL('.', MANIFEST_URL).href;     // -> .../BTAudio/webflash/
-      // Project base one level up (helps when parts already include `webflash/...`)
-      const PROJECT_BASE = new URL('..', MANIFEST_BASE).href;   // -> .../BTAudio/
+    // Manifest is in the same folder as index.md
+    const MANIFEST_URL = new URL('manifest.json', document.baseURI).href;
 
+    // Base path for firmware part files (also same folder)
+    const MANIFEST_BASE = new URL('.', MANIFEST_URL).href;
+
+    // Project base is the same folder too, so MANIFEST_BASE is enough
+    const PROJECT_BASE = MANIFEST_BASE;
       let chip = "default";
       let chipDesc = "default";
       const sleep = (ms) => new Promise(r => setTimeout(r, ms));
