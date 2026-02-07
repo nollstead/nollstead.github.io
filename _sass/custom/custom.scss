@@ -1,0 +1,102 @@
+/* ===== Nollstead Studio — Light & Bright Overrides ===== */
+
+/* Sidebar: clean white/light-gray instead of Chirpy's dark default */
+#sidebar {
+  background: linear-gradient(135deg, #f8f9fc 0%, #eef1f7 100%) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+
+  .site-title {
+    color: #2c3e50 !important;
+  }
+
+  .site-subtitle {
+    color: #6c7a89 !important;
+  }
+
+  .nav-link {
+    color: #4a5568 !important;
+
+    &:hover,
+    &.active {
+      color: #2563eb !important;
+      background: rgba(37, 99, 235, 0.06) !important;
+    }
+  }
+
+  /* Sidebar icon colors */
+  .nav-item i,
+  .nav-link i {
+    color: #6b7280 !important;
+  }
+
+  .nav-link:hover i,
+  .nav-link.active i {
+    color: #2563eb !important;
+  }
+
+  /* Bottom area (social links, mode toggle) */
+  .sidebar-bottom {
+    a,
+    i {
+      color: #6b7280 !important;
+    }
+
+    a:hover i {
+      color: #2563eb !important;
+    }
+  }
+}
+
+/* Topbar: match the bright feel */
+#topbar-wrapper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Post cards/list: subtle lift and warmth */
+.post-preview {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: #fff;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Tags: softer, matching the old site's dashed style */
+.post-tag {
+  border: 1px dashed rgba(0, 0, 0, 0.15) !important;
+  background: #fafbff !important;
+  color: #555 !important;
+  border-radius: 0.45rem !important;
+}
+
+/* Pin icon accent */
+.pin i {
+  color: #2563eb !important;
+}
+
+/* Links: modern blue accent */
+a {
+  color: #2563eb;
+
+  &:hover {
+    color: #1d4ed8;
+  }
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #1e293b;
+}
+
+/* Body text */
+.content p,
+.post-content p {
+  color: #374151;
+}
