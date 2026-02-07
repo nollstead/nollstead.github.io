@@ -1,0 +1,11 @@
+// Start with the light theme
+@import "./color_schemes/light";
+
+// Override variables
+$sidebar-color: #111827;          // dark slate sidebar
+$body-background-color: #f9fafb;  // soft off-white main area
+$body-text-color: #111827;        // near-black text
+$link-color: #2563eb;             // blue links
+$link-hover-color: #1d4ed8;       // darker blue
+$nav-child-link-color: #e5e7eb;   // light gray sidebar links
+$nav-child-link-active-color: #ffffff;
