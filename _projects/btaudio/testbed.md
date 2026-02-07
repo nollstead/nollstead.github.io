@@ -11,6 +11,9 @@ Below is the current setup for the BTAudio breadboard testbed.  There are a lot 
 I recommend spacing the components out as described below to support moving wires around as we test various things.  You can see an example of how mine is setup [here].
 
 - Place the esp32 breadboard adapter and the codec on one row with a few spaces between them.  The breadboard adapter should have the USB port facing left and the codec should have the headphone jack facing right.  Position the codec so that there are two holes available on the bottom pins.
+- On the second breadboard (below top one) place the two ADC chips on the left and the BD37033 breakout board on the right.
+- On the third breadboard place the RCA breakout board on the right.  You can add any pots or other things on the left or below that (if you have a 4-breadboard setup)
+- We'll get power from the USB and run everything (except the BD37033, more on that later) off 3.3v.  So, connect a F/M jumper from 3V3 and GND on the ESP32 to a a PWR/GND rail then connect all of the PWR/GND rails together.  
 
 # Wiring
 
