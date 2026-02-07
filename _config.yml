@@ -29,7 +29,7 @@ defaults:
 
 just_the_docs:
   search_enabled: true
-
-  # Load your card CSS (pure CSS, not SCSS)
   custom_css:
+    - /assets/css/layout.css
     - /assets/css/cards.css
+
