@@ -4,6 +4,8 @@ layout: InnerLayout
 permalink: /btaudio/testbed/
 ---
 
+# Heading
+
 Below is the current wiring for the BTAudio breadboard testbed.  There are a lot of wires and a handful of passives so I recommend doing this in stages and testing each stage before proceeding to the next.
 
 ## Components
