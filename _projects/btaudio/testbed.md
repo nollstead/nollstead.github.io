@@ -8,7 +8,7 @@ Below is the current setup for the BTAudio breadboard testbed.  There are a lot 
 
 # Component Placement
 
-I recommend spacing the components out as described below to support moving wires around as we test various things.  You can see an example of how mine is setup [here](/assets/btaudio/testbed.jpg).
+I recommend spacing the components out as described below to support moving wires around as we test various things.  You can see an example of how mine is setup [here](/assets/projects/btaudio/testbed.jpg).
 
 - Place the esp32 breadboard adapter and the codec on one row with a few spaces between them.  The breadboard adapter should have the USB port facing left and the codec should have the headphone jack facing right.  Position the codec so that there are two holes available on the bottom pins.
 - On the second breadboard (below top one) place the two ADS115 breakouts on the left and the BD37033 breakout board on the right.
