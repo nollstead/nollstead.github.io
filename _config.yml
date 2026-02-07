@@ -3,13 +3,15 @@ description: Portfolio and project showcase by Craig Sweet.
 theme: jekyll-theme-cayman
 permalink: pretty
 
+# Force Jekyll to publish JSON files anywhere in the repo
+include:
+  - "*.json"
+  - "**/*.json"
+
 # Projects collection (each file in _projects/ becomes a page)
 collections:
   projects:
     output: true
-
-include:
-  - "**/*.json"
 
 # Make each project URL live at /project-slug/ (e.g., /project2/)
 defaults:
