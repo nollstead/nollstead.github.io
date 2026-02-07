@@ -4,10 +4,14 @@ layout: InnerLayout
 permalink: /btaudio/testbed/
 ---
 
+Below is the current wiring for the BTAudio breadboard testbed.  There are a lot of wires and a handful of passives so I recommend doing this in stages and testing each stage before proceeding to the next.
+
 ## Components
 
 
 ## ESP32 to Codec
+
+First connect the ESP32 and the codec.  Once this is complete you should be able to load firmware and test bluetooth output to the headphone jack on the codec breakout.
 
 ### I2S
 
@@ -26,5 +30,11 @@ I2C is used by several components so we don't want to connect directly to the co
 - Connect a F/M jumper from GPIO 23 on the ESP32 to a middle column, then a M/M jumper from there to SCL on the codec
 - Connect a F/M jumper from GPIO 18 on the ESP32 to a middle column, then a M/M jumper from there to SDA on the codec
 
+### Others
+
+- Connect 3V3 on the codec to a shared 3.3v power rail
+- Connect GND on the codec to a shared GND power rail
+- Connect CE on the codec to a shared GND power rail
+- Place a 3.3kΩ resistor from 3V3 on the codec to a shared GND power rail.  Note: This just provides a poweroff discharge path and isn't strictly required, but I recommend adding it so that you mimic my setup.  
 
 ## Codec to RCA Breakout
