@@ -1,12 +1,14 @@
 title: Nollstead Studio
 description: Portfolio and project showcase by Craig Sweet.
-remote_theme: just-the-docs/just-the-docs
-#logo: # optional, you can add later
 
-plugins:
-  - jekyll-remote-theme
-  
+# When using GitHub Actions, DO NOT use remote_theme.
+# Use the gem-based theme instead:
+theme: just-the-docs
+
 permalink: pretty
+
+# Custom color scheme (we will create this file next)
+color_scheme: nollstead
 
 # Force Jekyll to publish JSON files anywhere in the repo
 include:
@@ -27,9 +29,4 @@ defaults:
       permalink: "/:title/"
 
 just_the_docs:
-  color_scheme: light
   search_enabled: true
-  custom_css:
-    - /assets/css/custom.scss
-  
-# permalink: "/:path/:title/"
