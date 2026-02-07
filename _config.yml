@@ -8,6 +8,9 @@ collections:
   projects:
     output: true
 
+include:
+  - "**/*.json"
+
 # Make each project URL live at /project-slug/ (e.g., /project2/)
 defaults:
   - scope:
