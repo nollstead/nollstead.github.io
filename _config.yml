@@ -26,11 +26,10 @@ defaults:
     values:
       permalink: "/:title/"
 
-
 just_the_docs:
   color_scheme: light
+  search_enabled: true
   custom_css:
     - /assets/css/custom.scss
-  search_enabled: true
-
+  
 # permalink: "/:path/:title/"
