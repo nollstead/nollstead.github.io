@@ -1,11 +1,92 @@
-// Start with the light theme
-@import "./color_schemes/light";
+/* --- Global tweaks --- */
+.top-links {
+  display:flex; gap:1rem; justify-content:center; margin:1rem 0 2rem;
+}
+.top-links a { text-decoration:none; border-bottom:1px dotted rgba(0,0,0,.2); }
+.top-links a:hover { border-bottom-color: transparent; }
 
-// Override variables
-$sidebar-color: #111827;          // dark slate sidebar
-$body-background-color: #f9fafb;  // soft off-white main area
-$body-text-color: #111827;        // near-black text
-$link-color: #2563eb;             // blue links
-$link-hover-color: #1d4ed8;       // darker blue
-$nav-child-link-color: #e5e7eb;   // light gray sidebar links
-$nav-child-link-active-color: #ffffff;
+/* --- Card grid --- */
+.card-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.card {
+  position:relative;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+/* Full-card click target */
+.card-link {
+  position:absolute; inset:0; z-index:1;
+}
+
+/* Optional image area at top of card */
+.card-media {
+  width:100%; aspect-ratio: 16/9;
+  background-size: cover; background-position: center;
+}
+
+/* Text area */
+.card-body { padding: 0.95rem 1rem 1rem; }
+.card-title { margin:.1rem 0 .35rem; font-size: 1.05rem; }
+.card-desc { margin:0; color:#444; line-height:1.45; }
+
+/* Tags */
+.card-tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.55rem; }
+.card-tags span {
+  font-size:.8rem; color:#555;
+  border:1px dashed rgba(0,0,0,.15);
+  padding:.12rem .45rem; border-radius:.45rem;
+  background: #fafbff;
+}
+
+/* --- Project page styles --- */
+.project-article { margin: 1rem 0 3rem; }
+.project-header { margin-bottom: 1rem; }
+.project-subtitle { color:#444; margin:.25rem 0 .5rem; }
+.project-tags { display:flex; gap:.4rem; flex-wrap:wrap; }
+.project-tags span {
+  font-size:.8rem; color:#555; background:#f3f5f9; border:1px solid #e6e8f0;
+  padding:.14rem .5rem; border-radius:.5rem;
+}
+
+/* --- Inner page styles (compact header) --- */
+.inner-article { margin: 1rem 0 3rem; }
+.inner-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(0,0,0,.08);
+}
+.inner-header h2 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.inner-content { margin-top: 1.5rem; }
+
+/* Compact header for inner pages (no description) */
+.page-header:has(+ .main-content .inner-article) {
+  padding: 2rem 1rem;
+}
+
+/* Reduce banner height for project pages (has description but more compact) */
+.page-header:has(+ .main-content .project-article) {
+  padding: 2.5rem 1rem;
+}
+
+/* Add spacing between tags and content in project layout */
+.project-article .project-tags {
+  margin-bottom: 1.5rem;
+}
