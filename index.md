@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Nollstead Studio 
+title: Home
+nav_order: 1
 ---
 
 <!-- Simple top nav -->
