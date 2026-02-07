@@ -19,16 +19,6 @@ permalink: /btaudio/update/
       box-sizing: border-box
     }
 
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      max-width: 780px;
-      margin: 48px auto;
-      padding: 20px;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6
-    }
-
     h1 {
       margin: 0 0 8px
     }
