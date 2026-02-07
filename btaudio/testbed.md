@@ -45,12 +45,24 @@ I2C is used by several components so we don't want to connect directly to the co
 - Connect CE on the codec to a shared GND power rail
 - Place a 3.3kΩ resistor from 3V3 on the codec to a shared GND power rail.  Note: This just provides a poweroff discharge path and isn't strictly required, but I recommend adding it so that you mimic my setup.  
 
-## ADC
+## ADS1115 (x2)
 
 For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 5v signals but we can do that once everything else is setup and working.
 
-- 
+- Connect VDD/GND pins on both boards to shared PWR/GND
+- Connect SCL and SDA on both board to the shared I2C columns you made earlier.  Alternatively you can connect one set then connect the second board to those pins on the first, either will work
+- On the left ADS1115, connect the ADDR pin to shared GND
+- On the right ADS1115, connect the ADDR pin to shared PWR
 
 ## RCA Jacks
+
+The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/LOUT2.  Currently the headphones are connected to ROUT2/LOUT2 so for this initial RCA test setup (that bypasses the BD37033 for now) we'll use ROUT1 and LOUT1.  Once the steps below are done you should have the same audio out the right RCA jacks as the headphone jacks.  
+
+- Connect LOUT1 on the codec to the RL pin with a 10uF series capacitor and a 10Ω series resistor (in that order)
+  - Wiring should be:  LOUT1 -> 10uF -> 10Ω -> RL
+  - To do this you'll obviously need some open spaces
+  - Positive side of capacitor should face LOUT1, negative faces RL
+- Do the same for ROUT1 to RR
+
 
 ## BD37033
