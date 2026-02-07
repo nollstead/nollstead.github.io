@@ -4,10 +4,16 @@ layout: InnerLayout
 permalink: /btaudio/testbed/
 ---
 
-# Hello
+## Components
 
-## First Level
+- Connect a F/M jumper from GPIO x on the ESP32 to Y on the codec
+- Connect a F/M jumper from GPIO x on the ESP32 to Y on the codec
+- Connect a F/M jumper from GPIO x on the ESP32 to Y on the codec
+- Connect a F/M jumper from GPIO x on the ESP32 to Y on the codec
+- Connect a F/M jumper from GPIO x on the ESP32 to Y on the codec
+- Connect a F/M jumper from GPIO x on the ESP32 to Y on the codec
 
-### SEcond level after first
+## ESP32 to Codec
 
-## Another First Level
+
+## Codec to RCA Breakout
