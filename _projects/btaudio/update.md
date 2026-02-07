@@ -293,8 +293,8 @@ permalink: /btaudio/update/
     { usbVendorId: 0x1a86, usbProductId: 0x5523 }          // CH340 alt PID (common on some clones)
   ];
 
-// Manifest is in the /assets/btaudio folder
-const MANIFEST_URL = new URL('/assets/btaudio/manifest.json', document.baseURI).href;
+// Manifest is in the /assets/projects/btaudio folder
+const MANIFEST_URL = new URL('/assets/projects/btaudio/manifest.json', document.baseURI).href;
 
 // Base path for firmware part files (also same folder)
 const MANIFEST_BASE = new URL('.', MANIFEST_URL).href;
