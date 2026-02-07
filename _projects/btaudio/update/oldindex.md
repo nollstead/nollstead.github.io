@@ -1,7 +1,7 @@
 ---
 title: "BTAudio Firmware Update"
 layout: InnerLayout            
-permalink: /btaudio/update/   
+permalink: /btaudio/oldupdate/   
 ---
 
 <style>
