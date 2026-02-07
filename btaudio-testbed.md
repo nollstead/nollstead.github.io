@@ -1,6 +1,6 @@
 ---
 title: "BTAudio Testbed Setup"
-layout: InnerLayout            
+layout: page
 permalink: /btaudio/testbed/
 ---
 
@@ -15,7 +15,7 @@ I recommend spacing the components out as described below to support moving wire
   - Position ADS115's with pins facing up, toward the ESP32 above it
   - Position the BD37033 with the lable on the left, so MIN -> A1 are facing up towards the codec
 - On the third breadboard place the RCA breakout board on the right.  You can add any pots or other things on the left or below that (if you have a 4-breadboard setup)
-- We'll get power from the USB and run everything (except the BD37033, more on that later) off 3.3v.  So, connect a F/M jumper from 3V3 and GND on the ESP32 to a a PWR/GND rail then connect all of the PWR/GND rails together.  
+- We'll get power from the USB and run everything (except the BD37033, more on that later) off 3.3v.  So, connect a F/M jumper from 3V3 and GND on the ESP32 to a a PWR/GND rail then connect all of the PWR/GND rails together.
 
 # Wiring
 
@@ -45,7 +45,7 @@ I2C is used by several components so we don't want to connect directly to the co
 - Connect 3V3 on the codec to a shared 3.3v power rail
 - Connect GND on the codec to a shared GND power rail
 - Connect CE on the codec to a shared GND power rail
-- Place a 3.3kΩ resistor from 3V3 on the codec to a shared GND power rail.  Note: This just provides a poweroff discharge path and isn't strictly required, but I recommend adding it so that you mimic my setup.  
+- Place a 3.3kΩ resistor from 3V3 on the codec to a shared GND power rail.  Note: This just provides a poweroff discharge path and isn't strictly required, but I recommend adding it so that you mimic my setup.
 
 ## ADS1115 (x2)
 
@@ -58,7 +58,7 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 
 ## RCA Jacks
 
-The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/LOUT2.  Currently the headphones are connected to ROUT2/LOUT2 so for this initial RCA test setup (that bypasses the BD37033 for now) we'll use ROUT1 and LOUT1.  Once the steps below are done you should have the same audio out the right RCA jacks as the headphone jacks.  
+The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/LOUT2.  Currently the headphones are connected to ROUT2/LOUT2 so for this initial RCA test setup (that bypasses the BD37033 for now) we'll use ROUT1 and LOUT1.  Once the steps below are done you should have the same audio out the right RCA jacks as the headphone jacks.
 
 - Connect GND on the RCA breakout to shared GND (there is no PWR pin)
 - Connect LOUT1 on the codec to the RL pin with a 10uF series capacitor and a 10Ω series resistor (in that order)
@@ -77,4 +77,4 @@ Here we'll wire the BD37033 into the left RCA pairs (FR, FL) and sub.  This will
 - Connect SCA and SCL to the shared I2C columns you made earlier
 - DO NOT connect VCC to shared PWR.  The BD37033 requires a minimum of 7v so we'll have to use a separate bench power that's connected to shared GND
 - Connect a 1uF capacitor from the LOUT pin on the codec to any open breadboard column with the negative side facing the codec (LOUT2).  Then connect ...
-- - Connect a 1uF capacitor from the LOUT pin on the codec to any open breadboard column with the negative side facing the codec (LOUT2).  Then connect ... 
+- - Connect a 1uF capacitor from the LOUT pin on the codec to any open breadboard column with the negative side facing the codec (LOUT2).  Then connect ...

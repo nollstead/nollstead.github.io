@@ -1,11 +1,13 @@
 ---
 title: "BTAudio Firmware Update"
-layout: InnerLayout            
-permalink: /btaudio/update/   
+layout: page
+permalink: /btaudio/update/
 ---
 
+<div id="fw-updater">
+
 <style>
-    :root {
+    #fw-updater {
       --bg: #121212;
       --panel: #1e1e1e;
       --text: #eaeaea;
@@ -15,19 +17,19 @@ permalink: /btaudio/update/
       --border: rgba(255, 255, 255, .08)
     }
 
-    * {
+    #fw-updater * {
       box-sizing: border-box
     }
 
-    h1 {
+    #fw-updater h1 {
       margin: 0 0 8px
     }
 
-    .muted {
+    #fw-updater .muted {
       color: var(--muted)
     }
 
-    .panel {
+    #fw-updater .panel {
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -36,7 +38,7 @@ permalink: /btaudio/update/
       box-shadow: 0 0 20px rgba(0, 0, 0, .35)
     }
 
-    .row {
+    #fw-updater .row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
@@ -44,19 +46,19 @@ permalink: /btaudio/update/
       align-items: center
     }
 
-    .fw-label-row {
+    #fw-updater .fw-label-row {
       flex-basis: 100%;
       margin-bottom: 6px
     }
 
-    .instructions {
+    #fw-updater .instructions {
       background: #1e1e1e;
       border-radius: 14px;
       padding: 18px;
       margin-top: 10px
     }
 
-    button {
+    #fw-updater button {
       background: var(--accent);
       color: #fff;
       border: none;
@@ -66,16 +68,16 @@ permalink: /btaudio/update/
       cursor: pointer
     }
 
-    button[disabled] {
+    #fw-updater button[disabled] {
       opacity: .55;
       cursor: not-allowed
     }
 
-    button:hover:not([disabled]) {
+    #fw-updater button:hover:not([disabled]) {
       background: var(--accent2)
     }
 
-    textarea {
+    #fw-updater textarea {
       width: 100%;
       height: 260px;
       border-radius: 8px;
@@ -86,11 +88,11 @@ permalink: /btaudio/update/
       font-family: ui-monospace, Menlo, Consolas, monospace
     }
 
-    label {
+    #fw-updater label {
       color: var(--muted)
     }
 
-    .page-version {
+    #fw-updater .page-version {
       text-align: right;
       margin-top: 6px;
       font-size: 0.85rem;
@@ -98,14 +100,14 @@ permalink: /btaudio/update/
     }
 
     /* --- Verbose toggle inside log header --- */
-    .log-header {
+    #fw-updater .log-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
 
-    .verbose-toggle {
+    #fw-updater .verbose-toggle {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -114,18 +116,18 @@ permalink: /btaudio/update/
       user-select: none;
     }
 
-    .verbose-toggle input {
+    #fw-updater .verbose-toggle input {
       transform: scale(1.05);
     }
 
     /* Clear log button (subtle, small, right-aligned) */
-    .log-actions {
+    #fw-updater .log-actions {
       display: flex;
       justify-content: flex-end;
       margin-top: 8px;
     }
 
-    .clear-btn {
+    #fw-updater .clear-btn {
       background: transparent;
       color: var(--muted);
       border: 1px solid var(--border);
@@ -135,20 +137,20 @@ permalink: /btaudio/update/
       font-size: .9rem;
     }
 
-    .clear-btn:hover:not([disabled]) {
+    #fw-updater .clear-btn:hover:not([disabled]) {
       background: #1a1a1a;
       color: #e0e0e0;
     }
 
     /* Version picker styles */
-    .fw-list {
+    #fw-updater .fw-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-top: 6px
     }
 
-    .fw-item {
+    #fw-updater .fw-item {
       display: flex;
       gap: 12px;
       align-items: flex-start;
@@ -158,38 +160,38 @@ permalink: /btaudio/update/
       background: #141414
     }
 
-    .fw-item input[type="radio"] {
+    #fw-updater .fw-item input[type="radio"] {
       accent-color: #4CAF50;
       transform: scale(1.15);
       margin-top: 2px
     }
 
-    .fw-meta {
+    #fw-updater .fw-meta {
       display: flex;
       flex-direction: column;
       gap: 2px
     }
 
-    .fw-line {
+    #fw-updater .fw-line {
       display: flex;
       gap: 8px;
       flex-wrap: wrap
     }
 
-    .fw-version {
+    #fw-updater .fw-version {
       font-weight: 700;
       color: #eaeaea
     }
 
-    .fw-date {
+    #fw-updater .fw-date {
       color: #ccc
     }
 
-    .fw-label {
+    #fw-updater .fw-label {
       color: #a6d5a6
     }
 
-    .fw-notes {
+    #fw-updater .fw-notes {
       color: #bbb;
       font-size: 0.95em
     }
@@ -659,3 +661,5 @@ const PROJECT_BASE = MANIFEST_BASE;
   };
 
 </script>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 ---
 title: "Hello ATMega"
-layout: InnerLayout            
-permalink: /usbbuddy/HelloATMega/   
+layout: page
+permalink: /usbbuddy/HelloATMega/
 ---
 
 Here we'll demonstrate how to send and receive serial text using the Arduino IDE.  For this example, we'll use a ATMega328P/Pro Mini module as our microcontroller to keep it simple though the concepts can be applied to your custom modules as well.
@@ -30,7 +30,7 @@ For this example you'll need the following components
 
 ## 2. Configuring the Arduino IDE
 
-Now that everything is wired up you'll need to configuure your Arduino IDE for the target.  
+Now that everything is wired up you'll need to configuure your Arduino IDE for the target.
 
 1. Open the Arduino IDE and create a new blank sketch
 2. Under Tools/Board, select "Arduino Pro or Pro Mini"
@@ -39,7 +39,7 @@ Now that everything is wired up you'll need to configuure your Arduino IDE for t
 
 ## 3. Loading a 'Hello World' Sketch
 
-Now that everything is wired up it's time to test it with a simple sketch.  Replace the default code in the IDE with the code below and press Upload (right arrow button).  
+Now that everything is wired up it's time to test it with a simple sketch.  Replace the default code in the IDE with the code below and press Upload (right arrow button).
 
 ``` cpp
 void setup() {
@@ -51,10 +51,10 @@ void loop() {
     digitalWrite(LED_BUILTIN, HIGH); // Turn LED on
     delay(500); // Wait 500ms
     digitalWrite(LED_BUILTIN, LOW); // Turn LED off
-    
+
     Serial.println("Hello, world!"); // Print message to serial port
     delay(2500); // Wait for the remaining time (3s total delay)
 }
 
 ```
-If everything is connected correctly, you should get an upload success message and the LED on the target board should blink every 1/2 second.  Now open the serial monitor and you should see "Hello, world!" printed every 3 seconds.  
+If everything is connected correctly, you should get an upload success message and the LED on the target board should blink every 1/2 second.  Now open the serial monitor and you should see "Hello, world!" printed every 3 seconds.

@@ -1,0 +1,19 @@
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
+
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
+
+# Node
+node_modules
+package-lock.json
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
