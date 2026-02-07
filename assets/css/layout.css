@@ -1,0 +1,10 @@
+/* Narrower sidebar on desktop */
+@media (min-width: 50rem) {
+  .side-bar {
+    width: 190px; /* adjust as needed */
+  }
+
+  .main {
+    margin-left: 190px;
+  }
+}
