@@ -1,13 +1,12 @@
 title: Nollstead Studio
 description: Portfolio and project showcase by Craig Sweet.
 
-# When using GitHub Actions, DO NOT use remote_theme.
-# Use the gem-based theme instead:
+# Using the gem-based theme (correct for GitHub Actions)
 theme: just-the-docs
 
 permalink: pretty
 
-# Custom color scheme (we will create this file next)
+# Activate your custom color scheme
 color_scheme: nollstead
 
 # Force Jekyll to publish JSON files anywhere in the repo
@@ -30,3 +29,7 @@ defaults:
 
 just_the_docs:
   search_enabled: true
+
+  # Load your card CSS (pure CSS, not SCSS)
+  custom_css:
+    - /assets/css/cards.css
