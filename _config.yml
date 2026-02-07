@@ -22,10 +22,10 @@ social:
     - https://github.com/nollstead
 
 # Sidebar avatar
-avatar: "https://raw.githubusercontent.com/nollstead/USBBuddy/main/images/U2SFront.png"
+avatar: "/assets/Robot2.jpg"
 
-# Force light mode
-theme_mode: light
+# Dark mode — brightened via custom SCSS
+theme_mode: dark
 
 toc: true
 

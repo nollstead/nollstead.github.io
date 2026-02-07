@@ -1,102 +1,126 @@
-/* ===== Nollstead Studio — Light & Bright Overrides ===== */
+/* ===== Nollstead Studio — Brightened Dark Theme ===== */
+/* Cohesive dark palette across sidebar + content, a step    */
+/* brighter than Chirpy's stock dark mode.                   */
 
-/* Sidebar: clean white/light-gray instead of Chirpy's dark default */
+/* --- Core palette overrides (dark mode variables) --- */
+:root {
+  --body-bg:        #1f2937;   /* deep slate — brighter than stock #1b1b1e */
+  --sidebar-bg:     #1f2937;   /* match content for cohesive feel */
+  --main-bg:        #1f2937;
+  --card-bg:        #283345;   /* panels/cards slightly lifted */
+  --mask-bg:        #1f2937;
+  --text-color:     #e2e8f0;   /* crisp off-white */
+  --text-muted-color: #94a3b8; /* readable muted */
+  --heading-color:  #f1f5f9;
+  --link-color:     #60a5fa;   /* sky blue accent */
+  --link-hover-color: #93c5fd;
+  --border-color:   rgba(255, 255, 255, 0.08);
+  --btn-bg:         #60a5fa;
+  --tag-bg:         rgba(96, 165, 250, 0.12);
+}
+
+/* --- Sidebar --- */
 #sidebar {
-  background: linear-gradient(135deg, #f8f9fc 0%, #eef1f7 100%) !important;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  background: #1b2332 !important; /* just a shade darker than content */
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 
   .site-title {
-    color: #2c3e50 !important;
+    color: #f1f5f9 !important;
   }
 
   .site-subtitle {
-    color: #6c7a89 !important;
+    color: #94a3b8 !important;
   }
 
   .nav-link {
-    color: #4a5568 !important;
+    color: #cbd5e1 !important;
 
     &:hover,
     &.active {
-      color: #2563eb !important;
-      background: rgba(37, 99, 235, 0.06) !important;
+      color: #60a5fa !important;
+      background: rgba(96, 165, 250, 0.1) !important;
     }
   }
 
-  /* Sidebar icon colors */
   .nav-item i,
   .nav-link i {
-    color: #6b7280 !important;
+    color: #64748b !important;
   }
 
   .nav-link:hover i,
   .nav-link.active i {
-    color: #2563eb !important;
+    color: #60a5fa !important;
   }
 
-  /* Bottom area (social links, mode toggle) */
   .sidebar-bottom {
-    a,
-    i {
-      color: #6b7280 !important;
+    a, i {
+      color: #64748b !important;
     }
 
     a:hover i {
-      color: #2563eb !important;
+      color: #60a5fa !important;
     }
   }
 }
 
-/* Topbar: match the bright feel */
-#topbar-wrapper {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+/* --- Main content area --- */
+#main-wrapper {
+  background: var(--body-bg) !important;
 }
 
-/* Post cards/list: subtle lift and warmth */
+/* --- Topbar --- */
+#topbar-wrapper {
+  background: rgba(31, 41, 55, 0.92) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Post list on home page --- */
 .post-preview {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   padding: 1.2rem;
   margin-bottom: 1rem;
+  background: #283345;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  background: #fff;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+    border-color: rgba(96, 165, 250, 0.2);
   }
 }
 
-/* Tags: softer, matching the old site's dashed style */
+/* --- Tags --- */
 .post-tag {
-  border: 1px dashed rgba(0, 0, 0, 0.15) !important;
-  background: #fafbff !important;
-  color: #555 !important;
+  border: 1px solid rgba(96, 165, 250, 0.25) !important;
+  background: rgba(96, 165, 250, 0.1) !important;
+  color: #93c5fd !important;
   border-radius: 0.45rem !important;
 }
 
-/* Pin icon accent */
+/* --- Pin icon --- */
 .pin i {
-  color: #2563eb !important;
+  color: #60a5fa !important;
 }
 
-/* Links: modern blue accent */
+/* --- Links --- */
 a {
-  color: #2563eb;
+  color: #60a5fa;
 
   &:hover {
-    color: #1d4ed8;
+    color: #93c5fd;
   }
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: #1e293b;
+/* --- Code blocks: slightly brighter panel --- */
+div.highlight,
+pre {
+  background: #172033 !important;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Body text */
-.content p,
-.post-content p {
-  color: #374151;
+/* --- Footer --- */
+#footer {
+  background: transparent !important;
 }
