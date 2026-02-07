@@ -3,6 +3,9 @@ description: Portfolio and project showcase by Craig Sweet.
 remote_theme: just-the-docs/just-the-docs
 #logo: # optional, you can add later
 
+plugins:
+  - jekyll-remote-theme
+  
 permalink: pretty
 
 # Force Jekyll to publish JSON files anywhere in the repo
