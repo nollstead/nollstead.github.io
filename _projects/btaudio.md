@@ -12,7 +12,9 @@ weight: 20
 
 BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Espressif's Audio Development Framework (ESP-ADF). It receives audio via Bluetooth A2DP and outputs to speakers/headphones through an audio processing chain.
 
-## Links
+## Features
+
+## Useful Links
 
 - [BTAudio Testbed Configuration](/btaudio/testbed)
 - [BTAudio Firmware Update Page](/btaudio/update)
