@@ -14,6 +14,6 @@ BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Es
 
 ## Links
 
-- Testbed Configuration:[BTAudio Firmware Update Page](/btaudio/testbed)
-- Firmware Updates:[BTAudio Firmware Update Page](/btaudio/update)
+- [BTAudio Testbed Configuration](/btaudio/testbed)
+- [BTAudio Firmware Update Page](/btaudio/update)
 
