@@ -1,8 +1,9 @@
 ---
 layout: default
-title: About
+title: Home
+nav_order: 1
 ---
 
-# About
+# Welcome to Nollstead Studio
 
-Quick bio here. What you build, areas of focus, contact links, etc.
+This is a test to confirm the theme styling is active.
