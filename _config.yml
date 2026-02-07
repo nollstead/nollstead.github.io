@@ -28,7 +28,9 @@ defaults:
 
 
 just_the_docs:
-  color_scheme: dark
+  color_scheme: light
+  custom_css:
+    - /assets/css/custom.scss
   search_enabled: true
 
 # permalink: "/:path/:title/"
