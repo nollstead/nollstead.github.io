@@ -4,6 +4,6 @@ title: About
 nav_order: 2
 ---
 
-# Welcome to Nollstead Studio
+# About me
 
-This is a test to confirm the theme styling is active.
+Coming soon!
