@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -18,14 +19,17 @@ jobs:
 
       - name: Install dependencies
         run: |
+          bundle config set path 'vendor/bundle'
           bundle install
 
       - name: Build site
         run: |
-          bundle exec jekyll build -d _site
+          bundle exec jekyll build --trace
 
-      - name: Deploy to GitHub Pages
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
   deploy:
     needs: build
