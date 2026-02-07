@@ -6,9 +6,6 @@ theme: just-the-docs
 
 permalink: pretty
 
-# Activate your custom color scheme
-color_scheme: nollstead
-
 # Force Jekyll to publish JSON files anywhere in the repo
 include:
   - "*.json"
