@@ -80,64 +80,24 @@ layout: default
   </nav>
 </aside>
 
-<!-- Let Cayman render the page as usual; we just add a breadcrumb above content 
-Breadcrumb: inline, one line, "›" separators, and correct "Home" handling.
-If `page.breadcrumb` exists (array of {title,url}), it is used as-is.
-Otherwise, we build from `page.url`:
-- On "/", show just "Home".
-- On deeper paths, show "Home › Segment(s) › Current".
- -->
-
-{%- comment -%}
-Breadcrumb (right pane, one line, "›" separator)
-Rules:
-- On "/" → just "Home" (bold, not a link)
-- On deeper URLs → "Home" (link) › segments (links) › current page (bold, no link)
-- If page.breadcrumb (array of {title,url}) is provided, use it exactly
-{%- endcomment -%}
-
-<nav class="nx-breadcrumb" aria-label="Breadcrumb">
-  <ul class="nx-bc">
-    {%- assign custom = page.breadcrumb -%}
-
-    {%- if custom and custom.size > 0 -%}
-      {%- for it in custom -%}
-        <li>
-          {%- if it.url and forloop.last == false -%}
-            <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
-          {%- else -%}
-            <span aria-current="page">{{ it.title }}</span>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-
-    {%- else -%}
-      {%- assign url_clean = page.url | replace: 'index.html','' -%}
-      {%- assign parts = url_clean | split:'/' | reject:'' -%}
-
-      {%- if parts.size == 0 -%}
-        <!-- Root: just "Home" -->
-        <li><span aria-current="page">Home</span></li>
-      {%- else -%}
-        <!-- Start with linked Home -->
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-
-        {%- assign built = '' -%}
-        {%- for seg in parts -%}
-          {%- assign built = built | append:'/' | append:seg -%}
-          {%- assign label = seg
-            | replace:'-',' '
-            | replace:'_',' '
-            | split:' ' | map: 'capitalize' | join:' ' -%}
-          {%- if forloop.last -%}
-            <!-- Current page: bold, not linked -->
-            <li><span aria-current="page">{{ page.title | default: label }}</span></li>
-          {%- else -%}
-            <li><a href="{{ built | relative_url }}">{{ label }}</a></li>
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endif -%}
-    {%- endif -%}
-  </ul>
-</nav>
+<!-- Let Cayman render the page as usual; we just add a breadcrumb above content -->
+{% if page.breadcrumb and page.breadcrumb.size > 0 %}
+  <nav class="nx-breadcrumb" aria-label="Breadcrumb">
+    <ul class="nx-bc">
+      {% assign last_index = page.breadcrumb.size | minus: 1 %}
+      {% for it in page.breadcrumb %}
+        {% assign is_last = forloop.index0 == last_index %}
+        {% if it.title and it.title != '' %}
+          <li>
+            {% if it.url and is_last == false %}
+              {{ it.url | relative_url }}{{ it.title }}</a>
+            {% else %}
+              <span aria-current="page">{{ it.title }}</span>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
 {{ content }}

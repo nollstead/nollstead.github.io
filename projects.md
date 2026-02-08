@@ -2,6 +2,9 @@
 layout: default2
 title: Projects 
 permalink: /projects/   
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "About" }
 ---
 
 # All Projects
