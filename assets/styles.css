@@ -182,40 +182,43 @@
   }
 }
 
-/* ===== Breadcrumb (only when the left-nav layout marker is present) ===== */
-/* Breadcrumb (right pane, only on left-nav pages) */
-:root[data-leftnav="1"] .nx-breadcrumb {
-  margin: 6px 0 14px;
-  font-size: 0.95rem;
+/* ===== Breadcrumb styling (right pane, left-nav layout only) ===== */
+:root[data-leftnav="1"] .nx-breadcrumb { 
+  margin: 6px 0 14px; 
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc {
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+  display: flex; 
+  align-items: center; 
+  gap: .35rem; 
+  flex-wrap: nowrap;
+  font-size: .95rem; 
   color: #6b7280;
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb ul {
-  list-style: none;            /* no numbers */
-  padding: 0; margin: 0;
-  display: flex;               /* one line */
-  gap: .35rem;                 /* small spacing */
-  flex-wrap: nowrap;           /* keep one line; remove if you want wrapping */
-  align-items: center;
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc li { 
+  display: inline-flex; 
+  align-items: center; 
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb li {
-  display: inline-flex; align-items: center;
-}
-
-:root[data-leftnav="1"] .nx-breadcrumb li + li::before {
-  content: "›";                /* the chevron separator */
-  color: #9aa3af;
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc li + li::before {
+  content: "›";            /* change to " > " if you prefer */
+  color: #9aa3af; 
   margin: 0 .35rem;
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb a {
-  color: #0366d6; text-decoration: none;
+:root[data-leftnav="1"] .nx-breadcrumb a { 
+  color: #0366d6; 
+  text-decoration: none; 
 }
-:root[data-leftnav="1"] .nx-breadcrumb a:hover {
-  text-decoration: underline;
+:root[data-leftnav="1"] .nx-breadcrumb a:hover { 
+  text-decoration: underline; 
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb [aria-current="page"] {
-  color: #111827; font-weight: 600;
+:root[data-leftnav="1"] .nx-breadcrumb [aria-current="page"] { 
+  color: #111827; 
+  font-weight: 700; 
 }

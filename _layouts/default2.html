@@ -88,41 +88,52 @@ Otherwise, we build from `page.url`:
 - On deeper paths, show "Home › Segment(s) › Current".
  -->
 
-<nav class="nx-breadcrumb" aria-label="Breadcrumb">
-  <ul>
-    {%- assign trail = page.breadcrumb -%}
+{%- comment -%}
+Breadcrumb (right pane, one line, "›" separator)
+Rules:
+- On "/" → just "Home" (bold, not a link)
+- On deeper URLs → "Home" (link) › segments (links) › current page (bold, no link)
+- If page.breadcrumb (array of {title,url}) is provided, use it exactly
+{%- endcomment -%}
 
-    {%- if trail and trail.size > 0 -%}
-      {%- for it in trail -%}
+<nav class="nx-breadcrumb" aria-label="Breadcrumb">
+  <ul class="nx-bc">
+    {%- assign custom = page.breadcrumb -%}
+
+    {%- if custom and custom.size > 0 -%}
+      {%- for it in custom -%}
         <li>
           {%- if it.url and forloop.last == false -%}
-            {{ it.url | relative_url }}{{ it.title }}</a>
+            <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
           {%- else -%}
             <span aria-current="page">{{ it.title }}</span>
           {%- endif -%}
         </li>
       {%- endfor -%}
+
     {%- else -%}
       {%- assign url_clean = page.url | replace: 'index.html','' -%}
-      {%- assign segments = url_clean | split:'/' | reject:'' -%}
+      {%- assign parts = url_clean | split:'/' | reject:'' -%}
 
-      {%- if segments.size == 0 -%}
-        <!-- Root: just Home -->
+      {%- if parts.size == 0 -%}
+        <!-- Root: just "Home" -->
         <li><span aria-current="page">Home</span></li>
       {%- else -%}
-        <!-- Start with Home -->
-        <li>{{ '/' | relative_url }}Home</a></li>
+        <!-- Start with linked Home -->
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
 
         {%- assign built = '' -%}
-        {%- for seg in segments -%}
+        {%- for seg in parts -%}
           {%- assign built = built | append:'/' | append:seg -%}
-          {%- assign last = forloop.last -%}
-          {%- assign label = seg | replace:'-',' ' | replace:'_',' ' | capitalize -%}
-
-          {%- if last -%}
+          {%- assign label = seg
+            | replace:'-',' '
+            | replace:'_',' '
+            | split:' ' | map: 'capitalize' | join:' ' -%}
+          {%- if forloop.last -%}
+            <!-- Current page: bold, not linked -->
             <li><span aria-current="page">{{ page.title | default: label }}</span></li>
           {%- else -%}
-            <li>{{ built | relative_url }}{{ label }}</a></li>
+            <li><a href="{{ built | relative_url }}">{{ label }}</a></li>
           {%- endif -%}
         {%- endfor -%}
       {%- endif -%}
