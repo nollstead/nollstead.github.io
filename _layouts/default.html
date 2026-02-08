@@ -1,14 +1,54 @@
+---
+# Standalone base layout (no wrapper). Combines legacy Cayman-like scaffold
+# with the fixed left nav and the explicit-only breadcrumb.
+---
+
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>{{ page.title | default: site.title }}</title>
+
+    <!-- Your styles (same as your legacy default) -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+
+    <!-- If you ever add more head assets (fonts/icons), include them here -->
   </head>
+
   <body>
+    <!-- Mark pages that use the left-nav so CSS can scope rules -->
+    <script>document.documentElement.setAttribute('data-leftnav','1');</script>
+
+    <!-- ==================== LEFT NAV (fixed full-height slab) ==================== -->
+    <aside class="nx-sidebar" aria-label="Left navigation">
+      <div class="nx-brand" style="text-align:center; margin-bottom:10px">
+        <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="avatar">
+        <div class="nx-title">Nollstead Studio</div>
+      </div>
+
+      <nav class="nx-nav">
+        <ul>
+          <li class="{% if page.url == '/' %}is-active{% endif %}">
+            <a href="{{ '/' | relative_url }}">Home</a>
+          </li>
+          <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
+            <a href="{{ '/projects/' | relative_url }}">Projects</a>
+          </li>
+          <li class="{% if page.url == '/tags/' %}is-active{% endif %}">
+            <a href="{{ '/tags/' | relative_url }}">Tags</a>
+          </li>
+          <li class="{% if page.url == '/about/' %}is-active{% endif %}">
+            <a href="{{ '/about/' | relative_url }}">About</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ==================== TOP HEADER (from your legacy default) ==================== -->
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title }}</h1>
       {% unless page.layout == "innerlayout" %}
@@ -18,12 +58,37 @@
       {% endunless %}
     </header>
 
+    <!-- ==================== RIGHT PANE (content column) ==================== -->
     <main id="content" class="main-content" role="main">
+
+      <!-- Breadcrumb (explicit-only): render only if page.breadcrumb is provided -->
+      {% if page.breadcrumb and page.breadcrumb.size > 0 %}
+        <nav class="nx-breadcrumb" aria-label="Breadcrumb">
+          <ul class="nx-bc">
+            {% for it in page.breadcrumb %}
+              {% if it.title %}
+                <li>
+                  {% if it.url %}
+                    <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
+                  {% else %}
+                    <span aria-current="page">{{ it.title }}</span>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+
       {{ content }}
 
+      <!-- Footer (same as your legacy default) -->
       <footer class="site-footer">
         {% if site.github.is_project_page %}
-          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+          <span class="site-footer-owner">
+            <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a>
+            is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.
+          </span>
         {% endif %}
       </footer>
     </main>

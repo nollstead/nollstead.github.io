@@ -1,5 +1,5 @@
 ---
-layout: default2
+layout: default
 title: About
 breadcrumb:
   - { title: "Home", url: "/" }
@@ -8,4 +8,4 @@ breadcrumb:
 
 # About
 
-Quick bio here. What you build, areas of focus, contact links, etc.
+Quick bio here. What you build, areas of focus, contact links, etc...
