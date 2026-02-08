@@ -1,5 +1,5 @@
 ---
-layout: default2
+layout: default
 title: "ICSP"
 description: "3.3v/5v In-Circuit Serial Programmer"
 tags: [Arduino]
