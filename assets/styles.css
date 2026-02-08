@@ -260,7 +260,7 @@
 }
 
 /* If your .main-content has internal white blocks/cards,
-   you may also want the body (outside content) slightly cooler */
+   you may also want the body (outside content) slightly cooler 
 :root[data-leftnav="1"] body {
-  background: #f4f7fb;              /* a hair darker than the content for contrast */
-}
+  background: #f4f7fb;              /* a hair darker than the content for contrast 
+} */
