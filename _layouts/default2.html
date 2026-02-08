@@ -1,33 +1,28 @@
 ---
-# Left-nav layout for homepage only. Keeps Cayman <head> via layout: default.
+# Left-nav layout for homepage only.
+# Inherits Cayman <head> and default body structure via layout: default.
 layout: default
 ---
 
-<!-- Page-local CSS: affects ONLY pages using layout: default2 -->
+<!-- Page-local CSS: ONLY the left sidebar styles remain inline -->
 <style>
-  /* Hide Cayman’s top banner on this page */
-  .page-header { display: none !important; }
-
-  /* Ensure the viewport can be used for a fixed full-height sidebar */
-  html, body { height: 100%; }
-
-  /* ===== FIXED, FULL-HEIGHT LEFT SIDEBAR (flush to page edge) ===== */
+  /* Fixed, full-height left sidebar flush to the page edge */
   .nx-sidebar {
     position: fixed;
     top: 0; left: 0;
-    width: 272px;                 /* tweak to 260/280/300 as you like */
-    height: 100vh;                /* <-- guaranteed full height */
+    width: 272px;             /* tweak to 260/280/300 as you prefer */
+    height: 100vh;            /* full viewport height */
     box-sizing: border-box;
     padding: 18px 14px;
     background: #f8fafc;
     border-right: 1px solid #e6e8f0;
-    border-radius: 0 !important;  /* slab edge (no rounded bottom) */
+    border-radius: 0 !important;   /* slab edge */
     box-shadow: 2px 0 18px rgba(0,0,0,.05);
     display: flex; flex-direction: column;
     z-index: 10;
   }
 
-  /* Brand (avatar + title) */
+  /* Brand (avatar + title) inside the left nav */
   .nx-brand { text-align: center; margin-bottom: 10px; }
   .nx-avatar {
     width: 60px; height: 60px; border-radius: 50%;
@@ -36,7 +31,7 @@ layout: default
   }
   .nx-title { font-size: 1rem; margin: 8px 0 0; color: #0f172a; font-weight: 600; }
 
-  /* Sidebar nav */
+  /* Left-nav links */
   .nx-nav { margin-top: 8px; }
   .nx-nav ul { list-style: none; margin: 0; padding: 0; }
   .nx-nav li { margin: 4px 0; }
@@ -44,65 +39,37 @@ layout: default
     display: block;
     padding: 9px 10px;
     border-radius: 9px;
-    color: #0366d6;
+    color: #0366d6; /* Cayman blue */
     text-decoration: none;
   }
   .nx-nav a:hover { background: #e6f0fb; }
   .nx-nav .is-active > a { background: #ddebff; font-weight: 600; }
-
-  /* ===== CONTENT: use ALL remaining width (no Cayman centering) ===== */
-  .nx-content-frame {
-    /* reserve space for the fixed sidebar + a small gutter */
-    margin-left: calc(272px + 28px);
-    padding: 18px 32px 48px 0;  /* top right bottom left */
-    box-sizing: border-box;
-    width: 100%;
-  }
-
-  /* Let your cards/grid determine their own widths entirely */
-  .nx-content-inner { max-width: none; min-width: 0; }
-
-  /* Hide the small "Home / About" links at top of content on this layout only */
-  .nx-content-inner .top-links { display: none !important; }
-
-  /* Mobile: sidebar collapses into a header block */
-  @media (max-width: 900px) {
-    .nx-sidebar {
-      position: static; width: auto; height: auto;
-      border-right: none; border-bottom: 1px solid #e6e8f0;
-      box-shadow: 0 6px 12px rgba(0,0,0,.06);
-    }
-    .nx-content-frame { margin-left: 0; padding: 16px; }
-  }
 </style>
 
-<!-- BODY: fixed left nav + content that uses the rest of the page width -->
+<!-- BODY: Only inject the left sidebar; let Cayman control everything else -->
 <aside class="nx-sidebar" aria-label="Left navigation">
   <div class="nx-brand">
-    <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar">
+    {{ 
     <div class="nx-title">Nollstead Studio</div>
   </div>
 
   <nav class="nx-nav">
     <ul>
       <li class="{% if page.url == '/' %}is-active{% endif %}">
-        <a href="{{ '/' | relative_url }}">Home</a>
+        {{ Home</a>
       </li>
       <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
-        <a href="{{ '/projects/' | relative_url }}">Projects</a>
+        {{ Projects</a>
       </li>
       <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
-        <a href="{{ '/categories/' | relative_url }}">Categories</a>
+        {{ Categories</a>
       </li>
       <li class="{% if page.url == '/about/' %}is-active{% endif %}">
-        <a href="{{ '/about/' | relative_url }}">About</a>
+        {{ About</a>
       </li>
     </ul>
   </nav>
 </aside>
 
-<main id="content" class="nx-content-frame" role="main">
-  <div class="nx-content-inner">
-    {{ content }}
-  </div>
-</main>
+<!-- Let Cayman render the page exactly as it normally would -->
+{{ content }}

@@ -4,7 +4,7 @@ title: Nollstead Studio
 permalink: /index2/   
 ---
 
-# Projects
+### Projects
 
 <div class="card-grid">
 
