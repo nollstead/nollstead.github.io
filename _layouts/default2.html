@@ -81,5 +81,35 @@ layout: default
 </aside>
 
 <!-- Let Cayman render the page as usual; we just add a breadcrumb above content -->
-{% include breadcrumb.html %}
+<nav class="nx-breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    {% assign trail = page.breadcrumb %}
+    {% if trail and trail.size > 0 %}
+      {% for it in trail %}
+        <li>
+          {% if it.url and forloop.last == false %}
+            <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
+          {% else %}
+            <span aria-current="page">{{ it.title }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% else %}
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      {% assign segments = page.url | split:'/' | reject:'' %}
+      {% assign built = '' %}
+      {% for seg in segments %}
+        {% assign built = built | append:'/' | append:seg %}
+        {% assign last = forloop.last %}
+        {% assign label = seg | replace:'-',' ' | replace:'_',' ' | capitalize %}
+        {% if last %}
+          <li><span aria-current="page">{{ page.title | default: label }}</span></li>
+        {% else %}
+          <li><a href="{{ built | relative_url }}">{{ label }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </ol>
+</nav>
+
 {{ content }}
