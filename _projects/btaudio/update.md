@@ -2,6 +2,11 @@
 title: "BTAudio Firmware Update"
 layout: default            
 permalink: /btaudio/update/   
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "Bluetooth Audio", url: "/btaudio/" }
+  - { title: "Firmware Update" }
 ---
 
 # BTAudio Firmware Update
