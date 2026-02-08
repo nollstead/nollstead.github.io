@@ -1,6 +1,6 @@
 ---
 title: "USB Buddy — Loopback Test"
-layout: default2       
+layout: default
 permalink: /usbbuddy/loopback/   
 breadcrumb:
   - { title: "Home", url: "/" }

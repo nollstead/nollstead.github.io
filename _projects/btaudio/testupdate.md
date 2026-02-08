@@ -1,6 +1,6 @@
 ---
 title: "BTAudio Firmware Update"
-layout: default2
+layout: default
 permalink: /btaudio/testupdate/
 breadcrumb:
   - { title: "Home", url: "/" }
