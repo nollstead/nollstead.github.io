@@ -196,16 +196,14 @@
 }
 
 :root[data-leftnav="1"] .nx-breadcrumb .nx-bc {
-  /* IMPORTANT: this selector must match the <ul class="nx-bc"> in default2.html */
-  list-style: none;                 /* no numbers/bullets */
+  list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;                    /* single line */
+  display: flex;
   align-items: center;
-  gap: .35rem;                      /* small spacing between items */
-  flex-wrap: nowrap;                /* keep on one line (change to wrap if preferred) */
+  flex-wrap: nowrap;
   font-size: .95rem;
-  color: #6b7280;                   /* neutral gray for non-current items */
+  color: #6b7280;
 }
 
 :root[data-leftnav="1"] .nx-breadcrumb .nx-bc li {
@@ -213,11 +211,10 @@
   align-items: center;
 }
 
-/* The ONLY separator rule — ensures a single chevron between items */
 :root[data-leftnav="1"] .nx-breadcrumb .nx-bc li + li::before {
-  content: "›";                     /* change to " > " if you prefer */
+  content: "›";            /* or " > " if you prefer ASCII */
   color: #9aa3af;
-  margin: 0 .35rem;
+  margin: 0 .35rem;        /* equal space left and right */
 }
 
 :root[data-leftnav="1"] .nx-breadcrumb a {
