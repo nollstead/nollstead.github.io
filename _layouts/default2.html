@@ -1,22 +1,21 @@
 ---
-# Left-nav layout for homepage only.
-# Inherits Cayman <head> and default body structure via layout: default.
+# Left-nav layout for homepage only. Inherits Cayman <head>/structure via layout: default.
 layout: default
 ---
 
-<!-- Page-local CSS: ONLY the left sidebar styles remain inline -->
+<!-- Page-local CSS: ONLY the left sidebar styles (no right side or masthead changes) -->
 <style>
   /* Fixed, full-height left sidebar flush to the page edge */
   .nx-sidebar {
     position: fixed;
     top: 0; left: 0;
-    width: 272px;             /* tweak to 260/280/300 as you prefer */
-    height: 100vh;            /* full viewport height */
+    width: 272px;              /* tweak to 260/280/300 as you prefer */
+    height: 100vh;             /* full viewport height */
     box-sizing: border-box;
     padding: 18px 14px;
     background: #f8fafc;
     border-right: 1px solid #e6e8f0;
-    border-radius: 0 !important;   /* slab edge */
+    border-radius: 0 !important;    /* slab edge */
     box-shadow: 2px 0 18px rgba(0,0,0,.05);
     display: flex; flex-direction: column;
     z-index: 10;
@@ -46,30 +45,30 @@ layout: default
   .nx-nav .is-active > a { background: #ddebff; font-weight: 600; }
 </style>
 
-<!-- BODY: Only inject the left sidebar; let Cayman control everything else -->
+<!-- BODY: inject only the left sidebar; let Cayman render everything else -->
 <aside class="nx-sidebar" aria-label="Left navigation">
   <div class="nx-brand">
-    {{ 
+    <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Nollstead Studio">
     <div class="nx-title">Nollstead Studio</div>
   </div>
 
   <nav class="nx-nav">
     <ul>
       <li class="{% if page.url == '/' %}is-active{% endif %}">
-        {{ Home</a>
+        <a href="{{ '/' | relative_url }}">Home</a>
       </li>
       <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
-        {{ Projects</a>
+        <a href="{{ '/projects/' | relative_url }}">Projects</a>
       </li>
       <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
-        {{ Categories</a>
+        <a href="{{ '/categories/' | relative_url }}">Categories</a>
       </li>
       <li class="{% if page.url == '/about/' %}is-active{% endif %}">
-        {{ About</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
       </li>
     </ul>
   </nav>
 </aside>
 
-<!-- Let Cayman render the page exactly as it normally would -->
+<!-- Let Cayman’s default layout handle the right side and masthead exactly as before -->
 {{ content }}
