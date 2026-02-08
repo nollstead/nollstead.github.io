@@ -1,52 +1,68 @@
 ---
-# New layout that adds a left sidebar nav next to content
+# New layout that adds a left sidebar nav and a tighter content column
 layout: default
 ---
 
-<!-- Page-local overrides just for this layout -->
+<!-- Page-local CSS: only affects pages using layout: default2 -->
 <style>
-  /* Hide Cayman’s big top banner on this page only */
-  .page-header { display: none; }
+  /* 1) Remove the big Cayman masthead on this page */
+  .page-header { display: none !important; }
 
-  /* Widen the content container a bit (Cayman centers content by default) */
-  .main-content { max-width: 1200px; }
+  /* 2) Break out of Cayman's centered max-width for this layout only */
+  .main-content.nx-main {
+    max-width: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-  /* Ensure our two-column grid takes effect */
-  .nx-container {
+  /* 3) Two-column shell: sidebar flush left, content to the right */
+  .nx-shell {
     display: grid;
-    grid-template-columns: 260px 1fr;  /* sidebar width + content */
-    gap: 1.5rem;
+    grid-template-columns: 280px minmax(0, 1fr); /* fixed sidebar + flexible content */
+    gap: 1.75rem;
     align-items: start;
+    width: 100%;
+    /* Provide comfortable gutters without re-centering the whole page */
+    padding: 1rem 2rem 2.5rem 2rem;
+    box-sizing: border-box;
+    min-height: 100vh; /* so the grid spans the viewport */
   }
 
-  /* Sidebar block */
+  /* 4) Sidebar: full-height feel + subtle panel like the Chirpy vibe (but light) */
   .nx-sidebar {
-    position: sticky;       /* stays visible while scrolling */
-    top: 1.25rem;
+    position: sticky;
+    top: 1rem;                 /* keeps nav visible while scrolling */
     align-self: start;
+    height: calc(100vh - 2rem);/* visually full-height inside viewport */
     padding: 1rem;
-    background: #f8fafc;    /* subtle light panel */
+    background: #f8fafc;
     border: 1px solid #e6e8f0;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Brand section */
-  .nx-brand { text-align: center; margin-bottom: 1rem; }
+  /* Brand block */
+  .nx-brand { text-align: center; margin-bottom: .75rem; }
   .nx-avatar {
-    width: 96px; height: 96px; border-radius: 50%;
+    width: 72px; height: 72px; border-radius: 50%;
     object-fit: cover; display: inline-block;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
-  .nx-title { font-size: 1.1rem; margin: .6rem 0 0; }
+  .nx-title { font-size: 1.05rem; margin: .55rem 0 .15rem; color: #0f172a; }
+  .nx-subtle { color: #6b7280; font-size: .9rem; margin: 0; }
 
-  /* Nav list */
-  .nx-nav ul { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  /* Vertical nav */
+  .nx-nav { margin-top: .5rem; }
+  .nx-nav ul { list-style: none; margin: 0; padding: 0; }
   .nx-nav li { margin: .25rem 0; }
   .nx-nav a {
     display: block;
-    padding: .45rem .6rem;
-    border-radius: 8px;
-    color: #0366d6;                 /* Cayman blue */
+    padding: .48rem .6rem;
+    border-radius: 9px;
+    color: #0366d6;             /* Cayman blue */
     text-decoration: none;
   }
   .nx-nav a:hover { background: #e6f0fb; }
@@ -55,45 +71,68 @@ layout: default
     font-weight: 600;
   }
 
-  /* Prevent overflow on narrow widths */
-  .nx-container .main-content { min-width: 0; padding-top: 0.25rem; }
+  /* 5) Right-side content column tweaks */
+  .nx-content { min-width: 0; } /* prevent overflow on narrow screens */
 
-  /* Responsive: stack on small screens */
+  /* Hide the little “Home / About” links you had in content for this layout only */
+  .nx-shell .top-links { display: none !important; }
+
+  /* 6) Grid: max 3 cards across with responsive fallbacks */
+  .nx-shell .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+  @media (max-width: 1200px) {
+    .nx-shell .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 700px) {
+    .nx-shell .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Optional: a touch more width for card media on very wide screens */
+  .nx-shell .main-content .card-media { aspect-ratio: 16/9; }
+
+  /* Keep the page tidy on mobile (sidebar stacks above content) */
   @media (max-width: 900px) {
-    .nx-container { grid-template-columns: 1fr; }
-    .nx-sidebar { position: static; margin-bottom: 1rem; }
+    .nx-shell { grid-template-columns: 1fr; }
+    .nx-sidebar { position: static; height: auto; margin-bottom: 1rem; }
   }
 </style>
 
-<!-- Two-column wrapper -->
-<div class="nx-container">
-  <!-- LEFT NAV -->
-  <aside class="nx-sidebar" aria-label="Left navigation">
-    <div class="nx-brand">
-      <img src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar" class="nx-avatar" />
-      <h1 class="nx-title">Nollstead Studio</h1>
-    </div>
+<!-- Wrap this page's content in a full-width main and our two-column shell -->
+<main id="content" class="main-content nx-main" role="main">
+  <div class="nx-shell">
+    <!-- LEFT NAV -->
+    <aside class="nx-sidebar" aria-label="Left navigation">
+      <div class="nx-brand">
+        {{ 
+        <h1 class="nx-title">Nollstead Studio</h1>
+        <!-- Optional subtitle. If you don’t want it, remove the next line -->
+        <!-- <p class="nx-subtle">Portfolio &amp; projects</p> -->
+      </div>
 
-    <nav class="nx-nav">
-      <ul>
-        <li class="{% if page.url == '/' %}is-active{% endif %}">
-          <a href="{{ '/' | relative_url }}">Home</a>
-        </li>
-        <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
-          <a href="{{ '/projects/' | relative_url }}">Projects</a>
-        </li>
-        <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
-          <a href="{{ '/categories/' | relative_url }}">Categories</a>
-        </li>
-        <li class="{% if page.url == '/about/' %}is-active{% endif %}">
-          <a href="{{ '/about/' | relative_url }}">About</a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+      <nav class="nx-nav">
+        <ul>
+          <li class="{% if page.url == '/' %}is-active{% endif %}">
+            {{ Home</a>
+          </li>
+          <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
+            {{ Projects</a>
+          </li>
+          <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
+            {{ Categories</a>
+          </li>
+          <li class="{% if page.url == '/about/' %}is-active{% endif %}">
+            {{ About</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
-  <!-- RIGHT CONTENT -->
-  <main id="content" class="main-content" role="main">
-    {{ content }}
-  </main>
-</div>
+    <!-- RIGHT CONTENT -->
+    <section class="nx-content">
+      {{ content }}
+    </section>
+  </div>
+</main>
