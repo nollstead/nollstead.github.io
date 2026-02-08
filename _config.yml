@@ -17,6 +17,7 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: pages
+      type: projects
     values:
       permalink: "/:title/"
+# permalink: "/:path/:title/"
