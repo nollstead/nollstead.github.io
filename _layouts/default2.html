@@ -1,0 +1,37 @@
+---
+# New layout that adds a left sidebar nav next to content
+layout: default
+---
+
+<!-- Two-column wrapper -->
+<div class="nx-container">
+  <!-- LEFT NAV -->
+  <aside class="nx-sidebar" aria-label="Left navigation">
+    <div class="nx-brand">
+      <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Nollstead Studio avatar" loading="lazy">
+      <h1 class="nx-title">Nollstead Studio</h1>
+    </div>
+
+    <nav class="nx-nav">
+      <ul>
+        <li class="{% if page.url == '/' %}is-active{% endif %}">
+          <a href="{{ '/' | relative_url }}">Home</a>
+        </li>
+        <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
+          <a href="{{ '/projects/' | relative_url }}">Projects</a>
+        </li>
+        <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
+          <a href="{{ '/categories/' | relative_url }}">Categories</a>
+        </li>
+        <li class="{% if page.url == '/about/' %}is-active{% endif %}">
+          <a href="{{ '/about/' | relative_url }}">About</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <main id="content" class="main-content" role="main">
+    {{ content }}
+  </main>
+</div>
