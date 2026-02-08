@@ -1,12 +1,11 @@
 ---
+layout: project
 title: "Bluetooth Audio"
 description: "Bluetooth to Vehicle Audio Adapter"
-date: 2025-01-15 10:00:00 -0500
-layout: post
-categories: [Projects]
-tags: [esp32, usb-c, bluetooth, a2dp]
-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_rHf5L_cGI94wxfgj2iyts3SH3tJt8wQmwg&s"
-pin: true
+featured: true
+tags: [ESP32, USB-C, Bluetooth, A2DP]
+image: "https://raw.githubusercontent.com/nollstead/USBBuddy/main/images/U2SFront.png"
+weight: 20
 ---
 
 ## Project Overview
@@ -20,3 +19,4 @@ BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Es
 - [BTAudio Testbed Configuration](/btaudio/testbed)
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Github Repository](https://github.com/nollstead/btaudio)
+

@@ -1,11 +1,11 @@
 ---
+layout: project
 title: "USB Buddy"
 description: "USB-to-Serial Adapter"
-date: 2025-01-01 10:00:00 -0500
-categories: [Projects]
-tags: [arduino, usb-c]
+featured: true
+tags: [Arduino, USB-C]
 image: "https://raw.githubusercontent.com/nollstead/USBBuddy/main/images/U2SFront.png"
-pin: true
+weight: 10
 ---
 
 ## Product Overview
@@ -36,18 +36,18 @@ Note that VBUS is connected directly to the VBUS pin on the USB connector, with 
 
 ## Target Voltage Selection
 
-While VBUS is exposed for convenience and may be used if desired, the VCC pin is the primary output voltage for target devices.  VCC voltage is controlled by applying a jumper to select either 5v or 3.3v.  So even without using any of the other features it can serve as a standalone USB5v-to-3.3v LDO voltage regulator.
+While VBUS is exposed for convenience and may be used if desired, the VCC pin is the primary output voltage for target devices.  VCC voltage is controlled by applying a jumper to select either 5v or 3.3v.  So even without using any of the other features it can serve as a standalone USB5v-to-3.3v LDO voltage regulator.  
 
 The VCC and GND pins are exposed on both sides of the adapter for convenience, though they are internally connected - so only one of each is required to power a target.  Additionally, the VCC pin is protected via a reverse current Schottky diode, ensuring that any current on the target device does not propagate to the adapter.
 
 ## USB-to-Serial Conversion
 
-USB-to-Serial conversion is accomplished by an onboard [CH340X](/ch340.pdf) and supports both 3.3v and 5v targets.  Select the desired output (VCC) voltage via the jumper pin and the serial signals are automatically level shifted accordingly.
+USB-to-Serial conversion is accomplished by an onboard [CH340X](/ch340.pdf) and supports both 3.3v and 5v targets.  Select the desired output (VCC) voltage via the jumper pin and the serial signals are automatically level shifted accordingly.  
 
 ### DTR# Modes
-To support as many target MCUs as possible, the DTR# pin can operate in one of three modes:  Standard, push-pull driven DTR# and open source driven DTR#.
+To support as many target MCUs as possible, the DTR# pin can operate in one of three modes:  Standard, push-pull driven DTR# and open source driven DTR#.  
 
-- Standard:  By default, the DTR# exposes a typical DTR# signal with a weak pullup for MCUs that require it for auto-reset functionality.
+- Standard:  By default, the DTR# exposes a typical DTR# signal with a weak pullup for MCUs that require it for auto-reset functionality.    
 - Push-Pull driven DTR:  Push-pull mode is activated by placing a 4.7KΩ resistor across the DTR# and CTS# (or solding a 1206 SMD 4.7kΩ on the back).  This mode ensures a strong signal transition, which can be useful for reset circuits in some MCUs such as an ATMega328P, driving LEDs or relays or high-speed signal switching where fast transitions are needed without relying on external pull-ups.
 - Open Source Driven DTR:  Open source mode is activated by placing a 4.7kΩ pull-down  resistor on the DTR# pin.  This mode is used when interfacing with microcontrollers that require a strong signal to control boot mode selection (such as ESP8266/ESP32), when multiple devices share a communication line (allowing them to pull the line low without intering when idle), or in some low-power designs to minimize power consumption by allowing external components to control the signal state.
 

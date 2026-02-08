@@ -1,114 +1,23 @@
-# The Site Configuration
-theme: jekyll-theme-chirpy
-
-lang: en
-timezone: America/New_York
-
-# jekyll-seo-tag settings
 title: Nollstead Studio
-tagline: Portfolio and project showcase by Craig Sweet
-description: >-
-  Portfolio and project showcase by Craig Sweet. Electronics projects
-  including Bluetooth audio adapters, USB serial adapters, and more.
+description: Portfolio and project showcase by Craig Sweet.
+theme: jekyll-theme-cayman
+permalink: pretty
 
-url: "https://nollsteadstudio.com"
-
-github:
-  username: nollstead
-
-social:
-  name: Craig Sweet
-  links:
-    - https://github.com/nollstead
-
-# Sidebar avatar
-avatar: "/assets/Robot2.jpg"
-
-# Dark mode — brightened via custom SCSS
-theme_mode: light
-
-toc: true
-
-# Force Jekyll to publish JSON files (needed for firmware manifest)
+# Force Jekyll to publish JSON files anywhere in the repo
 include:
   - "*.json"
   - "**/*.json"
 
-# Comments (disable for now, enable later for blog)
-comments:
-  provider:
-
-pwa:
-  enabled: false
-
-paginate: 10
-baseurl: ""
-
-kramdown:
-  footnote_backlink: "&#8617;&#xfe0e;"
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: highlight
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
-
+# Projects collection (each file in _projects/ becomes a page)
 collections:
-  tabs:
+  projects:
     output: true
-    sort_by: order
 
+# Make each project URL live at /project-slug/ (e.g., /project2/)
 defaults:
   - scope:
       path: ""
-      type: posts
+      type: projects
     values:
-      layout: post
-      comments: false
-      toc: true
-      permalink: /posts/:title/
-  - scope:
-      path: _drafts
-    values:
-      comments: false
-  - scope:
-      path: ""
-      type: tabs
-    values:
-      layout: page
-      permalink: /:title/
-
-sass:
-  style: compressed
-
-compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  profile: false
-  blanklines: false
-  ignore:
-    envs: [development]
-
-exclude:
-  - "*.gem"
-  - "*.gemspec"
-  - docs
-  - tools
-  - README.md
-  - LICENSE
-  - "*.config.js"
-  - "package*.json"
-  - old_layouts
-  - old_includes
-
-jekyll-archives:
-  enabled: [categories, tags]
-  layouts:
-    category: category
-    tag: tag
-  permalinks:
-    tag: /tags/:name/
-    category: /categories/:name/
+      permalink: "/:title/"
+# permalink: "/:path/:title/"

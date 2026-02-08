@@ -1,7 +1,7 @@
 ---
 title: "USB Buddy — Loopback Test"
-layout: page
-permalink: /usbbuddy/loopback/
+layout: InnerLayout            
+permalink: /usbbuddy/loopback/   
 ---
 
 For our first example we'll keep it simple and just do a basic loopback test - essentially verifying the adapter is recognized by your computer and you understand the basic functionality.
@@ -14,7 +14,7 @@ For this example you'll need the following components
 
 ## 1. Connect the adapter
 
-Connect the adapter to your computer using the USB-C cable (either USB-A to USB-C or USB-C to USB-C, depending on your computer).  Your computer should automatically install the necessary drivers and assign it a COM port.
+Connect the adapter to your computer using the USB-C cable (either USB-A to USB-C or USB-C to USB-C, depending on your computer).  Your computer should automatically install the necessary drivers and assign it a COM port.  
 
 ## 2. Solder on pin headers & connect TXO and RXI
 
@@ -27,3 +27,5 @@ Using a jumper wire, connect the TXO and RXI pins together.
 Now that you have everthing seup, open your favorite terminal program and select the COM port assigned and connect.  When you type a character, you should see each charater you type echoed back in the terminal and the RX and TX LEDs will flash as you type.
 
 You can experiment with disconnecting the RXI pin - here you should see the TX LED flash but not the RX LED and no characters will be displayed.
+
+

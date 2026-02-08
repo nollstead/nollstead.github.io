@@ -1,16 +1,15 @@
 ---
+layout: project
 title: "ICSP"
 description: "3.3v/5v In-Circuit Serial Programmer"
-date: 2025-01-25 10:00:00 -0500
-categories: [Projects]
-tags: [arduino]
+tags: [Arduino]
+featured: false
 image: "https://raw.githubusercontent.com/nollstead/ICSP/refs/heads/main/images/ICSP.png"
-pin: false
+weight: 11
 ---
-
 ## Product Overview
 
-Looking to easily either load a bootloader or directly program an Arduino Uno but don't like messing with wires?  How about other microcontrollers, such as an ATTiny45 or ATTiny88 that use 3.3v logic?  This handly ICSP programmer allow you to easily program either commercial or custom ISP-capable boards with ease.
+Looking to easily either load a bootloader or directly program an Arduino Uno but don't like messing with wires?  How about other microcontrollers, such as an ATTiny45 or ATTiny88 that use 3.3v logic?  This handly ICSP programmer allow you to easily program either commercial or custom ISP-capable boards with ease.  
 
 It's powered by an ATMega328P microcontroller and comes preloaded with the ArduinoISP sketch, so out of the box it'll allow you to program any AVR-based target.  Need to program something else - just load your own custom sketch just like any Arduino Uno.
 
