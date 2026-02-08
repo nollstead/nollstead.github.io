@@ -1,0 +1,5 @@
+/* Import the theme bundle first */
+@import "jekyll-theme-chirpy";
+
+/* Import your overrides last so they win the cascade */
+@import "custom/custom";

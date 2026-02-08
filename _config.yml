@@ -25,7 +25,7 @@ social:
 avatar: "/assets/Robot2.jpg"
 
 # Dark mode — brightened via custom SCSS
-theme_mode: dark
+theme_mode: light
 
 toc: true
 
