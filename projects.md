@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/   
 breadcrumb:
   - { title: "Home", url: "/" }
-  - { title: "About" }
+  - { title: "Projects" }
 ---
 
 # All Projects
