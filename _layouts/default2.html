@@ -34,7 +34,7 @@ layout: default
   /* Brand (avatar + title) inside the left nav */
   .nx-brand { text-align: center; margin-bottom: 10px; }
   .nx-avatar {
-    width: 100px; height: 100px; border-radius: 50%;
+    width: 120px; height: 120px; border-radius: 50%;
     object-fit: cover; display: inline-block;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
@@ -90,7 +90,7 @@ layout: default
         {% if it.title and it.title != '' %}
           <li>
             {% if it.url and is_last == false %}
-              {{ it.url | relative_url }}{{ it.title }}</a>
+              <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
             {% else %}
               <span aria-current="page">{{ it.title }}</span>
             {% endif %}
