@@ -1,6 +1,6 @@
 ---
 title: "BTAudio Firmware Update"
-layout: page
+layout: none
 permalink: /btaudio/update/
 ---
 
