@@ -1,6 +1,7 @@
 ---
 layout: default2
 title: Nollstead Studio 
+permalink: /index2/   
 ---
 
 <!-- Simple top nav -->
