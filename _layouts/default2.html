@@ -5,6 +5,10 @@ layout: default
 
 <!-- Page-local CSS: ONLY the left sidebar styles (no right side or masthead changes) -->
 <style>
+  
+   /* Hide Cayman’s masthead on this layout */
+  .page-header { display: none !important; }
+
   /* Fixed, full-height left sidebar flush to the page edge */
   .nx-sidebar {
     position: fixed;
@@ -24,7 +28,7 @@ layout: default
   /* Brand (avatar + title) inside the left nav */
   .nx-brand { text-align: center; margin-bottom: 10px; }
   .nx-avatar {
-    width: 60px; height: 60px; border-radius: 50%;
+    width: 90px; height: 90px; border-radius: 50%;
     object-fit: cover; display: inline-block;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
