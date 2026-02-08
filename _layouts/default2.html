@@ -3,12 +3,74 @@
 layout: default
 ---
 
+<!-- Page-local overrides just for this layout -->
+<style>
+  /* Hide Cayman’s big top banner on this page only */
+  .page-header { display: none; }
+
+  /* Widen the content container a bit (Cayman centers content by default) */
+  .main-content { max-width: 1200px; }
+
+  /* Ensure our two-column grid takes effect */
+  .nx-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;  /* sidebar width + content */
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  /* Sidebar block */
+  .nx-sidebar {
+    position: sticky;       /* stays visible while scrolling */
+    top: 1.25rem;
+    align-self: start;
+    padding: 1rem;
+    background: #f8fafc;    /* subtle light panel */
+    border: 1px solid #e6e8f0;
+    border-radius: 10px;
+  }
+
+  /* Brand section */
+  .nx-brand { text-align: center; margin-bottom: 1rem; }
+  .nx-avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    object-fit: cover; display: inline-block;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+  .nx-title { font-size: 1.1rem; margin: .6rem 0 0; }
+
+  /* Nav list */
+  .nx-nav ul { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .nx-nav li { margin: .25rem 0; }
+  .nx-nav a {
+    display: block;
+    padding: .45rem .6rem;
+    border-radius: 8px;
+    color: #0366d6;                 /* Cayman blue */
+    text-decoration: none;
+  }
+  .nx-nav a:hover { background: #e6f0fb; }
+  .nx-nav .is-active > a {
+    background: #ddebff;
+    font-weight: 600;
+  }
+
+  /* Prevent overflow on narrow widths */
+  .nx-container .main-content { min-width: 0; padding-top: 0.25rem; }
+
+  /* Responsive: stack on small screens */
+  @media (max-width: 900px) {
+    .nx-container { grid-template-columns: 1fr; }
+    .nx-sidebar { position: static; margin-bottom: 1rem; }
+  }
+</style>
+
 <!-- Two-column wrapper -->
 <div class="nx-container">
   <!-- LEFT NAV -->
   <aside class="nx-sidebar" aria-label="Left navigation">
     <div class="nx-brand">
-      <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Nollstead Studio avatar" loading="lazy">
+      <img src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar" class="nx-avatar" />
       <h1 class="nx-title">Nollstead Studio</h1>
     </div>
 
