@@ -12,8 +12,8 @@ breadcrumb:
 # BTAudio Firmware Update
 
 1. Connect your BTAudio device to your computer via USB.
-2. >Click <strong>Connect</strong> and choose its serial port.
-3. Click <strong>Upload</strong> and wait for completion.
+2. Click **Connect** and choose its serial port.
+3. Click **Upload** and wait for completion.
 4. Your device will restart automatically after upload.
 
 <style>
