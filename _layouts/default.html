@@ -1,6 +1,6 @@
 ---
-# Standalone base layout (no wrapper). Left nav + breadcrumb + content.
-# Masthead is removed by default; see notes below to optionally enable per page.
+# Standalone site layout (no wrapper).
+# Left nav + (optional) breadcrumb + content. No Cayman masthead.
 ---
 
 <!DOCTYPE html>
@@ -12,16 +12,16 @@
 
     <title>{{ page.title | default: site.title }}</title>
 
-    <!-- Your styles (kept from legacy default) -->
-    {{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url | prepend: '<link rel="stylesheet" href="' | append: '">' }}
-    {{ '/assets/styles.css' | relative_url | prepend: '<link rel="stylesheet" href="' | append: '">' }}
+    <!-- Your styles (same links you used before) -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
   </head>
 
   <body>
-    <!-- Mark pages that use left-nav so CSS can scope offsets/colors -->
+    <!-- Mark pages using left-nav so CSS can scope offsets/colors -->
     <script>document.documentElement.setAttribute('data-leftnav','1');</script>
 
-    <!-- ==================== LEFT NAV (fixed) ==================== -->
+    <!-- ================= LEFT NAV (fixed full-height slab) ================= -->
     <aside class="nx-sidebar" aria-label="Left navigation">
       <div class="nx-brand" style="text-align:center; margin-bottom:10px">
         <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar">
@@ -36,8 +36,8 @@
           <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
             <a href="{{ '/projects/' | relative_url }}">Projects</a>
           </li>
-          <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
-            <a href="{{ '/categories/' | relative_url }}">Categories</a>
+          <li class="{% if page.url == '/tags/' %}is-active{% endif %}">
+            <a href="{{ '/tags/' | relative_url }}">Tags</a>
           </li>
           <li class="{% if page.url == '/about/' %}is-active{% endif %}">
             <a href="{{ '/about/' | relative_url }}">About</a>
@@ -46,24 +46,10 @@
       </nav>
     </aside>
 
-    <!-- ==================== MASTHEAD (removed by default) ====================
-         If you ever want the big header back for a specific page, wrap
-         your original header in: {% if page.show_header %} ... {% endif %} -->
-    {%- comment -%}
-    {% if page.show_header %}
-    <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title }}</h1>
-      {% if page.description %}
-        <h2 class="project-tagline">{{ page.description }}</h2>
-      {% endif %}
-    </header>
-    {% endif %}
-    {%- endcomment -%}
-
-    <!-- ==================== RIGHT PANE ==================== -->
+    <!-- ======= RIGHT PANE ======= -->
     <main id="content" class="main-content" role="main">
 
-      <!-- Breadcrumb (explicit-only): renders only when page.breadcrumb is provided -->
+      <!-- Breadcrumb (explicit-only): renders only if page.breadcrumb exists -->
       {% if page.breadcrumb and page.breadcrumb.size > 0 %}
         <nav class="nx-breadcrumb" aria-label="Breadcrumb">
           <ul class="nx-bc">
@@ -84,7 +70,7 @@
 
       {{ content }}
 
-      <!-- (Optional) Footer kept from legacy; remove if you don’t need it -->
+      <!-- (Optional) small footer; keep or remove as you like -->
       <footer class="site-footer">
         {% if site.github.is_project_page %}
           <span class="site-footer-owner">
