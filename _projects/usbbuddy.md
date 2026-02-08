@@ -10,7 +10,6 @@ breadcrumb:
   - { title: "Home", url: "/" }
   - { title: "Projects", url: "/projects/" }
   - { title: "USB Buddy" }
-
 ---
 
 ## Product Overview

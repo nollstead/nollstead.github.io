@@ -1,7 +1,12 @@
 ---
 title: "BTAudio Testbed Setup"
-layout: InnerLayout            
+layout: default2            
 permalink: /btaudio/testbed/
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "Bluetooth Audio", url: "/btaudio/" }
+  - { title: "Testbed" }
 ---
 
 Below is the current setup for the BTAudio breadboard testbed.  There are a lot of wires and a handful of passives so I recommend doing this in stages and testing each stage before proceeding to the next.

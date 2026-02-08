@@ -1,11 +1,15 @@
 ---
-layout: project
+layout: default2
 title: "Bluetooth Audio"
 description: "Bluetooth to Vehicle Audio Adapter"
 featured: true
 tags: [ESP32, USB-C, Bluetooth, A2DP]
 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_rHf5L_cGI94wxfgj2iyts3SH3tJt8wQmwg&s"
 weight: 20
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "Bluetooth Audio" }
 ---
 
 ## Project Overview
