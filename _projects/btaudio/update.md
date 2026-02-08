@@ -1,8 +1,15 @@
 ---
 title: "BTAudio Firmware Update"
-layout: InnerLayout            
+layout: default            
 permalink: /btaudio/update/   
 ---
+
+# BTAudio Firmware Update
+
+1. Connect your BTAudio device to your computer via USB.
+2. >Click <strong>Connect</strong> and choose its serial port.
+3. Click <strong>Upload</strong> and wait for completion.
+4. Your device will restart automatically after upload.
 
 <style>
     :root {
@@ -49,12 +56,12 @@ permalink: /btaudio/update/
       margin-bottom: 6px
     }
 
-    .instructions {
+    /* .instructions {
       background: #1e1e1e;
       border-radius: 14px;
       padding: 18px;
       margin-top: 10px
-    }
+    } */
 
     button {
       background: var(--accent);
@@ -210,7 +217,7 @@ permalink: /btaudio/update/
           <div class="fw-item"><em class="muted">Loading versions…</em></div>
         </div>
       </div>
-      <div class="instructions">
+      <!-- <div class="instructions">
         <h3>Instructions</h3>
         <ol>
           <li>Connect your BTAudio device to your computer via USB.</li>
@@ -218,7 +225,7 @@ permalink: /btaudio/update/
           <li>Click <strong>Upload</strong> and wait for completion.</li>
           <li>Your device will restart automatically after upload.</li>
         </ol>
-      </div>
+      </div> -->
     </div>
     <div class="panel">
       <div class="log-header">
