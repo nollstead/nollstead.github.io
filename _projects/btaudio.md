@@ -4,7 +4,7 @@ title: "Bluetooth Audio"
 description: "Bluetooth to Vehicle Audio Adapter"
 featured: true
 tags: [ESP32, USB-C, Bluetooth, A2DP]
-image: "https://raw.githubusercontent.com/nollstead/USBBuddy/main/images/U2SFront.png"
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_rHf5L_cGI94wxfgj2iyts3SH3tJt8wQmwg&s"
 weight: 20
 ---
 
