@@ -205,7 +205,7 @@
 }
 
 :root[data-leftnav="1"] .nx-breadcrumb .nx-bc li + li::before {
-  content: "›";            /* change to " > " if you prefer */
+  content: " › ";            /* change to " > " if you prefer */
   color: #9aa3af; 
   margin: 0 .35rem;
 }

@@ -1,11 +1,16 @@
 ---
-layout: project
+layout: default2
 title: "USB Buddy"
 description: "USB-to-Serial Adapter"
 featured: true
 tags: [Arduino, USB-C]
 image: "https://raw.githubusercontent.com/nollstead/USBBuddy/main/images/U2SFront.png"
 weight: 10
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "USB Buddy" }
+
 ---
 
 ## Product Overview
