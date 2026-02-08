@@ -1,14 +1,15 @@
 ---
-# New layout that adds a left sidebar nav and a tighter content column
+# Left-nav layout for Cayman (homepage-only)
+# Keeps Cayman <head> but replaces the body structure with a two-column shell.
 layout: default
 ---
 
 <!-- Page-local CSS: only affects pages using layout: default2 -->
 <style>
-  /* 1) Remove the big Cayman masthead on this page */
+  /* 1) Hide Cayman’s masthead (big top banner) on this layout */
   .page-header { display: none !important; }
 
-  /* 2) Break out of Cayman's centered max-width for this layout only */
+  /* 2) Break out of Cayman's centered max-width for this page */
   .main-content.nx-main {
     max-width: none;
     width: 100%;
@@ -23,18 +24,17 @@ layout: default
     gap: 1.75rem;
     align-items: start;
     width: 100%;
-    /* Provide comfortable gutters without re-centering the whole page */
-    padding: 1rem 2rem 2.5rem 2rem;
+    padding: 1rem 2rem 2.5rem 2rem;  /* gentle gutters on both sides */
     box-sizing: border-box;
-    min-height: 100vh; /* so the grid spans the viewport */
+    min-height: 100vh;               /* span viewport height */
   }
 
-  /* 4) Sidebar: full-height feel + subtle panel like the Chirpy vibe (but light) */
+  /* 4) Sidebar (sticky, full-height feel) */
   .nx-sidebar {
     position: sticky;
-    top: 1rem;                 /* keeps nav visible while scrolling */
+    top: 1rem;
     align-self: start;
-    height: calc(100vh - 2rem);/* visually full-height inside viewport */
+    height: calc(100vh - 2rem);
     padding: 1rem;
     background: #f8fafc;
     border: 1px solid #e6e8f0;
@@ -62,7 +62,7 @@ layout: default
     display: block;
     padding: .48rem .6rem;
     border-radius: 9px;
-    color: #0366d6;             /* Cayman blue */
+    color: #0366d6;                 /* Cayman blue */
     text-decoration: none;
   }
   .nx-nav a:hover { background: #e6f0fb; }
@@ -72,16 +72,17 @@ layout: default
   }
 
   /* 5) Right-side content column tweaks */
-  .nx-content { min-width: 0; } /* prevent overflow on narrow screens */
+  .nx-content { min-width: 0; }
 
-  /* Hide the little “Home / About” links you had in content for this layout only */
+  /* Hide any “Home / About” top links inside content for this layout */
   .nx-shell .top-links { display: none !important; }
 
-  /* 6) Grid: max 3 cards across with responsive fallbacks */
+  /* 6) Force a maximum of 3 cards per row (your index.md already builds the cards) */
   .nx-shell .card-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.1rem;
+    margin: 1.25rem 0 2.5rem; /* preserve your existing spacing */
   }
   @media (max-width: 1200px) {
     .nx-shell .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -90,41 +91,39 @@ layout: default
     .nx-shell .card-grid { grid-template-columns: 1fr; }
   }
 
-  /* Optional: a touch more width for card media on very wide screens */
-  .nx-shell .main-content .card-media { aspect-ratio: 16/9; }
-
-  /* Keep the page tidy on mobile (sidebar stacks above content) */
+  /* Responsive: stack on mobile */
   @media (max-width: 900px) {
     .nx-shell { grid-template-columns: 1fr; }
     .nx-sidebar { position: static; height: auto; margin-bottom: 1rem; }
   }
 </style>
 
-<!-- Wrap this page's content in a full-width main and our two-column shell -->
+<!-- Body: replace the central Cayman wrapper with our two-column shell -->
 <main id="content" class="main-content nx-main" role="main">
   <div class="nx-shell">
+
     <!-- LEFT NAV -->
     <aside class="nx-sidebar" aria-label="Left navigation">
       <div class="nx-brand">
-        {{ 
+        <img src="{{ '/assets/Robot2.jpg' | relative_url }}" class="nx-avatar" alt="Avatar">
         <h1 class="nx-title">Nollstead Studio</h1>
-        <!-- Optional subtitle. If you don’t want it, remove the next line -->
+        <!-- Optional subtitle; delete if not wanted -->
         <!-- <p class="nx-subtle">Portfolio &amp; projects</p> -->
       </div>
 
       <nav class="nx-nav">
         <ul>
           <li class="{% if page.url == '/' %}is-active{% endif %}">
-            {{ Home</a>
+            <a href="{{ '/' | relative_url }}">Home</a>
           </li>
           <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
-            {{ Projects</a>
+            <a href="{{ '/projects/' | relative_url }}">Projects</a>
           </li>
           <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
-            {{ Categories</a>
+            <a href="{{ '/categories/' | relative_url }}">Categories</a>
           </li>
           <li class="{% if page.url == '/about/' %}is-active{% endif %}">
-            {{ About</a>
+            <a href="{{ '/about/' | relative_url }}">About</a>
           </li>
         </ul>
       </nav>
