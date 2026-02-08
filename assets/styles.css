@@ -174,7 +174,7 @@
    BREADCRUMB (explicit-only)
    ====================================================================== */
 
-.nx-breadcrumb { margin: 6px 0 14px; }
+/* .nx-breadcrumb { margin: 6px 0 14px; }
 
 .nx-breadcrumb .nx-bc {
   list-style: none;
@@ -192,7 +192,7 @@
   align-items: center;
 }
 
-/* Single separator */
+/* Single separator 
 .nx-breadcrumb .nx-bc li + li::before {
   content: "›";
   color: #9aa3af;
@@ -207,7 +207,7 @@
 .nx-breadcrumb [aria-current="page"] {
   color: #111827;
   font-weight: 700;
-}
+} */
 
 /* ======================================================================
    OPTIONAL / LEGACY (commented, safe to delete later)
@@ -220,3 +220,41 @@
 
 .nx-container { ... }                     -- early experimental grid layout.
 */
+
+/* Breadcrumb (explicit-only): one line, no bullets, single › separator */
+.nx-breadcrumb { margin: 6px 0 14px; }
+
+.nx-breadcrumb .nx-bc {
+  list-style: none;         /* remove bullets */
+  margin: 0;                /* remove default UL margin */
+  padding: 0;               /* remove default UL padding */
+  display: flex;            /* one line */
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: .95rem;
+  color: #6b7280;
+}
+
+.nx-breadcrumb .nx-bc li {
+  list-style: none;         /* defensive, in case a reset re-enables bullets */
+  display: inline-flex;
+  align-items: center;
+}
+
+/* separator */
+.nx-breadcrumb .nx-bc li + li::before {
+  content: "›";             /* change to " > " if you prefer */
+  color: #9aa3af;
+  margin: 0 .35rem;
+}
+
+.nx-breadcrumb a {
+  color: #0366d6;
+  text-decoration: none;
+}
+.nx-breadcrumb a:hover { text-decoration: underline; }
+
+.nx-breadcrumb [aria-current="page"] {
+  color: #111827;
+  font-weight: 700;
+}
