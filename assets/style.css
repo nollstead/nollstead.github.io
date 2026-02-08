@@ -1,0 +1,221 @@
+/* ================================================================
+   GLOBAL + CARD + PROJECT STYLES (fully active)
+   These are part of your functional site design.
+   ================================================================= */
+
+/* --- Global tweaks --- */
+.top-links {
+  display:flex; gap:1rem; justify-content:center; margin:1rem 0 2rem;
+}
+.top-links a { text-decoration:none; border-bottom:1px dotted rgba(0,0,0,.2); }
+.top-links a:hover { border-bottom-color: transparent; }
+
+/* --- Card grid --- */
+.card-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.card {
+  position:relative;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+/* Full-card click target */
+.card-link {
+  position:absolute; inset:0; z-index:1;
+}
+
+/* Card image */
+.card-media {
+  width:100%; aspect-ratio: 16/9;
+  background-size: cover; background-position: center;
+}
+
+/* Card text */
+.card-body { padding: 0.95rem 1rem 1rem; }
+.card-title { margin:.1rem 0 .35rem; font-size: 1.05rem; }
+.card-desc  { margin:0; color:#444; line-height:1.45; }
+
+/* Tags */
+.card-tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.55rem; }
+.card-tags span {
+  font-size:.8rem; color:#555;
+  border:1px dashed rgba(0,0,0,.15);
+  padding:.12rem .45rem; border-radius:.45rem;
+  background: #fafbff;
+}
+
+/* --- Project page styles --- */
+.project-article { margin: 1rem 0 3rem; }
+.project-header  { margin-bottom: 1rem; }
+.project-subtitle { color:#444; margin:.25rem 0 .5rem; }
+.project-tags { display:flex; gap:.4rem; flex-wrap:wrap; }
+.project-tags span {
+  font-size:.8rem; color:#555; background:#f3f5f9;
+  border:1px solid #e6e8f0;
+  padding:.14rem .5rem; border-radius:.5rem;
+}
+
+
+/* ================================================================
+   LEFT NAV SYSTEM (fully active)
+   This is your new persistent site layout.
+   ================================================================= */
+
+/* Sidebar slab */
+.nx-sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 272px;
+  height: 100vh;
+  padding: 18px 14px;
+  box-sizing: border-box;
+
+  /* Your chosen Option B background */
+  background: #e9eef5;
+  border-right: 1px solid #cfd6e3;
+  border-radius: 0;
+  box-shadow: 2px 0 18px rgba(0,0,0,.05);
+
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+/* Brand */
+.nx-brand  { text-align: center; margin-bottom: 10px; }
+.nx-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+.nx-title {
+  font-size: 1rem;
+  margin: 8px 0 0;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Nav list */
+.nx-nav ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.nx-nav li { margin: 4px 0; }
+.nx-nav a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 9px;
+  color: #0366d6;
+  text-decoration: none;
+}
+.nx-nav a:hover {
+  background: #e6f0fb;
+}
+.nx-nav .is-active > a {
+  background: #ddebff;
+  font-weight: 600;
+}
+
+/* ================================================================
+   RIGHT PANE (FULL-WIDTH CONTENT BESIDE SIDEBAR)
+   ================================================================= */
+
+/* This offset keeps the right pane from sitting under the fixed sidebar */
+:root[data-leftnav="1"] .main-content {
+  margin-left: calc(272px + 28px);   /* sidebar + gutter */
+  margin-right: 32px;
+  max-width: none;                    /* full flexible width */
+  box-sizing: border-box;
+
+  /* RIGHT PANE BACKGROUND: YOU REQUESTED WHITE */
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Mobile collapse: sidebar becomes a top block */
+@media (max-width: 900px) {
+  .nx-sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e6e8f0;
+    box-shadow: 0 6px 12px rgba(0,0,0,.06);
+  }
+  :root[data-leftnav="1"] .main-content {
+    margin-left: 0 !important;
+    margin-right: 16px;
+  }
+}
+
+
+/* ================================================================
+   BREADCRUMB (EXPLICIT-ONLY)
+   ================================================================= */
+
+:root[data-leftnav="1"] .nx-breadcrumb {
+  margin: 6px 0 14px;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: .95rem;
+  color: #6b7280;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc li {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Single separator */
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc li + li::before {
+  content: "›";
+  color: #9aa3af;
+  margin: 0 .35rem;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb a {
+  color: #0366d6;
+  text-decoration: none;
+}
+:root[data-leftnav="1"] .nx-breadcrumb a:hover {
+  text-decoration: underline;
+}
+:root[data-leftnav="1"] .nx-breadcrumb [aria-current="page"] {
+  color: #111827;
+  font-weight: 700;
+}
+
+
+/* ================================================================
+   ========== UNUSED / LEGACY / OBSOLETE SECTIONS (COMMENTED) ======
+   These were from early Cayman or experimental left-nav attempts.
+   Keeping commented for reference only.
+   ================================================================= */
+
+/*
+.nx-container { ... }                    // OLD grid-based version (not used)
+.nx-sidebar { position: sticky; ... }    // OLD sticky sidebar (now fixed)
+.page-header:has(...) { ... }            // OLD Cayman masthead tweaks
+.inner-header / inner-article { ... }    // Only needed if you reintroduce inner layouts
+:root[data-leftnav="1"] .main-content { background:#f9fbfe; box-shadow:... } // older right-pane tint
+:root[data-leftnav="1"] body { background:#f4f7fb; }         // older body tint
+*/
