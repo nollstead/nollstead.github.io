@@ -17,7 +17,12 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: projects
+      type: pages
     values:
       permalink: "/:title/"
-# permalink: "/:path/:title/"
+      layout: default2
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default2
