@@ -232,3 +232,20 @@
   color: #111827;                   /* darker text for current */
   font-weight: 700;                 /* bold current item */
 }
+
+/* Use the same marker we already set for the left-nav layout */
+:root[data-leftnav="1"] .main-content {
+  /* Push the entire right pane to the right of the fixed sidebar */
+  margin-left: calc(272px + 28px);  /* 272px = sidebar width, 28px = gutter */
+  margin-right: 32px;               /* right gutter; adjust to taste */
+  max-width: none;                   /* let content use remaining width */
+  box-sizing: border-box;
+}
+
+/* Mobile: when the sidebar collapses, remove the offset */
+@media (max-width: 900px) {
+  :root[data-leftnav="1"] .main-content {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+}
