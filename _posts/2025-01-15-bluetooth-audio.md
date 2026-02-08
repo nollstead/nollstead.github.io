@@ -2,6 +2,7 @@
 title: "Bluetooth Audio"
 description: "Bluetooth to Vehicle Audio Adapter"
 date: 2025-01-15 10:00:00 -0500
+layout: post
 categories: [Projects]
 tags: [esp32, usb-c, bluetooth, a2dp]
 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_rHf5L_cGI94wxfgj2iyts3SH3tJt8wQmwg&s"
