@@ -246,3 +246,15 @@
     margin-right: 16px;
   }
 }
+
+/* Sidebar (darker) */
+.nx-sidebar {
+  background: #e9eef5;              /* darker slab */
+  border-right: 1px solid #cfd6e3;
+}
+
+/* Right pane (very light cool gray) */
+:root[data-leftnav="1"] .main-content {
+  background: #f9fbfe;              /* near-white with a hint of blue/gray */
+  box-shadow: 0 0 0 1px rgba(0,0,0,.05) inset;
+}
