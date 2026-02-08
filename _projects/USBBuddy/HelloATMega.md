@@ -1,6 +1,6 @@
 ---
 title: "Hello ATMega"
-layout: default            
+layout: default2       
 permalink: /usbbuddy/HelloATMega/   
 breadcrumb:
   - { title: "Home", url: "/" }

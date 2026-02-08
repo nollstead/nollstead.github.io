@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default2
 title: About
 breadcrumb:
   - { title: "Home", url: "/" }

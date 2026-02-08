@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default2
 title: "Gr33n Bean"
 description: "Description of Gr33n Bean"
 tags: [STM32]

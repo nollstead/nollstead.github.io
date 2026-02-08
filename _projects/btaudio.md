@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default2
 title: "Bluetooth Audio"
 description: "Bluetooth to Vehicle Audio Adapter"
 featured: true

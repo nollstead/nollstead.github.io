@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default2
 title: Nollstead Studio 
 breadcrumb:
   - { title: "Home" }   # current page: no url
