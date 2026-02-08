@@ -80,5 +80,6 @@ layout: default
   </nav>
 </aside>
 
-<!-- Let Cayman’s default layout handle the right side and masthead exactly as before -->
+<!-- Let Cayman render the page as usual; we just add a breadcrumb above content -->
+{% include breadcrumb.html %}
 {{ content }}

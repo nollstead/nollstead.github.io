@@ -181,3 +181,38 @@
     margin-right: 16px;
   }
 }
+
+/* ===== Breadcrumb (only when the left-nav layout marker is present) ===== */
+:root[data-leftnav="1"] .nx-breadcrumb {
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  color: #6b7280; /* neutral gray */
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; gap: .35rem; flex-wrap: wrap;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb li {
+  display: inline-flex; align-items: center;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb li + li::before {
+  content: "›"; /* chevron separator */
+  color: #9aa3af;
+  margin: 0 .35rem;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb a {
+  color: #0366d6; text-decoration: none;
+}
+:root[data-leftnav="1"] .nx-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+:root[data-leftnav="1"] .nx-breadcrumb [aria-current="page"] {
+  color: #111827; font-weight: 600; /* emphasize current page */
+}
