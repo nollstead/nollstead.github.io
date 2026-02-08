@@ -87,10 +87,11 @@ layout: default
     <ul class="nx-bc">
       {% assign last_index = page.breadcrumb.size | minus: 1 %}
       {% for it in page.breadcrumb %}
+        <!-- DEBUG (temporarily): {{ it | jsonify }} -->
         {% assign is_last = forloop.index0 == last_index %}
         {% if it.title and it.title != '' %}
           <li>
-            {% if it.url and is_last == false %}
+            {% if it.url and it.url != '' and is_last == false %}
               <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
             {% else %}
               <span aria-current="page">{{ it.title }}</span>
@@ -101,4 +102,5 @@ layout: default
     </ul>
   </nav>
 {% endif %}
+
 {{ content }}
