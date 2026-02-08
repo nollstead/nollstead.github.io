@@ -1,11 +1,12 @@
 ---
 layout: default2
-title: About
+title: Tags
+permalink: /tags/   
 breadcrumb:
   - { title: "Home", url: "/" }
-  - { title: "Categories" }
+  - { title: "Tags" }
 ---
 
-# Categories
+# Tags
 
 
