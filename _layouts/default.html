@@ -19,8 +19,101 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      {{ content }}
 
+      <script>
+      // Mark this page as using the left-nav layout so global CSS can target it
+      document.documentElement.setAttribute('data-leftnav', '1');
+      </script>
+
+    <!-- Page-local CSS: ONLY the left sidebar styles (no right side or masthead changes) -->
+    <style>
+    
+    /* Hide Cayman’s masthead on this layout */
+    .page-header { display: none !important; }
+
+    /* Fixed, full-height left sidebar flush to the page edge */
+    .nx-sidebar {
+        position: fixed;
+        top: 0; left: 0;
+        width: 272px;              /* tweak to 260/280/300 as you prefer */
+        height: 100vh;             /* full viewport height */
+        box-sizing: border-box;
+        padding: 18px 14px;
+        border-right: 1px solid #e6e8f0;
+        border-radius: 0 !important;    /* slab edge */
+        box-shadow: 2px 0 18px rgba(0,0,0,.05);
+        display: flex; flex-direction: column;
+        z-index: 10;
+    }
+
+    /* Brand (avatar + title) inside the left nav */
+    .nx-brand { text-align: center; margin-bottom: 10px; }
+    .nx-avatar {
+        width: 120px; height: 120px; border-radius: 50%;
+        object-fit: cover; display: inline-block;
+        box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+    .nx-title { font-size: 1rem; margin: 8px 0 0; color: #0f172a; font-weight: 600; }
+
+    /* Left-nav links */
+    .nx-nav { margin-top: 8px; }
+    .nx-nav ul { list-style: none; margin: 0; padding: 0; }
+    .nx-nav li { margin: 4px 0; }
+    .nx-nav a {
+        display: block;
+        padding: 9px 10px;
+        border-radius: 9px;
+        color: #0366d6; /* Cayman blue */
+        text-decoration: none;
+    }
+    .nx-nav a:hover { background: #e6f0fb; }
+    .nx-nav .is-active > a { background: #ddebff; font-weight: 600; }
+    </style>
+
+        <aside class="nx-sidebar" aria-label="Left navigation">
+        <div class="nx-brand">
+            <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Nollstead Studio">
+            <div class="nx-title">Nollstead Studio</div>
+        </div>
+
+        <nav class="nx-nav">
+            <ul>
+            <li class="{% if page.url == '/' %}is-active{% endif %}">
+                <a href="{{ '/' | relative_url }}">Home</a>
+            </li>
+            <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
+                <a href="{{ '/projects/' | relative_url }}">Projects</a>
+            </li>
+            <li class="{% if page.url == '/tags/' %}is-active{% endif %}">
+                <a href="{{ '/tags/' | relative_url }}">Tags</a>
+            </li>
+            <li class="{% if page.url == '/about/' %}is-active{% endif %}">
+                <a href="{{ '/about/' | relative_url }}">About</a>
+            </li>
+            </ul>
+        </nav>
+        </aside>
+
+        <!-- Let Cayman render the page as usual; we just add a breadcrumb above content -->
+
+        {% if page.breadcrumb and page.breadcrumb.size > 0 %}
+        <nav class="nx-breadcrumb" aria-label="Breadcrumb">
+            <ul class="nx-bc">
+            {% for it in page.breadcrumb %}
+                {% if it.title %}
+                <li>
+                    {% if it.url %}
+                    <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
+                    {% else %}
+                    <span aria-current="page">{{ it.title }}</span>
+                    {% endif %}
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </nav>
+        {% endif %}
+        {{ content }}
       <footer class="site-footer">
         {% if site.github.is_project_page %}
           <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
