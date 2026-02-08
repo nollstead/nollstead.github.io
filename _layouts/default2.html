@@ -34,7 +34,7 @@ layout: default
   /* Brand (avatar + title) inside the left nav */
   .nx-brand { text-align: center; margin-bottom: 10px; }
   .nx-avatar {
-    width: 90px; height: 90px; border-radius: 50%;
+    width: 100px; height: 100px; border-radius: 50%;
     object-fit: cover; display: inline-block;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
@@ -80,36 +80,53 @@ layout: default
   </nav>
 </aside>
 
-<!-- Let Cayman render the page as usual; we just add a breadcrumb above content -->
-<nav class="nx-breadcrumb" aria-label="Breadcrumb">
-  <ol>
-    {% assign trail = page.breadcrumb %}
-    {% if trail and trail.size > 0 %}
-      {% for it in trail %}
-        <li>
-          {% if it.url and forloop.last == false %}
-            <a href="{{ it.url | relative_url }}">{{ it.title }}</a>
-          {% else %}
-            <span aria-current="page">{{ it.title }}</span>
-          {% endif %}
-        </li>
-      {% endfor %}
-    {% else %}
-      <li><a href="{{ '/' | relative_url }}">Home</a></li>
-      {% assign segments = page.url | split:'/' | reject:'' %}
-      {% assign built = '' %}
-      {% for seg in segments %}
-        {% assign built = built | append:'/' | append:seg %}
-        {% assign last = forloop.last %}
-        {% assign label = seg | replace:'-',' ' | replace:'_',' ' | capitalize %}
-        {% if last %}
-          <li><span aria-current="page">{{ page.title | default: label }}</span></li>
-        {% else %}
-          <li><a href="{{ built | relative_url }}">{{ label }}</a></li>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </ol>
-</nav>
+<!-- Let Cayman render the page as usual; we just add a breadcrumb above content 
+Breadcrumb: inline, one line, "›" separators, and correct "Home" handling.
+If `page.breadcrumb` exists (array of {title,url}), it is used as-is.
+Otherwise, we build from `page.url`:
+- On "/", show just "Home".
+- On deeper paths, show "Home › Segment(s) › Current".
+ -->
 
+<nav class="nx-breadcrumb" aria-label="Breadcrumb">
+  <ul>
+    {%- assign trail = page.breadcrumb -%}
+
+    {%- if trail and trail.size > 0 -%}
+      {%- for it in trail -%}
+        <li>
+          {%- if it.url and forloop.last == false -%}
+            {{ it.url | relative_url }}{{ it.title }}</a>
+          {%- else -%}
+            <span aria-current="page">{{ it.title }}</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    {%- else -%}
+      {%- assign url_clean = page.url | replace: 'index.html','' -%}
+      {%- assign segments = url_clean | split:'/' | reject:'' -%}
+
+      {%- if segments.size == 0 -%}
+        <!-- Root: just Home -->
+        <li><span aria-current="page">Home</span></li>
+      {%- else -%}
+        <!-- Start with Home -->
+        <li>{{ '/' | relative_url }}Home</a></li>
+
+        {%- assign built = '' -%}
+        {%- for seg in segments -%}
+          {%- assign built = built | append:'/' | append:seg -%}
+          {%- assign last = forloop.last -%}
+          {%- assign label = seg | replace:'-',' ' | replace:'_',' ' | capitalize -%}
+
+          {%- if last -%}
+            <li><span aria-current="page">{{ page.title | default: label }}</span></li>
+          {%- else -%}
+            <li>{{ built | relative_url }}{{ label }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endif -%}
+  </ul>
+</nav>
 {{ content }}
