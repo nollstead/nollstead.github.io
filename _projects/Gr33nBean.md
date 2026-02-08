@@ -1,11 +1,15 @@
 ---
-layout: project
+layout: default
 title: "Gr33n Bean"
 description: "Description of Gr33n Bean"
 tags: [STM32]
 featured: false
 image:  "https://raw.githubusercontent.com/nollstead/Green-Bean/main/images/GreenBean.png"
 weight: 10
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "Gr33n Bean" }
 ---
 The Green Bean is a breakout board based on the STM32G473RCT6 microcontroller.  It's designed to be a small, powerful and adaptable platform for STM32-based development.  It comes with everything you need for basic functionality (power inputs, external crystals, USB connector, an LED to blink and even an SWD interface to upload your code) as well as headers exposing all remaining pins to connect to external components.  Want to take it further, just create a basic shield that connects to those pins and the sky is the limit.
 

@@ -1,7 +1,12 @@
 ---
 title: "Hello ATMega"
-layout: InnerLayout            
+layout: default            
 permalink: /usbbuddy/HelloATMega/   
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "USB Buddy", url: "/usbbuddy/" }
+  - { title: "Hello AtMega" }
 ---
 
 Here we'll demonstrate how to send and receive serial text using the Arduino IDE.  For this example, we'll use a ATMega328P/Pro Mini module as our microcontroller to keep it simple though the concepts can be applied to your custom modules as well.

@@ -1,5 +1,5 @@
 ---
-layout: default2
+layout: default
 title: Tags
 permalink: /tags/   
 breadcrumb:

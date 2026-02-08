@@ -1,5 +1,5 @@
 ---
-layout: default2
+layout: default
 title: "USB Buddy"
 description: "USB-to-Serial Adapter"
 featured: true

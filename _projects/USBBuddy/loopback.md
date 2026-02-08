@@ -1,7 +1,12 @@
 ---
 title: "USB Buddy — Loopback Test"
-layout: InnerLayout            
+layout: default            
 permalink: /usbbuddy/loopback/   
+breadcrumb:
+  - { title: "Home", url: "/" }
+  - { title: "Projects", url: "/projects/" }
+  - { title: "USB Buddy", url: "/usbbuddy/" }
+  - { title: "Loopback Test" }
 ---
 
 For our first example we'll keep it simple and just do a basic loopback test - essentially verifying the adapter is recognized by your computer and you understand the basic functionality.

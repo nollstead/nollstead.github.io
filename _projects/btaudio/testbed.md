@@ -1,6 +1,6 @@
 ---
 title: "BTAudio Testbed Setup"
-layout: default2            
+layout: default
 permalink: /btaudio/testbed/
 breadcrumb:
   - { title: "Home", url: "/" }
