@@ -1,6 +1,6 @@
 ---
-# Standalone base layout (no wrapper). Combines legacy Cayman-like scaffold
-# with the fixed left nav and the explicit-only breadcrumb.
+# Standalone base layout (no wrapper). Left nav + breadcrumb + content.
+# Masthead is removed by default; see notes below to optionally enable per page.
 ---
 
 <!DOCTYPE html>
@@ -12,21 +12,19 @@
 
     <title>{{ page.title | default: site.title }}</title>
 
-    <!-- Your styles (same as your legacy default) -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
-
-    <!-- If you ever add more head assets (fonts/icons), include them here -->
+    <!-- Your styles (kept from legacy default) -->
+    {{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url | prepend: '<link rel="stylesheet" href="' | append: '">' }}
+    {{ '/assets/styles.css' | relative_url | prepend: '<link rel="stylesheet" href="' | append: '">' }}
   </head>
 
   <body>
-    <!-- Mark pages that use the left-nav so CSS can scope rules -->
+    <!-- Mark pages that use left-nav so CSS can scope offsets/colors -->
     <script>document.documentElement.setAttribute('data-leftnav','1');</script>
 
-    <!-- ==================== LEFT NAV (fixed full-height slab) ==================== -->
+    <!-- ==================== LEFT NAV (fixed) ==================== -->
     <aside class="nx-sidebar" aria-label="Left navigation">
       <div class="nx-brand" style="text-align:center; margin-bottom:10px">
-        <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="avatar">
+        <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar">
         <div class="nx-title">Nollstead Studio</div>
       </div>
 
@@ -38,8 +36,8 @@
           <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
             <a href="{{ '/projects/' | relative_url }}">Projects</a>
           </li>
-          <li class="{% if page.url == '/tags/' %}is-active{% endif %}">
-            <a href="{{ '/tags/' | relative_url }}">Tags</a>
+          <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
+            <a href="{{ '/categories/' | relative_url }}">Categories</a>
           </li>
           <li class="{% if page.url == '/about/' %}is-active{% endif %}">
             <a href="{{ '/about/' | relative_url }}">About</a>
@@ -48,20 +46,24 @@
       </nav>
     </aside>
 
-    <!-- ==================== TOP HEADER (from your legacy default) ==================== -->
+    <!-- ==================== MASTHEAD (removed by default) ====================
+         If you ever want the big header back for a specific page, wrap
+         your original header in: {% if page.show_header %} ... {% endif %} -->
+    {%- comment -%}
+    {% if page.show_header %}
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title }}</h1>
-      {% unless page.layout == "innerlayout" %}
-        {% if page.description %}
-          <h2 class="project-tagline">{{ page.description }}</h2>
-        {% endif %}
-      {% endunless %}
+      {% if page.description %}
+        <h2 class="project-tagline">{{ page.description }}</h2>
+      {% endif %}
     </header>
+    {% endif %}
+    {%- endcomment -%}
 
-    <!-- ==================== RIGHT PANE (content column) ==================== -->
+    <!-- ==================== RIGHT PANE ==================== -->
     <main id="content" class="main-content" role="main">
 
-      <!-- Breadcrumb (explicit-only): render only if page.breadcrumb is provided -->
+      <!-- Breadcrumb (explicit-only): renders only when page.breadcrumb is provided -->
       {% if page.breadcrumb and page.breadcrumb.size > 0 %}
         <nav class="nx-breadcrumb" aria-label="Breadcrumb">
           <ul class="nx-bc">
@@ -82,7 +84,7 @@
 
       {{ content }}
 
-      <!-- Footer (same as your legacy default) -->
+      <!-- (Optional) Footer kept from legacy; remove if you don’t need it -->
       <footer class="site-footer">
         {% if site.github.is_project_page %}
           <span class="site-footer-owner">
