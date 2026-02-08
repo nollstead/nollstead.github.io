@@ -20,9 +20,3 @@ defaults:
       type: pages
     values:
       permalink: "/:title/"
-      layout: default2
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: default2
