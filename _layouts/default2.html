@@ -1,68 +1,67 @@
 ---
-# Left-nav layout for Cayman (homepage-only)
-# Keeps Cayman <head> but replaces the body structure with a two-column shell.
+# Left-nav layout for Cayman (homepage-only).
+# Inherits Cayman <head> (layout: default), then replaces the body structure.
 layout: default
 ---
 
-<!-- Page-local CSS: only affects pages using layout: default2 -->
+<!-- Page-local CSS: ONLY affects pages using layout: default2 -->
 <style>
-  /* 1) Hide Cayman’s masthead (big top banner) on this layout */
+  /* Hide Cayman’s masthead on this page */
   .page-header { display: none !important; }
 
-  /* 2) Break out of Cayman's centered max-width for this page */
-  .main-content.nx-main {
-    max-width: none;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* 3) Two-column shell: sidebar flush left, content to the right */
-  .nx-shell {
-    display: grid;
-    grid-template-columns: 280px minmax(0, 1fr); /* fixed sidebar + flexible content */
-    gap: 1.75rem;
-    align-items: start;
-    width: 100%;
-    padding: 1rem 2rem 2.5rem 2rem;  /* gentle gutters on both sides */
-    box-sizing: border-box;
-    min-height: 100vh;               /* span viewport height */
-  }
-
-  /* 4) Sidebar (sticky, full-height feel) */
+  /* ===== FIXED LEFT SIDEBAR + CONTENT FRAME ===== */
+  /* A fixed, full-height sidebar that hugs the left edge of the viewport */
   .nx-sidebar {
-    position: sticky;
-    top: 1rem;
-    align-self: start;
-    height: calc(100vh - 2rem);
-    padding: 1rem;
+    position: fixed;
+    inset: 0 auto 0 0;           /* top:0; right:auto; bottom:0; left:0 */
+    width: 268px;                /* sidebar width */
+    box-sizing: border-box;
+    padding: 16px 14px;
     background: #f8fafc;
-    border: 1px solid #e6e8f0;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
-    display: flex;
-    flex-direction: column;
+    border-right: 1px solid #e6e8f0;
+    box-shadow: 2px 0 18px rgba(0,0,0,.06);
+    display: flex; flex-direction: column;
+    z-index: 10;
   }
 
-  /* Brand block */
-  .nx-brand { text-align: center; margin-bottom: .75rem; }
+  /* Right content column: push it to the right by the sidebar width + gutter */
+  .nx-content-frame {
+    /* leave room for the fixed sidebar + a gutter */
+    padding-left: calc(268px + 28px);
+    padding-right: 28px;
+    padding-top: 18px;
+    padding-bottom: 48px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* Make the working column nicely wide on desktops (but not overly) */
+  .nx-content-inner {
+    max-width: 1400px;   /* adjust if you want even wider */
+    margin: 0 auto;      /* prevent hard-left hugging on ultrawide screens */
+    min-width: 0;
+  }
+
+  /* ===== Sidebar branding (avatar + title) ===== */
+  .nx-brand { text-align: center; margin-bottom: 10px; }
   .nx-avatar {
-    width: 72px; height: 72px; border-radius: 50%;
+    width: 66px; height: 66px; border-radius: 50%;
     object-fit: cover; display: inline-block;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
-  .nx-title { font-size: 1.05rem; margin: .55rem 0 .15rem; color: #0f172a; }
-  .nx-subtle { color: #6b7280; font-size: .9rem; margin: 0; }
+  .nx-title {
+    font-size: 1rem; margin: 8px 0 2px; color: #0f172a; font-weight: 600;
+  }
 
-  /* Vertical nav */
-  .nx-nav { margin-top: .5rem; }
+  /* ===== Left nav list ===== */
+  .nx-nav { margin-top: 8px; }
   .nx-nav ul { list-style: none; margin: 0; padding: 0; }
-  .nx-nav li { margin: .25rem 0; }
+  .nx-nav li { margin: 4px 0; }
   .nx-nav a {
     display: block;
-    padding: .48rem .6rem;
+    padding: 9px 10px;
     border-radius: 9px;
-    color: #0366d6;                 /* Cayman blue */
+    color: #0366d6;               /* Cayman blue */
     text-decoration: none;
   }
   .nx-nav a:hover { background: #e6f0fb; }
@@ -71,67 +70,66 @@ layout: default
     font-weight: 600;
   }
 
-  /* 5) Right-side content column tweaks */
-  .nx-content { min-width: 0; }
-
-  /* Hide any “Home / About” top links inside content for this layout */
-  .nx-shell .top-links { display: none !important; }
-
-  /* 6) Force a maximum of 3 cards per row (your index.md already builds the cards) */
-  .nx-shell .card-grid {
-    display: grid;
+  /* ===== Projects grid: force up to 3 columns (use your existing markup) ===== */
+  .nx-content-inner .card-grid {
+    display: grid;                 /* ensure grid even if previous CSS changed it */
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.1rem;
-    margin: 1.25rem 0 2.5rem; /* preserve your existing spacing */
+    margin: 1.25rem 0 2.5rem;
   }
-  @media (max-width: 1200px) {
-    .nx-shell .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 1220px) {
+    .nx-content-inner .card-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   }
-  @media (max-width: 700px) {
-    .nx-shell .card-grid { grid-template-columns: 1fr; }
+  @media (max-width: 720px) {
+    .nx-content-inner .card-grid { grid-template-columns: 1fr; }
   }
 
-  /* Responsive: stack on mobile */
+  /* Optional: tighten any “Projects” H2 spacing on this page */
+  .nx-content-inner h2:first-of-type { margin-top: .25rem; }
+
+  /* On small screens, collapse the layout into a vertical flow */
   @media (max-width: 900px) {
-    .nx-shell { grid-template-columns: 1fr; }
-    .nx-sidebar { position: static; height: auto; margin-bottom: 1rem; }
+    .nx-sidebar {
+      position: static;
+      width: auto;
+      inset: auto;
+      border-right: none;
+      border-bottom: 1px solid #e6e8f0;
+      box-shadow: 0 6px 12px rgba(0,0,0,.06);
+      border-radius: 0;
+    }
+    .nx-content-frame { padding: 16px; }
   }
 </style>
 
-<!-- Body: replace the central Cayman wrapper with our two-column shell -->
-<main id="content" class="main-content nx-main" role="main">
-  <div class="nx-shell">
+<!-- BODY: fixed left nav + content frame to the right -->
+<div class="nx-sidebar" aria-label="Left navigation">
+  <div class="nx-brand">
+    <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar" />
+    <div class="nx-title">Nollstead Studio</div>
+  </div>
 
-    <!-- LEFT NAV -->
-    <aside class="nx-sidebar" aria-label="Left navigation">
-      <div class="nx-brand">
-        <img src="{{ '/assets/Robot2.jpg' | relative_url }}" class="nx-avatar" alt="Avatar">
-        <h1 class="nx-title">Nollstead Studio</h1>
-        <!-- Optional subtitle; delete if not wanted -->
-        <!-- <p class="nx-subtle">Portfolio &amp; projects</p> -->
-      </div>
+  <nav class="nx-nav">
+    <ul>
+      <li class="{% if page.url == '/' %}is-active{% endif %}">
+        <a href="{{ '/' | relative_url }}">Home</a>
+      </li>
+      <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
+        <a href="{{ '/projects/' | relative_url }}">Projects</a>
+      </li>
+      <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
+        <a href="{{ '/categories/' | relative_url }}">Categories</a>
+      </li>
+      <li class="{% if page.url == '/about/' %}is-active{% endif %}">
+        <a href="{{ '/about/' | relative_url }}">About</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
-      <nav class="nx-nav">
-        <ul>
-          <li class="{% if page.url == '/' %}is-active{% endif %}">
-            <a href="{{ '/' | relative_url }}">Home</a>
-          </li>
-          <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
-            <a href="{{ '/projects/' | relative_url }}">Projects</a>
-          </li>
-          <li class="{% if page.url == '/categories/' %}is-active{% endif %}">
-            <a href="{{ '/categories/' | relative_url }}">Categories</a>
-          </li>
-          <li class="{% if page.url == '/about/' %}is-active{% endif %}">
-            <a href="{{ '/about/' | relative_url }}">About</a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-
-    <!-- RIGHT CONTENT -->
-    <section class="nx-content">
-      {{ content }}
-    </section>
+<!-- Right column -->
+<main id="content" class="nx-content-frame" role="main">
+  <div class="nx-content-inner">
+    {{ content }}
   </div>
 </main>
