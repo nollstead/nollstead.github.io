@@ -157,3 +157,27 @@
 .nx-container .main-content {
   padding-top: 0.25rem;
 }
+
+/* ===== Left-nav homepage: make the right pane left-justified and full-width ===== */
+
+/* Sidebar width + gutter must match your left nav settings in default2.html */
+:root[data-leftnav="1"] .main-content {
+  /* Make Cayman stop centering with a fixed max-width */
+  max-width: none;            /* let it expand with the viewport */
+  margin-left: calc(272px + 28px);  /* 272px sidebar + 28px gutter */
+  margin-right: 32px;         /* right gutter */
+  padding-left: 0;            /* keep your existing content padding as-is */
+  padding-right: 0;           /* (adjust if you want more breathing room) */
+  box-sizing: border-box;
+}
+
+/* Optional: hide the big masthead on this layout only (if you still see it) */
+/* :root[data-leftnav="1"] .page-header { display: none !important; } */
+
+/* Mobile: when the sidebar collapses, remove the left offset */
+@media (max-width: 900px) {
+  :root[data-leftnav="1"] .main-content {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+}
