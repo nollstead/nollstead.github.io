@@ -1,40 +1,36 @@
 ---
-# Left-nav layout for Cayman (homepage only).
-# Inherits Cayman <head> via `layout: default`, then replaces body structure.
+# Left-nav layout (homepage only). Inherits Cayman <head> via layout: default.
 layout: default
 ---
 
 <!-- Page-local CSS: ONLY affects pages using layout: default2 -->
 <style>
-  /* Hide Cayman’s big masthead for this layout */
+  /* Hide Cayman’s big masthead on this page */
   .page-header { display: none !important; }
 
-  /* ===== FIXED FULL-HEIGHT SIDEBAR ===== */
+  /* ===== FIXED, FULL-HEIGHT LEFT SIDEBAR (flush to page edge) ===== */
   .nx-sidebar {
     position: fixed;
     top: 0; bottom: 0; left: 0;
-    width: 280px;               /* <-- tweak to 260/300 to taste */
+    width: 280px;                 /* tweak to 260/300 if you prefer */
     box-sizing: border-box;
     padding: 18px 14px;
     background: #f8fafc;
     border-right: 1px solid #e6e8f0;
-    /* Full-height slab: no rounded corners */
-    border-radius: 0;
+    border-radius: 0;             /* slab (no rounded bottom) */
     box-shadow: 2px 0 18px rgba(0,0,0,.05);
     display: flex; flex-direction: column;
     z-index: 10;
   }
 
-  /* Brand area (avatar + title) */
+  /* Brand (avatar + title) */
   .nx-brand { text-align: center; margin-bottom: 10px; }
   .nx-avatar {
     width: 60px; height: 60px; border-radius: 50%;
     object-fit: cover; display: inline-block;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
-  .nx-title {
-    font-size: 1rem; margin: 8px 0 0; color: #0f172a; font-weight: 600;
-  }
+  .nx-title { font-size: 1rem; margin: 8px 0 0; color: #0f172a; font-weight: 600; }
 
   /* Sidebar nav */
   .nx-nav { margin-top: 8px; }
@@ -44,52 +40,48 @@ layout: default
     display: block;
     padding: 9px 10px;
     border-radius: 9px;
-    color: #0366d6; /* Cayman blue */
+    color: #0366d6;               /* Cayman blue */
     text-decoration: none;
   }
   .nx-nav a:hover { background: #e6f0fb; }
   .nx-nav .is-active > a { background: #ddebff; font-weight: 600; }
 
-  /* ===== CONTENT COLUMN (roomy, not centered) ===== */
+  /* ===== ROOMY RIGHT COLUMN (not centered/squeezed) ===== */
   .nx-content-frame {
-    /* Reserve space for the fixed sidebar + a gutter */
+    /* reserve space for the fixed sidebar + a small gutter */
     margin-left: calc(280px + 32px);
     margin-right: 32px;
     padding-top: 18px; padding-bottom: 48px;
     box-sizing: border-box;
   }
 
-  /* Cap to 3 columns max by limiting the working width.
-     3 × 340px columns + gaps ≈ ~1100–1160px total. */
+  /* Working width tuned for a 3‑column projects grid */
   .nx-content-inner {
-    max-width: 1160px;        /* <-- bump to 1200/1320 if you want a bit wider */
-    margin: 0 auto;
+    max-width: 1160px;            /* 3 columns + gaps; raise to 1200/1280 if you like */
+    margin: 0 auto;               /* center within the available area (not the page) */
     min-width: 0;
   }
 
-  /* Force the projects grid to be up to 3 across, with responsive fallbacks.
-     Your existing index.md builds the cards; we only control the columns here. */
+  /* ===== Project grid: force up to 3 across (your cards remain unchanged) ===== */
   .nx-content-inner .card-grid {
-    display: grid;  /* ensure grid even if global CSS changes */
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    display: grid;  /* ensure grid regardless of prior CSS */
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 1.1rem;
     margin: 1.25rem 0 2.5rem;
   }
   @media (max-width: 1200px) {
-    .nx-content-inner .card-grid { grid-template-columns: repeat(2, minmax(320px, 1fr)); }
+    .nx-content-inner .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   }
   @media (max-width: 720px) {
-    .nx-content-inner .card-grid { grid-template-columns: 1fr; }
+    .nx-content-inner .card-grid { grid-template-columns: 1fr !important; }
   }
 
-  /* Keep cards looking like your original: your own .card styles already do this.
-     The "narrow/long" look was due to too-narrow columns; fixed by min 340px above. */
+  /* Keep your card look; the “tall/narrow” issue was column width—now fixed. */
 
-  /* Remove stray "Home / About" at top of right column on this layout (temporary) */
-  .nx-content-inner > p:first-child a[href="/"],
-  .nx-content-inner > p:first-child a[href="/about/"] { display: none !important; }
+  /* ===== TEMP: hide the redundant "Home / About" links in content on this layout ===== */
+  .nx-content-inner .top-links { display: none !important; }
 
-  /* Responsive: sidebar stacks on small screens */
+  /* Mobile: sidebar becomes a header block on top */
   @media (max-width: 900px) {
     .nx-sidebar {
       position: static; width: auto; top: auto; bottom: auto;
@@ -131,4 +123,3 @@ layout: default
     {{ content }}
   </div>
 </main>
-``
