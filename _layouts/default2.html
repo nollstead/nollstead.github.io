@@ -1,23 +1,27 @@
 ---
-# Left-nav layout (homepage only). Inherits Cayman <head> via layout: default.
+# Left-nav layout for homepage only. Keeps Cayman <head> via layout: default.
 layout: default
 ---
 
-<!-- Page-local CSS: ONLY affects pages using layout: default2 -->
+<!-- Page-local CSS: affects ONLY pages using layout: default2 -->
 <style>
-  /* Hide Cayman’s big masthead on this page */
+  /* Hide Cayman’s top banner on this page */
   .page-header { display: none !important; }
+
+  /* Ensure the viewport can be used for a fixed full-height sidebar */
+  html, body { height: 100%; }
 
   /* ===== FIXED, FULL-HEIGHT LEFT SIDEBAR (flush to page edge) ===== */
   .nx-sidebar {
     position: fixed;
-    top: 0; bottom: 0; left: 0;
-    width: 280px;                 /* tweak to 260/300 if you prefer */
+    top: 0; left: 0;
+    width: 272px;                 /* tweak to 260/280/300 as you like */
+    height: 100vh;                /* <-- guaranteed full height */
     box-sizing: border-box;
     padding: 18px 14px;
     background: #f8fafc;
     border-right: 1px solid #e6e8f0;
-    border-radius: 0;             /* slab (no rounded bottom) */
+    border-radius: 0 !important;  /* slab edge (no rounded bottom) */
     box-shadow: 2px 0 18px rgba(0,0,0,.05);
     display: flex; flex-direction: column;
     z-index: 10;
@@ -40,60 +44,39 @@ layout: default
     display: block;
     padding: 9px 10px;
     border-radius: 9px;
-    color: #0366d6;               /* Cayman blue */
+    color: #0366d6;
     text-decoration: none;
   }
   .nx-nav a:hover { background: #e6f0fb; }
   .nx-nav .is-active > a { background: #ddebff; font-weight: 600; }
 
-  /* ===== ROOMY RIGHT COLUMN (not centered/squeezed) ===== */
+  /* ===== CONTENT: use ALL remaining width (no Cayman centering) ===== */
   .nx-content-frame {
     /* reserve space for the fixed sidebar + a small gutter */
-    margin-left: calc(280px + 32px);
-    margin-right: 32px;
-    padding-top: 18px; padding-bottom: 48px;
+    margin-left: calc(272px + 28px);
+    padding: 18px 32px 48px 0;  /* top right bottom left */
     box-sizing: border-box;
+    width: 100%;
   }
 
-  /* Working width tuned for a 3‑column projects grid */
-  .nx-content-inner {
-    max-width: 1160px;            /* 3 columns + gaps; raise to 1200/1280 if you like */
-    margin: 0 auto;               /* center within the available area (not the page) */
-    min-width: 0;
-  }
+  /* Let your cards/grid determine their own widths entirely */
+  .nx-content-inner { max-width: none; min-width: 0; }
 
-  /* ===== Project grid: force up to 3 across (your cards remain unchanged) ===== */
-  .nx-content-inner .card-grid {
-    display: grid;  /* ensure grid regardless of prior CSS */
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 1.1rem;
-    margin: 1.25rem 0 2.5rem;
-  }
-  @media (max-width: 1200px) {
-    .nx-content-inner .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  }
-  @media (max-width: 720px) {
-    .nx-content-inner .card-grid { grid-template-columns: 1fr !important; }
-  }
-
-  /* Keep your card look; the “tall/narrow” issue was column width—now fixed. */
-
-  /* ===== TEMP: hide the redundant "Home / About" links in content on this layout ===== */
+  /* Hide the small "Home / About" links at top of content on this layout only */
   .nx-content-inner .top-links { display: none !important; }
 
-  /* Mobile: sidebar becomes a header block on top */
+  /* Mobile: sidebar collapses into a header block */
   @media (max-width: 900px) {
     .nx-sidebar {
-      position: static; width: auto; top: auto; bottom: auto;
+      position: static; width: auto; height: auto;
       border-right: none; border-bottom: 1px solid #e6e8f0;
       box-shadow: 0 6px 12px rgba(0,0,0,.06);
     }
-    .nx-content-frame { margin: 0; padding: 16px; }
-    .nx-content-inner { max-width: none; }
+    .nx-content-frame { margin-left: 0; padding: 16px; }
   }
 </style>
 
-<!-- ===== BODY: fixed left nav + roomy content to the right ===== -->
+<!-- BODY: fixed left nav + content that uses the rest of the page width -->
 <aside class="nx-sidebar" aria-label="Left navigation">
   <div class="nx-brand">
     <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Avatar">

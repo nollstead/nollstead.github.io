@@ -4,12 +4,6 @@ title: Nollstead Studio
 permalink: /index2/   
 ---
 
-<!-- Simple top nav -->
-<nav class="top-links">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/about/' | relative_url }}">About</a>
-</nav>
-
 # Projects
 
 <div class="card-grid">
