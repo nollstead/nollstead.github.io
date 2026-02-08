@@ -182,43 +182,53 @@
   }
 }
 
-/* ===== Breadcrumb styling (right pane, left-nav layout only) ===== */
-:root[data-leftnav="1"] .nx-breadcrumb { 
-  margin: 6px 0 14px; 
+/* =======================================================================
+   Breadcrumb styling (right pane, left-nav layout only)
+   - One line, items separated by a single › (or change to " > ")
+   - Ancestors are links; current page is bold, not linked
+   - Applies ONLY when the left-nav marker is present on <html>:
+       <script>document.documentElement.setAttribute('data-leftnav','1');</script>
+   ======================================================================= */
+
+:root[data-leftnav="1"] .nx-breadcrumb {
+  margin: 6px 0 14px;
+  /* inherit font-family from Cayman; tweak size/color as desired */
 }
 
 :root[data-leftnav="1"] .nx-breadcrumb .nx-bc {
-  list-style: none; 
-  padding: 0; 
+  /* IMPORTANT: this selector must match the <ul class="nx-bc"> in default2.html */
+  list-style: none;                 /* no numbers/bullets */
+  padding: 0;
   margin: 0;
-  display: flex; 
-  align-items: center; 
-  gap: .35rem; 
-  flex-wrap: nowrap;
-  font-size: .95rem; 
-  color: #6b7280;
+  display: flex;                    /* single line */
+  align-items: center;
+  gap: .35rem;                      /* small spacing between items */
+  flex-wrap: nowrap;                /* keep on one line (change to wrap if preferred) */
+  font-size: .95rem;
+  color: #6b7280;                   /* neutral gray for non-current items */
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb .nx-bc li { 
-  display: inline-flex; 
-  align-items: center; 
+:root[data-leftnav="1"] .nx-breadcrumb .nx-bc li {
+  display: inline-flex;
+  align-items: center;
 }
 
+/* The ONLY separator rule — ensures a single chevron between items */
 :root[data-leftnav="1"] .nx-breadcrumb .nx-bc li + li::before {
-  content: " › ";            /* change to " > " if you prefer */
-  color: #9aa3af; 
+  content: "›";                     /* change to " > " if you prefer */
+  color: #9aa3af;
   margin: 0 .35rem;
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb a { 
-  color: #0366d6; 
-  text-decoration: none; 
+:root[data-leftnav="1"] .nx-breadcrumb a {
+  color: #0366d6;                   /* Cayman blue for links */
+  text-decoration: none;
 }
-:root[data-leftnav="1"] .nx-breadcrumb a:hover { 
-  text-decoration: underline; 
+:root[data-leftnav="1"] .nx-breadcrumb a:hover {
+  text-decoration: underline;
 }
 
-:root[data-leftnav="1"] .nx-breadcrumb [aria-current="page"] { 
-  color: #111827; 
-  font-weight: 700; 
+:root[data-leftnav="1"] .nx-breadcrumb [aria-current="page"] {
+  color: #111827;                   /* darker text for current */
+  font-weight: 700;                 /* bold current item */
 }
