@@ -5,7 +5,7 @@ description: "USB-to-Serial Adapter"
 featured: true
 tags: [Arduino, USB-C]
 image: "https://raw.githubusercontent.com/nollstead/USBBuddy/main/images/U2SFront.png"
-weight: 10
+weight: 20
 breadcrumb:
   - { title: "Home", url: "/" }
   - { title: "Projects", url: "/projects/" }
