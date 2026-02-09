@@ -11,6 +11,8 @@ breadcrumb:
 
 # BTAudio Testbed Setup
 
+<img src="/assets/projects/btaudio/testbed.jpg" alt="testbed" width="600">
+
 Below is the current setup for the BTAudio breadboard testbed.  There are a lot of wires and a handful of passives so I recommend doing this in stages and testing each stage before proceeding to the next.
 
 ## Component Placement
