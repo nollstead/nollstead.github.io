@@ -65,23 +65,25 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 
 ### RCA Jacks
 
-The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/LOUT2.  Currently the headphones are connected to ROUT2/LOUT2 so for this initial RCA test setup (that bypasses the BD37033 for now) we'll use ROUT1 and LOUT1.  Once the steps below are done you should have the same audio out the right RCA jacks as the headphone jacks.  
+The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/LOUT2.  Currently the headphones are connected to ROUT2/LOUT2 so for this initial RCA test setup (that bypasses the BD37033 for now) we'll use those same pins.  Once the steps below are done you should have the same audio out the right RCA jacks as the headphone jacks.  
 
 - Connect GND on the RCA breakout to shared GND (there is no PWR pin)
-- Connect LOUT1 on the codec to the RL pin with a 10uF series capacitor and a 10Ω series resistor (in that order)
-  - Wiring should be:  LOUT1 -> 10uF -> 10Ω -> RL
-  - To do this you'll obviously need some open spaces
-  - Positive side of capacitor should face LOUT1, negative faces RL
-- Do the same for ROUT1 to RR
+- Connect LOUT2 on the codec to the RL pin with a 10uF series capacitor and a 10Ω series resistor (in that order)
+  - Wiring should be:  LOUT2 -> 10uF -> 10Ω -> RL
+  - To do this you'll obviously need some open spaces on the breadboard
+  - Positive side of capacitor should face LOUT2, negative faces RL
+- Do the same for ROUT2 to RR
 
 
 ### BD37033
 
-Here we'll wire the BD37033 into the left RCA pairs (FR, FL) and sub.  This will allow us to test audio separately.  This one is a work in progress, so more to come.
+Here we'll wire the BD37033 into the left RCA pairs (FR, FL) and sub using the ROUT1/LOUT1 pins on the codec.  This will allow us to test audio independently.  
+
+Note:  This one is a work in progress, so more to come.
 
 - Connect GND to shared GND
 - Connect VREF to GND through a 10uF capacitor
 - Connect SCA and SCL to the shared I2C columns you made earlier
 - DO NOT connect VCC to shared PWR.  The BD37033 requires a minimum of 7v so we'll have to use a separate bench power that's connected to shared GND
-- Connect a 1uF capacitor from the LOUT pin on the codec to any open breadboard column with the negative side facing the codec (LOUT2).  Then connect ...
-- Connect a 1uF capacitor from the LOUT pin on the codec to any open breadboard column with the negative side facing the codec (LOUT2).  Then connect ... 
+- Connect a 1uF capacitor from the LOUT1 pin on the codec to any open breadboard column with the negative side facing the codec (LOUT1).  Then connect ...
+- Connect a 1uF capacitor from the ROUT1 pin on the codec to any open breadboard column with the negative side facing the codec (ROUT1).  Then connect ... 
