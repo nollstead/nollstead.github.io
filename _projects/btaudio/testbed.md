@@ -13,7 +13,7 @@ breadcrumb:
 
 <p align="center">
   <a href="/assets/projects/btaudio/testbed.jpg" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/projects/btaudio/testbed.jpg" alt="testbed" width="50%">
+    <img src="/assets/projects/btaudio/testbed.jpg" alt="testbed" width="35%">
   </a>
 </p>
 
