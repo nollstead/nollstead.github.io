@@ -85,8 +85,8 @@ Note:  This one is a work in progress and hasn't been tested, so it's subject to
 - Connect VREF to GND through a 10uF capacitor
 - Connect SCA and SCL to the shared I2C columns you made earlier
 - DO NOT connect VCC to shared PWR.  The BD37033 requires a minimum of 7v so we'll have to use a separate bench power that's connected to shared GND
-- Connect a 1uF capacitor from the LOUT1 pin on the codec to any open breadboard column with the negative side facing the codec (LOUT1).  Then connect ...
-- Connect a 1uF capacitor from the ROUT1 pin on the codec to any open breadboard column with the negative side facing the codec (ROUT1).  Then connect ... 
+- Connect a 1uF capacitor from the LOUT1 pin on the codec to any open breadboard column with the negative side facing the codec (LOUT1).  Then connect that to A2 on the BD37033 via a trace.
+- Connect a 1uF capacitor from the ROUT1 pin on the codec to any open breadboard column with the negative side facing the codec (ROUT1).  Then connect that to A1 on the BD37033 via a trace.
 - Connect OUTF1 on the BD37033 to FR on the RCA jacks through a 10uF capacitor and 100Ω resistor
   - Wiring should be:  OUTF1 -> 10uF -> 100Ω -> FR
   - Positive side of capacitor should face the BD37033 (OUTF1), negative faces RCA Jack (FR)
