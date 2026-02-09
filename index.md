@@ -7,7 +7,7 @@ breadcrumb:
 
 # Welcome
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+Nollstead Studio is a community for makers, engineers, and technology enthusiasts who enjoy projects that blend multiple domains—embedded systems development, hardware and PCB design, and wireless technologies. The work here often draws on platforms like Arduino, ESP32, and STM32 as examples, but the focus is on the ideas, techniques, and problem‑solving that bring complex systems together. Whether you're exploring new concepts, diving deep into technical challenges, or sharing your own discoveries, this space celebrates curiosity, innovation, and the craft of building things that bridge the digital and physical worlds.
 
 ## Featured Projects
 
