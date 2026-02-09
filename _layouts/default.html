@@ -9,45 +9,32 @@
     <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
   </head>
   <body>
-    <!-- <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title }}</h1>
-      {% unless page.layout == "innerlayout" %}
-        {% if page.description %}
-          <h2 class="project-tagline">{{ page.description }}</h2>
-        {% endif %}
-      {% endunless %}
-    </header> -->
 
     <main id="content" class="main-content" role="main">
 
-      <!-- <script>
-      // Mark this page as using the left-nav layout so global CSS can target it
-      document.documentElement.setAttribute('data-leftnav', '1');
-      </script> -->
+      <aside class="nx-sidebar" aria-label="Left navigation">
+      <div class="nx-brand">
+          <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Nollstead Studio">
+          <div class="nx-title">Nollstead Studio</div>
+      </div>
 
-        <aside class="nx-sidebar" aria-label="Left navigation">
-        <div class="nx-brand">
-            <img class="nx-avatar" src="{{ '/assets/Robot2.jpg' | relative_url }}" alt="Nollstead Studio">
-            <div class="nx-title">Nollstead Studio</div>
-        </div>
-
-        <nav class="nx-nav">
-            <ul>
-            <li class="{% if page.url == '/' %}is-active{% endif %}">
-                <a href="{{ '/' | relative_url }}">Home</a>
-            </li>
-            <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
-                <a href="{{ '/projects/' | relative_url }}">Projects</a>
-            </li>
-            <li class="{% if page.url == '/tags/' %}is-active{% endif %}">
-                <a href="{{ '/tags/' | relative_url }}">Tags</a>
-            </li>
-            <li class="{% if page.url == '/about/' %}is-active{% endif %}">
-                <a href="{{ '/about/' | relative_url }}">About</a>
-            </li>
-            </ul>
-        </nav>
-        </aside>
+      <nav class="nx-nav">
+          <ul>
+          <li class="{% if page.url == '/' %}is-active{% endif %}">
+              <a href="{{ '/' | relative_url }}">Home</a>
+          </li>
+          <li class="{% if page.url == '/projects/' %}is-active{% endif %}">
+              <a href="{{ '/projects/' | relative_url }}">Projects</a>
+          </li>
+          <li class="{% if page.url == '/tags/' %}is-active{% endif %}">
+              <a href="{{ '/tags/' | relative_url }}">Tags</a>
+          </li>
+          <li class="{% if page.url == '/about/' %}is-active{% endif %}">
+              <a href="{{ '/about/' | relative_url }}">About</a>
+          </li>
+          </ul>
+      </nav>
+      </aside>
 
         <!-- Let Cayman render the page as usual; we just add a breadcrumb above content -->
 
