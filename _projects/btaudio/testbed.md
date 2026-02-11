@@ -19,7 +19,7 @@ breadcrumb:
 
 <!-- <img src="/assets/projects/btaudio/testbed.jpg" alt="testbed" width="600"> -->
 
-Below is the current setup for the BTAudio breadboard testbed.  There are a lot of wires and a handful of passives so I recommend doing this in stages and testing each stage before proceeding to the next.
+Below is the current setup for the BTAudio breadboard testbed.  There are a lot of wires and a bunch of passives so I recommend doing this in stages and testing each stage before proceeding to the next.
 
 ## Component Placement
 
@@ -36,7 +36,7 @@ I recommend spacing the components out as described below to support moving wire
 
 ### ESP32 to Codec
 
-First connect the ESP32 and the codec.  Once this is complete you should be able to load firmware and test bluetooth output to the headphone jack on the codec breakout.
+First connect the ESP32 and the codec.  Once this is complete you should be able to load firmware and test bluetooth output to the headphone jack on the codec breakout.  The LED will show blue when Bluetooth is ready and green once you connect.  Once connected you should be able to stream audio from any source on your device.  
 
 #### I2S
 
@@ -85,7 +85,7 @@ The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/
 
 ### BD37033
 
-Here we'll wire the BD37033 into the left RCA pairs (FR, FL) and sub using the ROUT1/LOUT1 pins on the codec.  This will allow us to test audio independently.  
+Here we'll wire the BD37033 into the RCA pairs (FR, FL) and sub using the ROUT1/LOUT1 pins on the codec.  This will allow us to test audio independently.  
 
 Note:  This one is a work in progress and hasn't been tested, so it's subject to change.
 
