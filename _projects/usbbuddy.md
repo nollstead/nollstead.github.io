@@ -11,6 +11,7 @@ breadcrumb:
   - { title: "Projects", url: "/projects/" }
   - { title: "USB Buddy" }
 ---
+# USB Buddy
 
 ## Product Overview
 
