@@ -90,11 +90,11 @@ Here is the rest of the wiring for the BD37033.  These are all on the bottom row
 - Connect the OUTF2 pin ...
 - Connect the OUTF1 pin ...
 - Connect the VCC pin to any shared GND via a 10uF capacitor
-- Connect the VCC pin to bench power via a jumper wire.  Voltage range is 7v to 9.5v but I recommend setting to 8.5v since that's likely what the final board will use.  Note that this only uses about 20mA of current so you might get away with a 9v battery/barrel jack if bench power isn't easily available, though I haven't tried this.
+- Connect the VCC pin to bench power via a jumper wire (and bench gnd to any shared GND rail).  Note that voltage range is 7v to 9.5v but I recommend setting to 8.5v since that's likely what the final board will use.  The chip only uses about 20mA of current so you might get away with a 9v battery/barrel jack if bench power isn't easily available, though I haven't tried this.
 - Connect the SCL pin to the shared I2C SCL row you made earlier
 - Connect the SDA pin to the shared I2C SDA row you made earlier
 - Connect the GND pin to any shared GND rail
 - Connect the VREF pin to any shared GND using a 10uF capacitor
 
-
+At this point you should be wired in and ready to test.  Since the BD37033 uses a higher voltage than the rest of the testbed it'll need to be fed between 7v and 9.5v separately, though i'd recommend 8.5v.  Once that's done make sure bench power is turned on **before you plug in the usb on the esp32**.
 
