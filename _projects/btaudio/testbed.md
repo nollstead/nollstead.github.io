@@ -72,7 +72,7 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 - On the right ADS1115, connect the ADDR pin to shared PWR
 
 
-### BD37033 & RCA Jacks
+### BD37033 & RCA breakout board
 
 Here we'll wire the ES83033 codec to the BD37033 audio processor then out the RCA jacks.  
 
@@ -85,16 +85,30 @@ Here is the rest of the wiring for the BD37033.  These are all on the bottom row
 - Connect a 10kΩ resistor from the MUTE pin to any shared 3V3 rail
 - Connect a 10kΩ resistor from the LRST pin to any shared 3V3 rail
 - Connect a 100nF (0.1uF) capacitor from the LOUT pin to any shared GND rail
-- Connect the OUTR2 pin ...
-- Connect the OUTR1 pin ...
-- Connect the OUTF2 pin ...
-- Connect the OUTF1 pin ...
+- Connect the OUTR2 pin to the RL RCA pin through a 10uF capacitor and 100Ω resistor
+  - (+) side of capacitor faces the OUTR2 pin
+  - Order is: OUTR2 -> 10uF -> 100Ω -> RL
+  - resistor can be omitted if space is tight
+- Connect the OUTR1 pin to the RR RCA pin through a 10uF capacitor and 100Ω resistor
+  - (+) side of capacitor faces the OUTR1 pin
+  - Order is: OUTR1 -> 10uF -> 100Ω -> RR
+  - resistor can be omitted if space is tight
+- Connect the OUTF2 pin to the FL RCA pin through a 10uF capacitor and 100Ω resistor
+  - (+) side of capacitor faces the OUTF2 pin
+  - Order is: OUTF2 -> 10uF -> 100Ω -> FL
+  - resistor can be omitted if space is tight
+- Connect the OUTF1 pin to the FR RCA pin through a 10uF capacitor and 100Ω resistor
+  - (+) side of capacitor faces the OUTF1 pin
+  - Order is: OUTF1 -> 10uF -> 100Ω -> FR
+  - resistor can be omitted if space is tight
 - Connect the VCC pin to any shared GND via a 10uF capacitor
-- Connect the VCC pin to bench power via a jumper wire (and bench gnd to any shared GND rail).  Note that voltage range is 7v to 9.5v but I recommend setting to 8.5v since that's likely what the final board will use.  The chip only uses about 20mA of current so you might get away with a 9v battery/barrel jack if bench power isn't easily available, though I haven't tried this.
+- Connect the VCC pin to bench power via a jumper wire (and bench gnd to any shared GND rail).  
+  - Note that voltage range is 7v to 9.5v but I recommend setting to 8.5v since that's likely what the final board will use.  The chip only uses about 20mA of current so you might get away with a 9v battery/barrel jack if bench power isn't easily available, though I haven't tried this.
 - Connect the SCL pin to the shared I2C SCL row you made earlier
 - Connect the SDA pin to the shared I2C SDA row you made earlier
 - Connect the GND pin to any shared GND rail
 - Connect the VREF pin to any shared GND using a 10uF capacitor
+- Connec the GND pin on the RCA breakout baard to any shared GND rail
 
 At this point you should be wired in and ready to test.  Since the BD37033 uses a higher voltage than the rest of the testbed it'll need to be fed between 7v and 9.5v separately, though i'd recommend 8.5v.  Once that's done make sure bench power is turned on **before you plug in the usb on the esp32**.
 
