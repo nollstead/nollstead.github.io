@@ -85,6 +85,10 @@ Here is the rest of the wiring for the BD37033.  These are all on the bottom row
 - Connect a 10kΩ resistor from the MUTE pin to any shared 3V3 rail
 - Connect a 10kΩ resistor from the LRST pin to any shared 3V3 rail
 - Connect a 100nF (0.1uF) capacitor from the LOUT pin to any shared GND rail
+- Connect the OUTS1 pin to the Sub RCA pin through a 10uF capacitor and 100Ω resistor
+  - (+) side of capacitor faces the OUTS1 pin
+  - Order is: OUTS1 -> 10uF -> 100Ω -> Sub
+  - resistor can be omitted if space is tight
 - Connect the OUTR2 pin to the RL RCA pin through a 10uF capacitor and 100Ω resistor
   - (+) side of capacitor faces the OUTR2 pin
   - Order is: OUTR2 -> 10uF -> 100Ω -> RL
@@ -108,7 +112,7 @@ Here is the rest of the wiring for the BD37033.  These are all on the bottom row
 - Connect the SDA pin to the shared I2C SDA row you made earlier
 - Connect the GND pin to any shared GND rail
 - Connect the VREF pin to any shared GND using a 10uF capacitor
-- Connec the GND pin on the RCA breakout baard to any shared GND rail
+- Connect the G pin on the RCA breakout baard to any shared GND rail
 
 At this point you should be wired in and ready to test.  Since the BD37033 uses a higher voltage than the rest of the testbed it'll need to be fed between 7v and 9.5v separately, though i'd recommend 8.5v.  Once that's done make sure bench power is turned on **before you plug in the usb on the esp32**.
 
