@@ -76,24 +76,24 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 
 Here we'll wire the ES83033 codec to the BD37033 audio processor then out the RCA jacks.  
 
+Here is the wiring from the ES8388 to the BD37033.  Only two pins are currently used on the top row of the BD37033
 - Connect a 1uF capacitor from the LOUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A2 pin on the BD37033
 - Connect a 1uF capacitor from the ROUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A1 pin on the BD37033
 
+Here is the wiring for the BD37033.  These are all on the bottom row (facing the RCA breakout board) and listed from left to right.
+
+- Connect a 10kΩ resistor from the MUTE pin to any shared 3V3 rail
+- Connect a 10kΩ resistor from the LRST pin to any shared 3V3 rail
+- Connect a 100nF (0.1uF) capacitor from the LOUT pin to any shared GND rail
+- Connect the OUTR2 pin ...
+- Connect the OUTR1 pin ...
+- Connect the OUTF2 pin ...
+- Connect the OUTF1 pin ...
+- Connect the VCC pin ...
+- Connect the SCL pin to the shared I2C SCL row you made earlier
+- Connect the SDA pin to the shared I2C SDA row you made earlier
+- Connect the GND pin to any shared GND rail
+- Connect the VREF pin to any shared GND using a 10uF capacitor
 
 
-- Connect GND to shared GND
-- Connect VREF to GND through a 10uF capacitor
-- Connect SCA and SCL to the shared I2C columns you made earlier
-- DO NOT connect VCC to shared PWR.  The BD37033 requires a minimum of 7v so we'll have to use a separate bench power that's connected to shared GND
-- Connect a 1uF capacitor from the LOUT1 pin on the codec to any open breadboard column with the negative side facing the codec (LOUT1).  Then connect that to A2 on the BD37033 via a trace.
-- Connect a 1uF capacitor from the ROUT1 pin on the codec to any open breadboard column with the negative side facing the codec (ROUT1).  Then connect that to A1 on the BD37033 via a trace.
-- Connect OUTF1 on the BD37033 to FR on the RCA jacks through a 10uF capacitor and 100Ω resistor
-  - Wiring should be:  OUTF1 -> 10uF -> 100Ω -> FR
-  - Positive side of capacitor should face the BD37033 (OUTF1), negative faces RCA Jack (FR)
-- Connect OUTF2 on the BD37033 to FL on the RCA jacks through a 10uF capacitor and 100Ω resistor
-  - Wiring should be:  OUTF2 -> 10uF -> 100Ω -> FL
-  - Positive side of capacitor should face the BD37033 (OUTF2), negative faces RCA Jack (FL)
-- Connect OUTS1 on the BD37033 to SUB on the RCA jacks through a 10uF capacitor and 100Ω resistor
-  - Wiring should be:  OUTS1 -> 10uF -> 100Ω -> SUB
-  - Positive side of capacitor should face the BD37033 (OUTFS1), negative faces RCA Jack (SUB)
 
