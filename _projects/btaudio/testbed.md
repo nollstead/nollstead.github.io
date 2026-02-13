@@ -72,7 +72,7 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 - On the right ADS1115, connect the ADDR pin to shared PWR
 
 
-### BD37033
+### BD37033 & RCA Jacks
 
 Here we'll wire the ES83033 codec to the BD37033 audio processor then out the RCA jacks.  
 
@@ -80,7 +80,7 @@ Here is the wiring from the ES8388 to the BD37033.  Only two pins are currently 
 - Connect a 1uF capacitor from the LOUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A2 pin on the BD37033
 - Connect a 1uF capacitor from the ROUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A1 pin on the BD37033
 
-Here is the wiring for the BD37033.  These are all on the bottom row (facing the RCA breakout board) and listed from left to right.
+Here is the rest of the wiring for the BD37033.  These are all on the bottom row (facing the RCA breakout board) and listed from left to right.
 
 - Connect a 10kΩ resistor from the MUTE pin to any shared 3V3 rail
 - Connect a 10kΩ resistor from the LRST pin to any shared 3V3 rail
@@ -89,7 +89,8 @@ Here is the wiring for the BD37033.  These are all on the bottom row (facing the
 - Connect the OUTR1 pin ...
 - Connect the OUTF2 pin ...
 - Connect the OUTF1 pin ...
-- Connect the VCC pin ...
+- Connect the VCC pin to any shared GND via a 10uF capacitor
+- Connect the VCC pin to bench power via a jumper wire.  Voltage range is 7v to 9.5v but I recommend setting to 8.5v since that's likely what the final board will use.  Note that this only uses about 20mA of current so you might get away with a 9v battery/barrel jack if bench power isn't easily available, though I haven't tried this.
 - Connect the SCL pin to the shared I2C SCL row you made earlier
 - Connect the SDA pin to the shared I2C SDA row you made earlier
 - Connect the GND pin to any shared GND rail
