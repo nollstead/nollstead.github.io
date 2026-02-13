@@ -71,23 +71,15 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 - On the left ADS1115, connect the ADDR pin to shared GND
 - On the right ADS1115, connect the ADDR pin to shared PWR
 
-### RCA Jacks
-
-The current code is set to output the same signal on both ROUT1/LOUT1 and ROUT2/LOUT2.  Currently the headphones are connected to ROUT2/LOUT2 so for this initial RCA test setup (that bypasses the BD37033 for now) we'll use those same pins.  Once the steps below are done you should have the same audio out the right RCA jacks as the headphone jacks.  
-
-- Connect GND on the RCA breakout to shared GND (there is no PWR pin)
-- Connect LOUT2 on the codec to the RL pin with a 10uF series capacitor and a 10Ω series resistor (in that order)
-  - Wiring should be:  LOUT2 -> 10uF -> 10Ω -> RL
-  - To do this you'll obviously need some open spaces on the breadboard
-  - Positive side of capacitor should face LOUT2, negative faces RL
-- Do the same for ROUT2 to RR
-
 
 ### BD37033
 
-Here we'll wire the BD37033 into the RCA pairs (FR, FL) and sub using the ROUT1/LOUT1 pins on the codec.  This will allow us to test audio independently.  
+Here we'll wire the ES83033 codec to the BD37033 audio processor then out the RCA jacks.  
 
-Note:  This one is a work in progress and hasn't been tested, so it's subject to change.
+- Connect a 1uF capacitor from the LOUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A2 pin on the BD37033
+- Connect a 1uF capacitor from the ROUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A1 pin on the BD37033
+
+
 
 - Connect GND to shared GND
 - Connect VREF to GND through a 10uF capacitor
