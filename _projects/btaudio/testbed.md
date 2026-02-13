@@ -77,8 +77,8 @@ For our initial testing we'll use 3.3v.  We'll need to figure out how to handle 
 Here we'll wire the ES83033 codec to the BD37033 audio processor then out the RCA jacks.  
 
 Here is the wiring from the ES8388 to the BD37033.  Only two pins are currently used on the top row of the BD37033
-- Connect a 1uF capacitor from the LOUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A2 pin on the BD37033
-- Connect a 1uF capacitor from the ROUT1 pin on the ES8388, with - side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A1 pin on the BD37033
+- Connect a 1uF capacitor from the LOUT1 pin on the ES8388, with (-) side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A2 pin on the BD37033
+- Connect a 1uF capacitor from the ROUT1 pin on the ES8388, with (-) side facing the ES8388, to an open breadboard column.  Then add a jumper from there to A1 pin on the BD37033
 
 Here is the rest of the wiring for the BD37033.  These are all on the bottom row (facing the RCA breakout board) and listed from left to right.
 
