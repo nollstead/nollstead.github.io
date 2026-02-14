@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.1.6",
+      "date": "2026-02-14",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Restructured menu commands to support future features.  Implemented subwoofer cutoff frequency commands (via SPP)",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_6.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.1.5",
       "date": "2026-02-13",
       "label": "ESP32-DevKitC-VE",
