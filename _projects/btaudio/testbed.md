@@ -116,3 +116,8 @@ Here is the rest of the wiring for the BD37033.  These are all on the bottom row
 
 At this point you should be wired in and ready to test.  Since the BD37033 uses a higher voltage than the rest of the testbed it'll need to be fed between 7v and 9.5v separately, though i'd recommend 8.5v.  Once that's done make sure bench power is turned on **before you plug in the usb on the esp32**.
 
+## Testing
+
+- Use latest version (v0.1.5). 
+- Should have sound on all four line jacks
+- Sub is the right subwoofer channel.  Frequency cutoff is currently 85Hz
