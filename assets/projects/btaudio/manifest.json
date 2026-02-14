@@ -2,7 +2,20 @@
   "name": "Nollstead Studio BTAudio",
   "schema": 1,
   "builds": [
-    {
+     {
+      "version": "v0.1.5",
+      "date": "2026-02-13",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Full audio output on FR/FL/RR/RL and Sub1/Sub2",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_5.bin",
+          "offset": 0
+        }
+      ]
+    },
+   {
       "version": "v0.1.4",
       "date": "2026-02-03",
       "label": "ESP32-DevKitC-VE",
