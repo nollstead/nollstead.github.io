@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.1.8",
+      "date": "2026-02-15",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Simplified volume code.  headphones=-6dB, RCAs=0db",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_8.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.1.7",
       "date": "2026-02-15",
       "label": "ESP32-DevKitC-VE",
