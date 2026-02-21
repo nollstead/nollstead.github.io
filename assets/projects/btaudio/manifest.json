@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.1.9",
+      "date": "2026-02-20",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "added additional sub commands and optimized code a bit for bitwise manipulation",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_9.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.1.8",
       "date": "2026-02-15",
       "label": "ESP32-DevKitC-VE",
@@ -76,32 +89,6 @@
       "parts": [
         {
           "path": "BTAudio_0_1_3.bin",
-          "offset": 0
-        }
-      ]
-    },
-    {
-      "version": "v0.1.2",
-      "date": "2026-01-26",
-      "label": "",
-      "notes": "Minimal build, no RGB-LED",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_2.bin",
-          "offset": 0
-        }
-      ]
-    },
-    {
-      "version": "v0.1.1",
-      "date": "2026-01-20",
-      "label": "",
-      "notes": "Added automatic versioning and version command",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_1.bin",
           "offset": 0
         }
       ]
