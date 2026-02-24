@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.1.10",
+      "date": "2026-02-23",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "6dB output, 120Hz sub, code refactoring",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_10.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.1.9",
       "date": "2026-02-20",
       "label": "ESP32-DevKitC-VE",
@@ -37,71 +50,6 @@
       "parts": [
         {
           "path": "BTAudio_0_1_7.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.6",
-      "date": "2026-02-14",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Restructured menu commands to support future features.  Implemented subwoofer cutoff frequency commands (via SPP)",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_6.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.5",
-      "date": "2026-02-13",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Full audio output on FR/FL/RR/RL and Sub1/Sub2",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_5.bin",
-          "offset": 0
-        }
-      ]
-    },
-   {
-      "version": "v0.1.4",
-      "date": "2026-02-03",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Breadboard-ready test, excluding BD37033.  Includes RGB LED: (Yellow=Initializing, Blue=Bluetooth Initialized, Green=Audio Connected, Red=Error)",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_4.bin",
-          "offset": 0
-        }
-      ]
-    },
-    {
-      "version": "v0.1.3",
-      "date": "2026-02-01",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Initial build using PSRAM.  Run on ESP32-DevKitC-VE only",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_3.bin",
-          "offset": 0
-        }
-      ]
-    },
-    {
-      "version": "v0.1.0",
-      "date": "2026-01-16",
-      "label": "Initial Version",
-      "notes": "RGB LED: Blue=Bluetooth Ready, Green=Connected",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_0.bin",
           "offset": 0
         }
       ]
