@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.1.11",
+      "date": "2026-02-24",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "refactored bd37033 initialization to eliminate initial pops.  Added additional menu settings for volume and modified wording to be more clear.  Set default output to 0dB and subwoofer cutoff to 120Hz",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_11.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.1.10",
       "date": "2026-02-23",
       "label": "ESP32-DevKitC-VE",
