@@ -24,7 +24,8 @@ BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Es
 
 | Function | Default value |
 |---------|-------------|
-| Output Volume (Gain) | -20dB |
+| Output Volume | 20 (0-50 scale) |
+| Loudness Compensation | on |
 | Subwoofer Cutoff Frequency | 120Hz |
 | Subwoofer Phase	| 0 degrees |
 | Subwoofer Output	| LPF |
@@ -38,7 +39,6 @@ BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Es
 | Bass Gain	| +0dB |
 | Middle Gain	| +0dB |
 | Treble Gain	| +0dB |
-| Loudness Gain	| +0dB |
 
 ## Menu
 
@@ -60,13 +60,17 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 
 ### Volume
 
-Volume range is +15 dB (boost) to -79 dB (attenuation). Values are clamped to this range.
+Volume is controlled on a 0-50 display scale. Level 0 is mute, 44 is 0 dB, and 50 is +6 dB max. 
+
+Loudness compensation is enabled by default.  This setting boosts bass and treble at lower volumes so music sounds full even when it's quiet (Fletcher-Munson curve). The boost gradually reduces as volume increases. Disabling loudness compensation provides a flat response at all volume levels, which may sound thinner at low volumes but gives a more neutral, uncolored output.
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `vol up x` | Increase volume by x dB | `vol up 3` |
-| `vol down x` | Decrease volume by x dB | `vol down 6` |
-| `set vol x` | Set volume to an absolute level | `set vol -10` |
+| `vol up x` | Increase volume by x steps | `vol up 3` |
+| `vol down x` | Decrease volume by x steps | `vol down 6` |
+| `set vol x` | Set volume to level x (0-50) | `set vol 30` |
+| `loud on` | Enable loudness compensation | |
+| `loud off` | Disable loudness compensation | |
 
 ### Subwoofer
 These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio. No subwoofer? Just use `sub off`.
