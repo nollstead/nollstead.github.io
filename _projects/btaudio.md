@@ -16,7 +16,7 @@ breadcrumb:
 
 ## Project Overview
 
-BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Espressif's Audio Development Framework (ESP-ADF). It receives audio via Bluetooth A2DP and outputs to speakers/headphones through an audio processing chain.
+BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that do not have a modern Bluetooth-enabled radio. It wires into your existing amplifier and speakers, letting you pair your phone and stream music with built-in sound processing including volume control, tone adjustment, loudness compensation, and subwoofer management.
 
 ## Features
 
@@ -62,7 +62,7 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 
 Volume is controlled on a 0-50 display scale. Level 0 is mute, 44 is 0 dB, and 50 is +6 dB max. 
 
-Loudness compensation is enabled by default.  This setting boosts bass and treble at lower volumes so music sounds full even when it's quiet (Fletcher-Munson curve). The boost gradually reduces as volume increases. Disabling loudness compensation provides a flat response at all volume levels, which may sound thinner at low volumes but gives a more neutral, uncolored output.
+Loudness compensation is enabled by default. Our ears naturally lose sensitivity to bass and treble at lower volumes, which can make music sound thin. Loudness compensation corrects for this by boosting bass and treble at low volumes so music sounds full. The boost gradually reduces as volume increases since it's no longer needed. Disable it for a neutral, uncolored output at all volume levels.
 
 | Command | Description | Example |
 |---------|-------------|---------|
