@@ -24,7 +24,7 @@ BTAudio is a custom Bluetooth audio adapter built on the ESP32 platform using Es
 
 | Function | Default value |
 |---------|-------------|
-| Output Volume (Gain) | +0dB |
+| Output Volume (Gain) | -20dB |
 | Subwoofer Cutoff Frequency | 120Hz |
 | Subwoofer Phase	| 0 degrees |
 | Subwoofer Output	| LPF |
