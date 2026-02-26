@@ -69,7 +69,7 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 | `vol up x` | Increase volume by x steps | `vol up 3` |
 | `vol down x` | Decrease volume by x steps | `vol down 6` |
 | `set vol x` | Set volume to level x (0-50) | `set vol 30` |
-| `loud on` | Enable loudness compensation | |
+| `loud on` | Enable loudness compensation (default) | |
 | `loud off` | Disable loudness compensation | |
 
 ### Subwoofer
@@ -77,19 +77,19 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 
 | Command | Description |
 |---------|-------------|
-| `sub off` | Disable sub output |
-| `sub 55` | Set LPF cutoff to 55 Hz |
-| `sub 85` | Set LPF cutoff to 85 Hz |
-| `sub 120` | Set LPF cutoff to 120 Hz |
-| `sub 160` | Set LPF cutoff to 160 Hz |
-| `sub pass` | Bypass LPF, send full range to sub |
-| `sub phase 0` | Normal phase (0 degrees) |
-| `sub phase 180` | Inverted phase (180 degrees) |
-| `sub out lpf` | Sub gets bass only (filtered by cutoff above) |
-| `sub out front` | Sub mirrors front channels (full range) |
-| `sub out rear` | Sub mirrors rear channels (full range) |
-| `sub input loudness` | Sub input from loudness block |
-| `sub input selector` | Sub input from input selector |
+| `sub off` | Disable subwoofer output |
+| `sub 55` | Set subwoofer cutoff frequency to 55 Hz |
+| `sub 85` | Set subwoofer cutoff frequency to 85 Hz |
+| `sub 120` | Set subwoofer cutoff frequency to 120 Hz (default) |
+| `sub 160` | Set subwoofer cutoff frequency to 160 Hz |
+| `sub pass` | Subwoofer plays full range audio |
+| `sub phase 0` | Normal subwoofer phase (default) |
+| `sub phase 180` | Inverted subwoofer phase |
+| `sub out lpf` | Subwoofer gets bass only (default) |
+| `sub out front` | Subwoofer plays same audio as front speakers |
+| `sub out rear` | Subwoofer plays same audio as rear speakers |
+| `sub input loudness` | Subwoofer signal includes loudness compensation (default) |
+| `sub input selector` | Subwoofer signal bypasses loudness compensation |
 
 ### Balance / Fader
 
