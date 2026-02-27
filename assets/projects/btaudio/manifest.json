@@ -3,14 +3,14 @@
   "schema": 1,
   "builds": [
      {
-      "version": "v0.1.13",
+      "version": "v0.1.14",
       "date": "2026-02-26",
       "label": "ESP32-DevKitC-VE",
-      "notes": "Added loudness option, defaults to on",
+      "notes": "(includes loudness fix):  Added loudness option, defaults to on",
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "BTAudio_0_1_13.bin",
+          "path": "BTAudio_0_1_14.bin",
           "offset": 0
         }
       ]
