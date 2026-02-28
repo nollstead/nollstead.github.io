@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.1.17",
+      "date": "2026-02-27",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Standardized command syntax",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_1_17.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.1.16",
       "date": "2026-02-27",
       "label": "ESP32-DevKitC-VE",

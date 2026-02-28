@@ -78,28 +78,28 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 |---------|-------------|---------|
 | `vol up x` | Increase volume by x steps | `vol up 3` |
 | `vol down x` | Decrease volume by x steps | `vol down 6` |
-| `set vol x` | Set volume to level x (0-50) | `set vol 30` |
+| `vol x` | Set volume to level x (0-50) | `vol 30` |
 | `loud on` | Enable loudness compensation (default) | |
 | `loud off` | Disable loudness compensation | |
-| `set loud f0 400` | Set loudness center frequency to 400 Hz | |
-| `set loud f0 800` | Set loudness center frequency to 800 Hz (default) | |
-| `set loud f0 2400` | Set loudness center frequency to 2400 Hz | |
-| `set loud hicut {n}` | Set loudness hi-cut (1, 2, 3, 4) | `set loud hicut 2` |
-| `set input gain {n}` | Set input gain (0-20 dB) | `set input gain 5` |
+| `loud f0 400` | Set loudness center frequency to 400 Hz | |
+| `loud f0 800` | Set loudness center frequency to 800 Hz (default) | |
+| `loud f0 2400` | Set loudness center frequency to 2400 Hz | |
+| `loud hicut {n}` | Set loudness hi-cut (1, 2, 3, 4) | `loud hicut 2` |
+| `input gain {n}` | Set input gain (0-20 dB) | `input gain 5` |
 
 ### EQ / Tone
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `set bass gain {n}` | Set bass gain (-14 to +14 dB) | `set bass gain 6` |
-| `set bass q {val}` | Set bass Q (0.5, 1.0, 1.5, 2.0) | `set bass q 1.0` |
-| `set bass f0 {val}` | Set bass f0 (60, 80, 100, 120 Hz) | `set bass f0 80` |
-| `set mid gain {n}` | Set middle gain (-14 to +14 dB) | `set mid gain -3` |
-| `set mid q {val}` | Set middle Q (0.75, 1.0, 1.25, 1.5) | `set mid q 1.0` |
-| `set mid f0 {val}` | Set middle f0 (0.5k, 1k, 1.5k, 2.5k Hz) | `set mid f0 1k` |
-| `set treble gain {n}` | Set treble gain (-14 to +14 dB) | `set treble gain 4` |
-| `set treble q {val}` | Set treble Q (0.75, 1.25) | `set treble q 1.25` |
-| `set treble f0 {val}` | Set treble f0 (7.5k, 10k, 12.5k, 15k Hz) | `set treble f0 10k` |
+| `bass gain {n}` | Set bass gain (-14 to +14 dB) | `bass gain 6` |
+| `bass q {val}` | Set bass Q (0.5, 1.0, 1.5, 2.0) | `bass q 1.0` |
+| `bass f0 {val}` | Set bass f0 (60, 80, 100, 120 Hz) | `bass f0 80` |
+| `mid gain {n}` | Set middle gain (-14 to +14 dB) | `mid gain -3` |
+| `mid q {val}` | Set middle Q (0.75, 1.0, 1.25, 1.5) | `mid q 1.0` |
+| `mid f0 {val}` | Set middle f0 (0.5k, 1k, 1.5k, 2.5k Hz) | `mid f0 1k` |
+| `treble gain {n}` | Set treble gain (-14 to +14 dB) | `treble gain 4` |
+| `treble q {val}` | Set treble Q (0.75, 1.25) | `treble q 1.25` |
+| `treble f0 {val}` | Set treble f0 (7.5k, 10k, 12.5k, 15k Hz) | `treble f0 10k` |
 
 ### Subwoofer
 These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio. No subwoofer? Just use `sub off`.
