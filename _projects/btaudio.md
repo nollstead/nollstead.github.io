@@ -26,6 +26,7 @@ BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that d
 |---------|-------------|
 | Output Volume | 20 (0-50 scale) |
 | Loudness Compensation | on |
+| Loudness Center Frequency (f0) | 800 Hz |
 | Subwoofer Cutoff Frequency | 120Hz |
 | Subwoofer Phase	| 0 degrees |
 | Subwoofer Output	| LPF |
@@ -71,6 +72,9 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 | `set vol x` | Set volume to level x (0-50) | `set vol 30` |
 | `loud on` | Enable loudness compensation (default) | |
 | `loud off` | Disable loudness compensation | |
+| `loud f0 400` | Set loudness center frequency to 400 Hz | |
+| `loud f0 800` | Set loudness center frequency to 800 Hz (default) | |
+| `loud f0 2400` | Set loudness center frequency to 2400 Hz | |
 
 ### Subwoofer
 These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio. No subwoofer? Just use `sub off`.
