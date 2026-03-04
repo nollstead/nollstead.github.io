@@ -6,7 +6,7 @@ breadcrumb:
   - { title: "Home", url: "/" }
   - { title: "Projects", url: "/projects/" }
   - { title: "Bluetooth Audio", url: "/btaudio/" }
-  - { title: "Testbed" }
+  - { title: "Testplan" }
 ---
 
 # BTAudio Test plan
