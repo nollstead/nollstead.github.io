@@ -102,11 +102,10 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 | `treble f0 {val}` | Set treble f0 (7.5k, 10k, 12.5k, 15k Hz) | `treble f0 10k` |
 
 ### Subwoofer
-These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio. No subwoofer? Just use `sub off`.
+These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio.
 
 | Command | Description |
 |---------|-------------|
-| `sub off` | Disable subwoofer output |
 | `sub 55` | Set subwoofer cutoff frequency to 55 Hz |
 | `sub 85` | Set subwoofer cutoff frequency to 85 Hz |
 | `sub 120` | Set subwoofer cutoff frequency to 120 Hz (default) |
@@ -117,8 +116,8 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 | `sub out lpf` | Subwoofer gets bass only (default) |
 | `sub out front` | Subwoofer plays same audio as front speakers |
 | `sub out rear` | Subwoofer plays same audio as rear speakers |
-| `sub input loudness` | Subwoofer signal includes loudness compensation (default) |
-| `sub input selector` | Subwoofer signal bypasses loudness compensation |
+| `sub input variable` | Sub level tracks with volume knob (default) |
+| `sub input fixed` | Sub level stays constant regardless of volume |
 
 ### Balance / Fader
 
@@ -128,5 +127,6 @@ Not yet implemented.
 ## Useful Links
 
 - [BTAudio Testbed Configuration](/btaudio/testbed)
+- [BTAudio Test Plan](/btaudio/testplan)
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Github Repository](https://github.com/nollstead/btaudio)

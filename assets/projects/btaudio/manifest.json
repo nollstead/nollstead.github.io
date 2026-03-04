@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.2.2",
+      "date": "2026-02-28",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Subwoofer updates, minor menu changes",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_2_2.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.2.1",
       "date": "2026-02-28",
       "label": "ESP32-DevKitC-VE",
