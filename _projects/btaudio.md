@@ -24,7 +24,7 @@ BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that d
 
 | Function | Default value |
 |---------|-------------|
-| Output Volume | 20 (0-50 scale) |
+| Volume Offset | 20 (0-50 scale) |
 | Loudness Compensation | on |
 | Loudness Center Frequency (f0) | 800 Hz |
 | Loudness Hi-Cut | 1 |
@@ -41,7 +41,7 @@ BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that d
 | Subwoofer Cutoff Frequency | 120 Hz |
 | Subwoofer Phase | 0 degrees |
 | Subwoofer Output | LPF |
-| Subwoofer Input | Loudness |
+| Subwoofer Input | Variable |
 | Fader Front Left | +0 dB |
 | Fader Front Right | +0 dB |
 | Fader Rear Left | +0 dB |
@@ -59,7 +59,7 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 |---------|-------------|
 | `help` | Show general help |
 | `help all` | Show all commands |
-| `help vol` | Show volume commands |
+| `help vol` | Show volume offset commands |
 | `help eq` | Show EQ/tone commands |
 | `help sub` | Show subwoofer commands |
 | `help balance` | Show balance commands |
@@ -68,17 +68,17 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 | `status` | Show current settings |
 | `reset` | Reset all settings to factory defaults |
 
-### Volume
+### Volume Offset
 
-Volume is controlled on a 0-50 display scale. Level 0 is mute, 44 is 0 dB, and 50 is +6 dB max.
+Volume Offset is a static compensation for amp and speaker differences — set it once and forget it. Day-to-day volume is controlled from your phone. The offset uses a 0-50 scale where level 0 is mute, 44 is 0 dB, and 50 is +6 dB max.
 
 Loudness compensation is enabled by default. Our ears naturally lose sensitivity to bass and treble at lower volumes, which can make music sound thin. Loudness compensation corrects for this by boosting bass and treble at low volumes so music sounds full. The boost gradually reduces as volume increases since it's no longer needed. Disable it for a neutral, uncolored output at all volume levels.
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `vol up x` | Increase volume by x steps | `vol up 3` |
-| `vol down x` | Decrease volume by x steps | `vol down 6` |
-| `vol x` | Set volume to level x (0-50) | `vol 30` |
+| `vol up x` | Increase volume offset by x steps | `vol up 3` |
+| `vol down x` | Decrease volume offset by x steps | `vol down 6` |
+| `vol x` | Set volume offset to level x (0-50) | `vol 30` |
 | `loud on` | Enable loudness compensation (default) | |
 | `loud off` | Disable loudness compensation | |
 | `loud f0 400` | Set loudness center frequency to 400 Hz | |
@@ -116,8 +116,8 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 | `sub out lpf` | Subwoofer gets bass only (default) |
 | `sub out front` | Subwoofer plays same audio as front speakers |
 | `sub out rear` | Subwoofer plays same audio as rear speakers |
-| `sub input variable` | Sub level tracks with volume knob (default) |
-| `sub input fixed` | Sub level stays constant regardless of volume |
+| `sub input variable` | Sub level tracks with volume offset (default) |
+| `sub input fixed` | Sub level stays constant regardless of volume offset |
 
 ### Balance / Fader
 

@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.2.4",
+      "date": "2026-03-05",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Removed AVRCP volume control but left bi=directional syncing of menu items/SPP commands.  Renamed Volume to Volume Offset",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_2_4.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.2.3",
       "date": "2026-03-04",
       "label": "ESP32-DevKitC-VE",
