@@ -3,8 +3,21 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.2.3",
+      "date": "2026-03-04",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Implemented bi-directional volume control via AVRCP, added webui sliders for numeric entries",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_2_3.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.2.2",
-      "date": "2026-02-28",
+      "date": "2026-03-04",
       "label": "ESP32-DevKitC-VE",
       "notes": "Subwoofer updates, minor menu changes",
       "chipFamily": "ESP32",
@@ -17,7 +30,7 @@
     },
      {
       "version": "v0.2.1",
-      "date": "2026-02-28",
+      "date": "2026-03-02",
       "label": "ESP32-DevKitC-VE",
       "notes": "Updated WebUI to wire in all settings",
       "chipFamily": "ESP32",
