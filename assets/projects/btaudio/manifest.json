@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.2.5",
+      "date": "2026-03-05",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "WebUI updates:  Implemented reboot, reset device name and log level in device settings.  Added events table tied to log level.  Implemented OTA firmware functionality",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_2_5.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.2.4",
       "date": "2026-03-05",
       "label": "ESP32-DevKitC-VE",
@@ -50,97 +63,6 @@
       "parts": [
         {
           "path": "BTAudio_0_2_1.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.17",
-      "date": "2026-02-27",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Standardized command syntax",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_17.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.16",
-      "date": "2026-02-27",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Added remaining menu options",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_16.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.15",
-      "date": "2026-02-27",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Added Loudness Center Frequency option, defaults to 800z",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_15.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.14",
-      "date": "2026-02-26",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "(includes loudness fix):  Added loudness option, defaults to on",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_14.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.12",
-      "date": "2026-02-25",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Enhancements to es8388 codec functionality; changed volume menu controls to map from 0-50 (per datasheet) instead of dB",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_12.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.11",
-      "date": "2026-02-24",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "refactored bd37033 initialization to eliminate initial pops.  Added additional menu settings for volume and modified wording to be more clear.  Set default output to 0dB and subwoofer cutoff to 120Hz",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_11.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.1.10",
-      "date": "2026-02-23",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "6dB output, 120Hz sub, code refactoring",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_1_10.bin",
           "offset": 0
         }
       ]
