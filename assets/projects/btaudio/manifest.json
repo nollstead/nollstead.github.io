@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.1",
+      "date": "2026-03-07",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Implemented saving to NVRAM, page org changes, temporrily disabled login page",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_1.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.2.5",
       "date": "2026-03-05",
       "label": "ESP32-DevKitC-VE",

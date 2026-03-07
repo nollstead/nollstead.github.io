@@ -202,7 +202,7 @@ Why this matters: If the sub is physically far from the main speakers, sound wav
 
 **What it does:** This selects where the sub channel gets its audio signal from within the BD37033's internal signal chain.
 
-- **Variable** (default) — The sub receives its signal from after the loudness processing stage. The sub level tracks with the volume knob and benefits from loudness compensation at low volumes (bass boost).
+- **Variable** (default) — The sub receives its signal from after the loudness processing stage. The sub level tracks with the volume setting and benefits from loudness compensation at low volumes (bass boost).
 - **Fixed** — The sub receives its signal from the input selector, before volume and loudness processing. The sub gets a constant-level "raw" signal regardless of volume setting.
 
 **Starting point:** All settings at defaults (input = Variable). Set bass gain = **+8 dB** and volume to a comfortable level.
@@ -210,7 +210,7 @@ Why this matters: If the sub is physically far from the main speakers, sound wav
 | Step | Change | What to listen for |
 |------|--------|--------------------|
 | 1 | Confirm input = **Variable** | Sub should sound bass-boosted since the +8 dB bass EQ and loudness compensation are applied before the sub receives the signal |
-| 2 | Set input = **Fixed** | Sub level no longer tracks with the volume knob — it stays at a constant level. The sub output should sound flatter/cleaner, while the main speakers still have the +8 dB bass boost |
+| 2 | Set input = **Fixed** | Sub level no longer tracks with the volume setting — it stays at a constant level. The sub output should sound flatter/cleaner, while the main speakers still have the +8 dB bass boost |
 | 3 | Toggle back and forth | The sub's tonal character should change — Variable has more bass weight, Fixed is flatter |
 
 **Pass criteria:** The sub's response to volume and EQ changes should differ between the two settings. With "Fixed" input, changing volume should NOT affect the sub output level. With "Variable" input, it should.
@@ -239,6 +239,28 @@ Why this matters: If the sub is physically far from the main speakers, sound wav
 
 ---
 
+## Test 11: Save and Load Settings (NVS Persistence)
+
+**What it does:** Settings are stored in RAM and lost on power cycle. The `save` command (SPP) or "Save Settings" button (web UI) writes all current settings to flash (NVS). On boot, saved settings are restored automatically. "Reset Defaults" reverts RAM only — a subsequent `save` is required to persist the reset.
+
+**Starting point:** All settings at defaults. Confirm via `status` (SPP) or web UI.
+
+| Step | Action | Expected result |
+|------|--------|-----------------|
+| 1 | Change volume offset to **30**, bass gain to **+6 dB**, sub cutoff to **85 Hz** | Settings update in RAM and on the web UI |
+| 2 | Run `save` via SPP (or click "Save Settings" in web UI) | "Settings saved." confirmation |
+| 3 | Reboot the device (power cycle or `reboot` command) | Device restarts |
+| 4 | Run `status` via SPP (or check web UI) | Volume offset = 30, bass gain = +6, sub cutoff = 85 Hz — settings persisted |
+| 5 | Click "Reset Defaults" in web UI (or run `reset` via SPP) | All settings revert to factory defaults (volume = 20, bass = 0, sub = 120 Hz) |
+| 6 | Reboot the device again | Device restarts |
+| 7 | Run `status` via SPP (or check web UI) | Settings are back to the **saved** values (volume = 30, bass = +6, sub = 85 Hz) — reset only changed RAM, NVS still has saved values |
+| 8 | Run `reset` then `save` | "Settings reset..." then "Settings saved." |
+| 9 | Reboot the device | Factory defaults persist — NVS now holds default values |
+
+**Pass criteria:** Settings survive reboot after save. Reset without save does not affect what loads on next boot. Reset + save persists the defaults.
+
+---
+
 ## Troubleshooting
 
 If **none** of the tests produce audible changes (including Test 1 — bass gain):
@@ -262,3 +284,4 @@ If **none** of the tests produce audible changes (including Test 1 — bass gain
 | 8 | Sub Phase | | |
 | 9 | Sub Input Source | | |
 | 10 | Sub Output Mode | | |
+| 11 | Save/Load Settings | | |

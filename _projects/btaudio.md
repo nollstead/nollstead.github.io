@@ -67,6 +67,7 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 | `version` | Show firmware version |
 | `status` | Show current settings |
 | `reset` | Reset all settings to factory defaults |
+| `save` | Save current settings to flash |
 
 ### Volume Offset
 
