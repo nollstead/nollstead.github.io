@@ -11,15 +11,15 @@ breadcrumb:
 
 # BTAudio Testbed Setup v2
 
+Version 2 of the BTAudio PCB focuses on the audio portions (RCA jacks, ES8388, BD37033, etc.), digital and power are still supplied externally via pin headers.
+
+## RCA Board
+
 <p align="center">
   <a href="/assets/projects/btaudio/testbed2.png" target="_blank" rel="noopener noreferrer">
     <img src="/assets/projects/btaudio/testbed2.png" alt="testbed" width="35%">
   </a>
 </p>
-
-Version 2 of the BTAudio PCB focuses on the audio portions (RCA jacks, ES8388, BD37033, etc.), digital and power are still supplied externally via pin headers.
-
-## RCA Board
 
 - The Triple-V pcb is intended to supply all power needs from the amplifier (8v to bd37033, 3v3 to esp32 and ES8388 and 5v to ADC pins) and is wired in as follows:
   - Connect power/gnd to amplifier via the +/- connectors on the green connector
@@ -43,6 +43,13 @@ Version 2 of the BTAudio PCB focuses on the audio portions (RCA jacks, ES8388, B
 - Connect the ESP32 to your computer via USB.  Note for this setup we're powering the esp32 from the 5v USB but bypassing it's LDO - so do not connect the 3V3 pin on the 
 
 ## Amplifier REM Signal
+
+<p align="center">
+  <a href="/assets/projects/btaudio/testbed2withREM.png" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/projects/btaudio/testbed2withREM.png" alt="testbed" width="35%">
+  </a>
+</p>
+
 
 This version of the pcb does not include the circuitry for controlling the REM signal on the amplifier, however the circuitry has been worked out and and can be added via a separate BD846BPN breakout board.  This can be added to a breadboard for this test if desired.  
 
