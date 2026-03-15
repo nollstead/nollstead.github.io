@@ -23,7 +23,7 @@ Version 2 of the BTAudio PCB focuses on the audio portions (RCA jacks, ES8388, B
 
 - The Triple-V pcb is intended to supply all power needs from the amplifier (8v to bd37033, 3v3 to esp32 and ES8388 and 5v to ADC pins) and is wired in as follows:
   - Connect power/gnd to amplifier via the +/- connectors on the green connector
-  - (Optional) Connect a jumper wire from the REM port on the amplifier to the + pin header next to the green connector.  Note that for the initial setup this just supplies 12v continuously, in the **Amplifier REM Signal** section below we'll wire this into the REM circuitry
+  - Connect a jumper wire from the REM port on the amplifier to the + pin header next to the green connector.  Note that for the initial setup this just supplies 12v continuously, in the **Amplifier REM Signal** section below we'll wire this into the REM circuitry
   - Connect the 3V3 (+) pin header on the Triple-V to the 3V3 pin on the pcb
   - Connect the 5v (+) pin header on the Triple-V to the 5V pin on the pcb
   - Connect the 8v (+) pin header on the Triple-V to the 8v pin on the pcb
@@ -40,7 +40,7 @@ Version 2 of the BTAudio PCB focuses on the audio portions (RCA jacks, ES8388, B
   - Connect a F/F jumper from GPIO 18 on the ESP32 to the SDA pin on the pcb
 
   
-- Connect the ESP32 to your computer via USB.  Note for this setup we're powering the esp32 from the 5v USB but bypassing it's LDO - so do not connect the 3V3 pin on the 
+- Connect the ESP32 to your computer via USB.  Note for this setup we're powering the esp32 from the 5v USB but bypassing it's LDO - so do not connect the 3V3 pin on the esp32 to anything.
 
 ## (Optional) Amplifier REM Signal
 

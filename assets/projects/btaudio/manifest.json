@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.2",
+      "date": "2026-03-15",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "wifi settings, sensor settings",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_2.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.1",
       "date": "2026-03-07",
       "label": "ESP32-DevKitC-VE",

@@ -128,6 +128,7 @@ Not yet implemented.
 ## Useful Links
 
 - [BTAudio Testbed Configuration](/btaudio/testbed)
+- [BTAudio ADC Testbed Configuration](/btaudio/ADCTestbed)
 - [BTAudio Test Plan](/btaudio/testplan)
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Github Repository](https://github.com/nollstead/btaudio)
