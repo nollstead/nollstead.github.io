@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "ADC-v1",
+      "date": "2026-03-16",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "For ADC testing.  Bypasses audio",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_ADC_1.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.2",
       "date": "2026-03-15",
       "label": "ESP32-DevKitC-VE",
@@ -50,45 +63,6 @@
       "parts": [
         {
           "path": "BTAudio_0_2_4.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.2.3",
-      "date": "2026-03-04",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Implemented bi-directional volume control via AVRCP, added webui sliders for numeric entries",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_2_3.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.2.2",
-      "date": "2026-03-04",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Subwoofer updates, minor menu changes",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_2_2.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.2.1",
-      "date": "2026-03-02",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Updated WebUI to wire in all settings",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_2_1.bin",
           "offset": 0
         }
       ]
