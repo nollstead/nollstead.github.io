@@ -3,14 +3,14 @@
   "schema": 1,
   "builds": [
      {
-      "version": "ADC-v1",
+      "version": "ADC-v2",
       "date": "2026-03-16",
       "label": "ESP32-DevKitC-VE",
       "notes": "For ADC testing.  Bypasses audio",
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "BTAudio_ADC_1.bin",
+          "path": "BTAudio_ADC_2.bin",
           "offset": 0
         }
       ]

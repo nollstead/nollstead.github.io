@@ -75,10 +75,47 @@ Place a varrying level resistors on a0 to gnd and observe results
 | Condition | Voltage | Displayed Result|
 |---------|-------------|-------------|
 | Jumper wire | 0v | 1.00 |
-| 22Ω resistor | 0.82v  | 0.80 |
-| 47Ω resistor | 1.43v  | 0.60 |
-| 68Ω resistor | 1.82v  | 0.43 |
-| 100Ω resistor | 2.24v  | 0.19 |
+| 22Ω resistor | 0.69v  | 0.82 |
+| 47Ω resistor | 1.43v  | 0.53 |
+| 68Ω resistor | 1.82v  | 0.31 |
+| 100Ω resistor | 2.24v  | 0.00 |
+
+### Coolant Temperature
+
+Place a varrying level resistors on a1 to gnd and observe results
+
+| Condition | Voltage | Displayed Result|
+|---------|-------------|-------------|
+| Jumper wire | 0v | 0 degrees |
+| 22Ω resistor | 0.81v  | 55 degrees |
+| 47Ω resistor | 1.43v | 118 degrees |
+| 68Ω resistor | 1.82v | 172 degrees |
+| 100Ω resistor | 2.23v  | 250 degrees |
+
+### Oil Temperature
+
+Place a varrying level resistors on a2 to gnd and observe results
+
+| Condition | Voltage | Displayed Result|
+|---------|-------------|-------------|
+| Jumper wire | 0v | 0 degrees |
+| 22Ω resistor | 0.81v  | 66 degrees |
+| 47Ω resistor | 1.43v | 142 degrees |
+| 68Ω resistor | 1.82v | 207 degrees |
+| 100Ω resistor | 2.23v  | 300 degrees |
+
+### Oil Pressure
+
+Place a varrying level resistors on a3 to gnd and observe results
+
+| Condition | Voltage | Displayed Result|
+|---------|-------------|-------------|
+| Jumper wire | 0v | 0 psi |
+| 22Ω resistor | 0.81v  | 22 psi |
+| 47Ω resistor | 1.43v | 47 psi |
+| 68Ω resistor | 1.81v | 68 psi |
+| 100Ω resistor | 2.23v  | 100 psi |
+
 
 
 
