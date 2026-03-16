@@ -60,11 +60,25 @@ The current (v2) version of the audio pcb does not include the required pullup r
 - Connect one end of a 100Ω resitor to A1 on ADS1115 #1 and the other end to the 5v rail
 - Connect one end of a 100Ω resitor to A2 on ADS1115 #1 and the other end to the 5v rail
 - Connect one end of a 100Ω resitor to A3 on ADS1115 #1 and the other end to the 5v rail
+- Connect a 100nF capacitor a1 on ADS1115 #2 to the GND rail
 - Connect a 100Ω resistor from a1 on ADS1115 #2 to an open breadboard column
-- Connect a 33kΩ resistor the open breadboard column used in the previous step to the GND rail
-- Connect a 100kΩ resistor the open breadboard column used in the previous step to a second open breadboard column
+  - Connect a 33kΩ resistor from that open breadboard column to the GND rail
+  - Connect a 100kΩ resistor from that open breadboard column to a second open breadboard column
   - Note.  This second breadboard column will be where we test the battery voltage.
 
+## Testing
+
+### Fuel level
+
+Place a varrying level resistors on a0 to gnd and observe results
+
+| Condition | Voltage | Displayed Result|
+|---------|-------------|-------------|
+| Jumper wire | 0v | 1.00 |
+| 22Ω resistor | 0.82v  | 0.80 |
+| 47Ω resistor | 1.43v  | 0.60 |
+| 68Ω resistor | 1.82v  | 0.43 |
+| 100Ω resistor | 2.24v  | 0.19 |
 
 
 
