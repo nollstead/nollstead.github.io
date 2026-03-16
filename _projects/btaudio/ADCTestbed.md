@@ -60,7 +60,7 @@ The current (v2) version of the audio pcb does not include the required pullup r
 - Connect one end of a 100Ω resitor to A1 on ADS1115 #1 and the other end to the 5v rail
 - Connect one end of a 100Ω resitor to A2 on ADS1115 #1 and the other end to the 5v rail
 - Connect one end of a 100Ω resitor to A3 on ADS1115 #1 and the other end to the 5v rail
-- Connect a 100nF capacitor a1 on ADS1115 #2 to the GND rail
+- Connect a 100nF capacitor from a1 on ADS1115 #2 to the GND rail
 - Connect a 100Ω resistor from a1 on ADS1115 #2 to an open breadboard column
   - Connect a 33kΩ resistor from that open breadboard column to the GND rail
   - Connect a 100kΩ resistor from that open breadboard column to a second open breadboard column
