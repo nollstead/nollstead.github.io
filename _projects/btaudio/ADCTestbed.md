@@ -70,7 +70,7 @@ The current (v2) version of the audio pcb does not include the required pullup r
 
 ### Fuel level
 
-Place a varrying level resistors on a0 to gnd and observe results
+Place varying level resistors on a0 to gnd and observe results
 
 | Condition | Voltage | Displayed Result|
 |---------|-------------|-------------|
@@ -82,7 +82,7 @@ Place a varrying level resistors on a0 to gnd and observe results
 
 ### Coolant Temperature
 
-Place a varrying level resistors on a1 to gnd and observe results
+Place varying level resistors on a1 to gnd and observe results
 
 | Condition | Voltage | Displayed Result|
 |---------|-------------|-------------|
@@ -94,7 +94,7 @@ Place a varrying level resistors on a1 to gnd and observe results
 
 ### Oil Temperature
 
-Place a varrying level resistors on a2 to gnd and observe results
+Place varying level resistors on a2 to gnd and observe results
 
 | Condition | Voltage | Displayed Result|
 |---------|-------------|-------------|
@@ -106,7 +106,7 @@ Place a varrying level resistors on a2 to gnd and observe results
 
 ### Oil Pressure
 
-Place a varrying level resistors on a3 to gnd and observe results
+Place varying level resistors on a3 to gnd and observe results
 
 | Condition | Voltage | Displayed Result|
 |---------|-------------|-------------|
