@@ -62,6 +62,8 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 | `help vol` | Show volume offset commands |
 | `help eq` | Show EQ/tone commands |
 | `help sub` | Show subwoofer commands |
+| `help sensors` | Show sensor commands |
+| `help net` | Show network/device commands |
 | `help balance` | Show balance commands |
 | `help fader` | Show fader commands |
 | `version` | Show firmware version |
@@ -120,6 +122,33 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 | `sub input variable` | Sub level tracks with volume offset (default) |
 | `sub input fixed` | Sub level stays constant regardless of volume offset |
 
+### Sensors
+
+| Command | Description |
+|---------|-------------|
+| `sensors` | Show sensor config and current readings |
+| `coolant on\|off` | Enable/disable coolant temp sensor |
+| `fuel on\|off` | Enable/disable fuel level sensor |
+| `oilp on\|off` | Enable/disable oil pressure sensor |
+| `oilt on\|off` | Enable/disable oil temp sensor |
+| `afrds on\|off` | Enable/disable AFR driver side |
+| `afrps on\|off` | Enable/disable AFR passenger side |
+| `afrds smooth on\|off` | Enable/disable AFR driver side smoothing |
+| `afrps smooth on\|off` | Enable/disable AFR passenger side smoothing |
+| `gauge int {n}` | Set factory gauges polling interval (seconds) |
+| `afr int {n}` | Set AFR sensors polling interval (seconds) |
+
+### Network / Device
+
+| Command | Description |
+|---------|-------------|
+| `net` | Show network and device config |
+| `name {text}` | Set device name |
+| `ssid {text}` | Set WiFi SSID |
+| `pass {text}` | Set WiFi password |
+| `wifi sta` | Use local WiFi (STA mode) |
+| `wifi ap` | Use own access point (AP mode) |
+
 ### Balance / Fader
 
 Not yet implemented.
@@ -129,6 +158,5 @@ Not yet implemented.
 
 - [BTAudio Testbed Configuration](/btaudio/testbed)
 - [BTAudio ADC Testbed Configuration](/btaudio/ADCTestbed)
-- [BTAudio Test Plan](/btaudio/testplan)
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Github Repository](https://github.com/nollstead/btaudio)
