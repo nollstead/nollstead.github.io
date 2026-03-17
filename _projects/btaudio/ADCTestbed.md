@@ -65,6 +65,8 @@ The current (v2) version of the audio pcb does not include the required pullup r
   - Connect a 33kΩ resistor from that open breadboard column to the GND rail
   - Connect a 100kΩ resistor from that open breadboard column to a second open breadboard column
   - Note.  This second breadboard column will be where we test the battery voltage.
+- Connect a 470kΩ resistor from a0 on the ADS1115 #2 to the gnd rail
+- Connect a 470kΩ resistor from a2 on the ADS1115 #2 to the gnd rail
 
 ## Testing
 
@@ -115,6 +117,14 @@ Place varying level resistors on a3 to gnd and observe results
 | 47Ω resistor | 1.43v | 47 psi |
 | 68Ω resistor | 1.81v | 68 psi |
 | 100Ω resistor | 2.23v  | 100 psi |
+
+### AFR/O2 sensors
+
+1. With nothing connected the values shoudl read 0
+2. Connected a 10kΩ resistor from the 5v rail to an open breadboard column then a jumper from there to either a0 or a2.  You shoudl get a value of about 20
+3. Remove the jumper and connect another 10kΩ resistor from that column to gnd (forming a voltage divider) then connect the jumper to the position between the two resistors and a0 or a2.  You should get a value of about 14
+
+Note:  The lower than max/min values are due to the schottky diode reducing the voltage to 4.5v.  This is expected and will be corrected on the final pcb (which won't have a usb/schottky)
 
 
 
