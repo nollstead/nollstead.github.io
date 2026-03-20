@@ -57,18 +57,18 @@ Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary o
 
 | Command | Description |
 |---------|-------------|
-| `help` | Show general help |
+| `help` | Show help subcategories |
 | `help all` | Show all commands |
 | `help vol` | Show volume offset commands |
 | `help eq` | Show EQ/tone commands |
 | `help sub` | Show subwoofer commands |
-| `help sensors` | Show sensor commands |
 | `help net` | Show network/device commands |
 | `help balance` | Show balance commands |
 | `help fader` | Show fader commands |
 | `version` | Show firmware version |
 | `status` | Show current settings |
-| `reset` | Reset all settings to factory defaults |
+| `reboot` | reboot the device |
+| `reset` | Reset all settings to factory defaults (does not reboot) |
 | `save` | Save current settings to flash |
 
 ### Volume Offset
@@ -122,6 +122,7 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 | `sub input variable` | Sub level tracks with volume offset (default) |
 | `sub input fixed` | Sub level stays constant regardless of volume offset |
 
+<!--
 ### Sensors
 
 | Command | Description |
@@ -138,11 +139,13 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 | `gauge int {n}` | Set factory gauges polling interval (seconds) |
 | `afr int {n}` | Set AFR sensors polling interval (seconds) |
 
+-->
+
 ### Network / Device
 
 | Command | Description |
 |---------|-------------|
-| `net` | Show network and device config |
+| `net` | Show network/device config (name, WiFi mode, SSID, IP, uptime, heap) |
 | `name {text}` | Set device name |
 | `ssid {text}` | Set WiFi SSID |
 | `pass {text}` | Set WiFi password |
@@ -157,6 +160,6 @@ Not yet implemented.
 ## Useful Links
 
 - [BTAudio Testbed Configuration](/btaudio/testbed)
-- [BTAudio ADC Testbed Configuration](/btaudio/ADCTestbed)
+- [BTAudio Test Plan](/btaudio/testplan)
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Github Repository](https://github.com/nollstead/btaudio)
