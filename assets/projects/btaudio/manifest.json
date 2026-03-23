@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.3",
+      "date": "2026-03-23",
+      "label": "ESP32-DevKitC-VE",
+      "notes": "Removed ADC stuff, some code refactoring, added menu for AUX testing",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_3.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "ADC-v3",
       "date": "2026-03-19",
       "label": "ESP32-DevKitC-VE",
