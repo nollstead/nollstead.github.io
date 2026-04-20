@@ -3,79 +3,27 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.4",
+      "date": "2026-04-20",
+      "label": "Prototype board v1",
+      "notes": "Qualify updates, HFP/AEC not implemented.  BT only advertised in STA mode",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_4.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.3",
       "date": "2026-03-23",
-      "label": "ESP32-DevKitC-VE",
+      "label": "",
       "notes": "Removed ADC stuff, some code refactoring, added menu for AUX testing",
       "chipFamily": "ESP32",
       "parts": [
         {
           "path": "BTAudio_0_3_3.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "ADC-v3",
-      "date": "2026-03-19",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "For ADC testing.  Bypasses audio.  Sets all sensors to 0 if an open circuit is detected.",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_ADC_3.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.2",
-      "date": "2026-03-15",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "wifi settings, sensor settings",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_2.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.1",
-      "date": "2026-03-07",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Implemented saving to NVRAM, page org changes, temporrily disabled login page",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_1.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.2.5",
-      "date": "2026-03-05",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "WebUI updates:  Implemented reboot, reset device name and log level in device settings.  Added events table tied to log level.  Implemented OTA firmware functionality",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_2_5.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.2.4",
-      "date": "2026-03-05",
-      "label": "ESP32-DevKitC-VE",
-      "notes": "Removed AVRCP volume control but left bi=directional syncing of menu items/SPP commands.  Renamed Volume to Volume Offset",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_2_4.bin",
           "offset": 0
         }
       ]

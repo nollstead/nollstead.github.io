@@ -159,7 +159,5 @@ Not yet implemented.
 
 ## Useful Links
 
-- [BTAudio Testbed Configuration](/btaudio/testbed)
-- [BTAudio Test Plan](/btaudio/testplan)
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Github Repository](https://github.com/nollstead/btaudio)
