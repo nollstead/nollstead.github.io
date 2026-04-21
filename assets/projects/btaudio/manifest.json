@@ -3,14 +3,14 @@
   "schema": 1,
   "builds": [
      {
-      "version": "v0.3.4",
-      "date": "2026-04-20",
+      "version": "v0.3.5",
+      "date": "2026-04-21",
       "label": "Prototype board v1",
       "notes": "Qualify updates, HFP/AEC not implemented.  BT only advertised in STA mode",
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "BTAudio_0_3_4.bin",
+          "path": "BTAudio_0_3_5.bin",
           "offset": 0
         }
       ]
