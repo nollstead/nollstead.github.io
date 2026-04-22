@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.6",
+      "date": "2026-04-22",
+      "label": "Prototype board v1",
+      "notes": "Removed Wifi/Mongoose code, updated console commands, improved bd37033 muting",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_6.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.5",
       "date": "2026-04-21",
       "label": "Prototype board v1",
