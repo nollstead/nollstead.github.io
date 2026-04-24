@@ -160,5 +160,5 @@ Not yet implemented.
 ## Useful Links
 
 - [BTAudio Firmware Update Page](/btaudio/update)
-- [Nextion HMI](/assets/projects/btaudio/BTAudio.HMI)
+- [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
 - [Github Repository](https://github.com/nollstead/btaudio)
