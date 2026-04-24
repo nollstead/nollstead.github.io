@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.7",
+      "date": "2026-04-23",
+      "label": "Prototype board v1",
+      "notes": "Added Nextion API",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_7.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.6",
       "date": "2026-04-22",
       "label": "Prototype board v1",
