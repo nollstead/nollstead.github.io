@@ -22,73 +22,90 @@ BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that d
 
 ## Factory Defaults
 
-| Function | Default value |
-|---------|-------------|
-| Volume Offset | 20 (0-50 scale) |
-| Loudness Compensation | on |
-| Loudness Center Frequency (f0) | 800 Hz |
-| Loudness Hi-Cut | 1 |
-| Input Gain | 0 dB |
-| Bass Gain | 0 dB |
-| Bass f0 | 60 Hz |
-| Bass Q | 0.5 |
-| Middle Gain | 0 dB |
-| Middle f0 | 0.5 kHz |
-| Middle Q | 0.75 |
-| Treble Gain | 0 dB |
-| Treble f0 | 7.5 kHz |
-| Treble Q | 0.75 |
-| Subwoofer Cutoff Frequency | 120 Hz |
-| Subwoofer Phase | 0 degrees |
-| Subwoofer Output | LPF |
-| Subwoofer Input | Variable |
-| Fader Front Left | +0 dB |
-| Fader Front Right | +0 dB |
-| Fader Rear Left | +0 dB |
-| Fader Rear Right | +0 dB |
-| Fader Sub1 | +0 dB |
-| Fader Sub2 | +0 dB |
+| Function | Default | Notes |
+|---------|---------|-------|
+| Input Source | Bluetooth | |
+| Input Gain | 0 dB | 0-20 dB |
+| Mic Sensitivity | 0 | 0-8 |
+| Speaker Volume | 20 | 0-50 scale; 0=mute, 44=0 dB, 50=+6 dB |
+| Headphone Volume | 26 | 0-33 scale; 26≈-6 dB, 30=0 dB, 33=+4.5 dB |
+| Loudness Compensation | on | |
+| Loudness Center Frequency (f0) | 800 Hz | 400, 800, 2400 Hz |
+| Loudness Hi-Cut | 1 | 1-4 |
+| Bass Gain | 0 dB | -14 to +14 dB |
+| Bass f0 | 60 Hz | 60, 80, 100, 120 Hz |
+| Bass Q | 0.5 | 0.5, 1.0, 1.5, 2.0 |
+| Middle Gain | 0 dB | -14 to +14 dB |
+| Middle f0 | 0.5 kHz | 0.5, 1, 1.5, 2.5 kHz |
+| Middle Q | 0.75 | 0.75, 1.0, 1.25, 1.5 |
+| Treble Gain | 0 dB | -14 to +14 dB |
+| Treble f0 | 7.5 kHz | 7.5, 10, 12.5, 15 kHz |
+| Treble Q | 0.75 | 0.75, 1.25 |
+| Subwoofer Cutoff Frequency | 120 Hz | 55, 85, 120, 160 Hz, or pass-through |
+| Subwoofer Phase | 0 degrees | 0, 180 degrees |
+| Subwoofer Output | LPF | LPF, front, rear |
+| Subwoofer Input | Variable | Variable (tracks volume), Fixed |
+| Fader Front Left | +0 dB | |
+| Fader Front Right | +0 dB | |
+| Fader Rear Left | +0 dB | |
+| Fader Rear Right | +0 dB | |
+| Fader Sub1 | +0 dB | |
+| Fader Sub2 | +0 dB | |
 
-## Menu
+## Console
 
-Connect via Bluetooth SPP (serial) to send commands. Type `help` for a summary or `help all` for the full list.
+BTAudio is configured via a USB serial console. Connect a USB-C cable between the device and your computer, then open a serial terminal with these settings:
+
+- **Baud rate:** 115200
+- **Data bits:** 8
+- **Parity:** None
+- **Stop bits:** 1
+
+The prompt `BTAudio>` will appear. Commands are case-insensitive. Type `help` or `help all` for a full command list.
 
 ### General
 
 | Command | Description |
 |---------|-------------|
-| `help` | Show help subcategories |
-| `help all` | Show all commands |
-| `help vol` | Show volume offset commands |
-| `help eq` | Show EQ/tone commands |
-| `help sub` | Show subwoofer commands |
-| `help net` | Show network/device commands |
-| `help balance` | Show balance commands |
-| `help fader` | Show fader commands |
-| `version` | Show firmware version |
-| `status` | Show current settings |
-| `reboot` | reboot the device |
-| `reset` | Reset all settings to factory defaults (does not reboot) |
+| `show version` | Show firmware version |
+| `show status` | Show Bluetooth connection status |
+| `show settings` | Show all current settings |
+| `show vol` | Show volume and loudness settings |
+| `show eq` | Show EQ settings |
+| `show sub` | Show subwoofer settings |
 | `save` | Save current settings to flash |
+| `reset` | Reset all settings to factory defaults |
+| `reboot` | Reboot the device |
+| `help` | Show top-level commands |
+| `help all` | Show all commands |
 
-### Volume Offset
+### Speaker Volume
 
-Volume Offset is a static compensation for amp and speaker differences — set it once and forget it. Day-to-day volume is controlled from your phone. The offset uses a 0-50 scale where level 0 is mute, 44 is 0 dB, and 50 is +6 dB max.
+Speaker Volume is a static level set for the amplifier — set it once for your install. Day-to-day volume is controlled from your phone. The scale is 0-50 where level 0 is mute, 44 is 0 dB, and 50 is +6 dB max.
 
 Loudness compensation is enabled by default. Our ears naturally lose sensitivity to bass and treble at lower volumes, which can make music sound thin. Loudness compensation corrects for this by boosting bass and treble at low volumes so music sounds full. The boost gradually reduces as volume increases since it's no longer needed. Disable it for a neutral, uncolored output at all volume levels.
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `vol up x` | Increase volume offset by x steps | `vol up 3` |
-| `vol down x` | Decrease volume offset by x steps | `vol down 6` |
-| `vol x` | Set volume offset to level x (0-50) | `vol 30` |
+| `vol {n}` | Set speaker volume to level n (0-50) | `vol 30` |
+| `vol up {n}` | Increase speaker volume by n steps | `vol up 3` |
+| `vol down {n}` | Decrease speaker volume by n steps | `vol down 6` |
 | `loud on` | Enable loudness compensation (default) | |
 | `loud off` | Disable loudness compensation | |
 | `loud f0 400` | Set loudness center frequency to 400 Hz | |
 | `loud f0 800` | Set loudness center frequency to 800 Hz (default) | |
 | `loud f0 2400` | Set loudness center frequency to 2400 Hz | |
 | `loud hicut {n}` | Set loudness hi-cut (1, 2, 3, 4) | `loud hicut 2` |
+| `hpvol {n}` | Set headphone volume (0-33, 26≈-6 dB default) | `hpvol 30` |
+
+### Input / Mic
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `input bt` | Switch audio input to Bluetooth | |
+| `input aux` | Switch audio input to AUX jack | |
 | `input gain {n}` | Set input gain (0-20 dB) | `input gain 5` |
+| `mic {n}` | Set microphone sensitivity (0-8) | `mic 4` |
 
 ### EQ / Tone
 
@@ -105,6 +122,7 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 | `treble f0 {val}` | Set treble f0 (7.5k, 10k, 12.5k, 15k Hz) | `treble f0 10k` |
 
 ### Subwoofer
+
 These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio.
 
 | Command | Description |
@@ -119,38 +137,8 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 | `sub out lpf` | Subwoofer gets bass only (default) |
 | `sub out front` | Subwoofer plays same audio as front speakers |
 | `sub out rear` | Subwoofer plays same audio as rear speakers |
-| `sub input variable` | Sub level tracks with volume offset (default) |
-| `sub input fixed` | Sub level stays constant regardless of volume offset |
-
-<!--
-### Sensors
-
-| Command | Description |
-|---------|-------------|
-| `sensors` | Show sensor config and current readings |
-| `coolant on\|off` | Enable/disable coolant temp sensor |
-| `fuel on\|off` | Enable/disable fuel level sensor |
-| `oilp on\|off` | Enable/disable oil pressure sensor |
-| `oilt on\|off` | Enable/disable oil temp sensor |
-| `afrds on\|off` | Enable/disable AFR driver side |
-| `afrps on\|off` | Enable/disable AFR passenger side |
-| `afrds smooth on\|off` | Enable/disable AFR driver side smoothing |
-| `afrps smooth on\|off` | Enable/disable AFR passenger side smoothing |
-| `gauge int {n}` | Set factory gauges polling interval (seconds) |
-| `afr int {n}` | Set AFR sensors polling interval (seconds) |
-
--->
-
-### Network / Device
-
-| Command | Description |
-|---------|-------------|
-| `net` | Show network/device config (name, WiFi mode, SSID, IP, uptime, heap) |
-| `name {text}` | Set device name |
-| `ssid {text}` | Set WiFi SSID |
-| `pass {text}` | Set WiFi password |
-| `wifi sta` | Use local WiFi (STA mode) |
-| `wifi ap` | Use own access point (AP mode) |
+| `sub input variable` | Sub level tracks with volume (default) |
+| `sub input fixed` | Sub level stays constant regardless of volume |
 
 ### Balance / Fader
 
