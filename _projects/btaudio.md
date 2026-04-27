@@ -150,4 +150,4 @@ Not yet implemented.
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
 - [Github Repository](https://github.com/nollstead/btaudio)
-- [AI Case Study](https://github.com/nollstead/btaudio/ai-case-study)
+- [AI Case Study](/btaudio/ai-case-study)

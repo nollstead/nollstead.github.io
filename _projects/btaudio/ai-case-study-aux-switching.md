@@ -6,9 +6,10 @@ tags: [AI, Claude, ESP32, Firmware, Case Study]
 weight: 90
 permalink: /btaudio/ai-case-study/   
 breadcrumb:
+breadcrumb:
   - { title: "Home", url: "/" }
   - { title: "Projects", url: "/projects/" }
-  - { title: "Bluetooth Audio", url: "/projects/btaudio/" }
+  - { title: "Bluetooth Audio", url: "/btaudio/" }
   - { title: "AI Case Study: AUX Switching" }
 ---
 
