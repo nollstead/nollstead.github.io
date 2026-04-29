@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.10",
+      "date": "2026-04-29",
+      "label": "Prototype board v1",
+      "notes": "Updates to AUX switching and standardization of CLI commands",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_10.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.9",
       "date": "2026-04-26",
       "label": "Prototype board v1",
