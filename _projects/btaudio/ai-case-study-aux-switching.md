@@ -291,22 +291,23 @@ if ((audio_input_t)u8val != AUDIO_INPUT_BLUETOOTH)
 
 | # | Starting State | Action | Expected Result | Test Result |
 |---|---------------|--------|-----------------|-------------|
-| 1 | HP out, BT disconnected, input=BT | Boot device | BD37033 muted, REM off | |
-| 2 | BT disconnected, input=BT, HP out | Connect to Bluetooth | BD37033 unmuted, REM on | |
-| 3 | BT connected, streaming, HP out | Disconnect from Bluetooth | BD37033 muted, REM off | |
-| 4 | BT disconnected, input=BT, HP out | Switch input to AUX | BD37033 unmuted, REM on | |
-| 5 | Input=AUX, HP out | Connect to Bluetooth | No change to BD37033 mute or REM | |
-| 6 | Input=AUX, BT connected, HP out | Disconnect from Bluetooth | No change to BD37033 mute or REM | |
-| 7 | Input=AUX, BT disconnected, HP out | Insert headphones | BD37033 muted, REM off | |
-| 8 | Input=AUX, BT disconnected, HP in | Remove headphones | BD37033 unmuted, REM on | |
-| 9 | Input=AUX, BT connected, HP out | Insert headphones | BD37033 muted, REM off | |
-| 10 | Input=AUX, BT connected, HP in | Remove headphones | BD37033 unmuted, REM on | |
-| 11 | Input=BT, BT streaming, HP out | Insert headphones | BD37033 muted, REM off | |
-| 12 | Input=BT, BT connected, HP in | Remove headphones | BD37033 unmuted, REM on | |
+| 1 | HP out, BT disconnected, input=BT | Boot device | BD37033 muted, REM off |Confirmed |
+| 2 | BT disconnected, input=BT, HP out | Connect to Bluetooth | BD37033 unmuted, REM on |Confirmed |
+| 3 | BT connected, streaming, HP out | Disconnect from Bluetooth | BD37033 muted, REM off |Confirmed |
+| 4 | BT disconnected, input=BT, HP out | Switch input to AUX | BD37033 unmuted, REM on |Confirmed|
+| 5 | Input=AUX, HP out | Connect to Bluetooth | No change to BD37033 mute or REM |Confirmed |
+| 6 | Input=AUX, BT connected, HP out | Disconnect from Bluetooth | No change to BD37033 mute or REM |Confirmed |
+| 7 | Input=AUX, BT disconnected, HP out | Insert headphones | BD37033 muted, REM off |Confirmed |
+| 8 | Input=AUX, BT disconnected, HP in | Remove headphones | BD37033 unmuted, REM on |audio plays in HP before removing but not through speakers afterwards |
+| 9 | Input=AUX, BT connected, HP out | Insert headphones | BD37033 muted, REM off | confirmed |
+| 10 | Input=AUX, BT connected, HP in | Remove headphones | BD37033 unmuted, REM on | confirmed |
+| 11 | Input=BT, BT streaming, HP out | Insert headphones | BD37033 muted, REM off | Confirmed |
+| 12 | Input=BT, BT connected, HP in | Remove headphones | BD37033 unmuted, REM on | Confirmed |
 | 13 | Input=AUX, HP out | Pause playback on phone | No change to BD37033 mute or REM | |
 | 14 | Input=AUX, HP out | Resume playback on phone | No change to BD37033 mute or REM | |
 | 15 | HP in, AUX saved in NVS | Boot device | BD37033 muted, REM off | |
 
+- Aux volume is very low
 ---
 
 ## Key Takeaways
