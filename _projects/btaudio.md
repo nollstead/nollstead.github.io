@@ -30,16 +30,16 @@ BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that d
 | Speaker Volume | 20 | 0-50 scale; 0=mute, 44=0 dB, 50=+6 dB |
 | Headphone Volume | 26 | 0-33 scale; 26≈-6 dB, 30=0 dB, 33=+4.5 dB |
 | Loudness Compensation | on | |
-| Loudness Center Frequency (f0) | 800 Hz | 400, 800, 2400 Hz |
+| Loudness Center Frequency | 800 Hz | 400, 800, 2400 Hz |
 | Loudness Hi-Cut | 1 | 1-4 |
 | Bass Gain | 0 dB | -14 to +14 dB |
-| Bass f0 | 60 Hz | 60, 80, 100, 120 Hz |
+| Bass Frequency | 60 Hz | 60, 80, 100, 120 Hz |
 | Bass Q | 0.5 | 0.5, 1.0, 1.5, 2.0 |
 | Middle Gain | 0 dB | -14 to +14 dB |
-| Middle f0 | 0.5 kHz | 0.5, 1, 1.5, 2.5 kHz |
+| Middle Frequency | 0.5 kHz | 0.5, 1, 1.5, 2.5 kHz |
 | Middle Q | 0.75 | 0.75, 1.0, 1.25, 1.5 |
 | Treble Gain | 0 dB | -14 to +14 dB |
-| Treble f0 | 7.5 kHz | 7.5, 10, 12.5, 15 kHz |
+| Treble Frequency | 7.5 kHz | 7.5, 10, 12.5, 15 kHz |
 | Treble Q | 0.75 | 0.75, 1.25 |
 | Subwoofer Cutoff Frequency | 120 Hz | 55, 85, 120, 160 Hz, or pass-through |
 | Subwoofer Phase | 0 degrees | 0, 180 degrees |
@@ -61,7 +61,7 @@ BTAudio is configured via a USB serial console. Connect a USB-C cable between th
 - **Parity:** None
 - **Stop bits:** 1
 
-The prompt `BTAudio>` will appear. Commands are case-insensitive. Type `help` or `help all` for a full command list.
+The prompt `BTAudio>` will appear. Commands are case-insensitive. Type `help` or `?` for a full command list.
 
 ### General
 
@@ -70,7 +70,8 @@ The prompt `BTAudio>` will appear. Commands are case-insensitive. Type `help` or
 | `show version` | Show firmware version |
 | `show status` | Show Bluetooth connection status |
 | `show settings` | Show all current settings |
-| `show vol` | Show volume and loudness settings |
+| `show source` | Show input source settings |
+| `show volume` | Show volume and loudness settings |
 | `show eq` | Show EQ settings |
 | `show sub` | Show subwoofer settings |
 | `save` | Save current settings to flash |
@@ -78,6 +79,19 @@ The prompt `BTAudio>` will appear. Commands are case-insensitive. Type `help` or
 | `reboot` | Reboot the device |
 | `help` | Show top-level commands |
 | `help all` | Show all commands |
+| `help source` | Show source/input commands |
+| `help volume` | Show volume and loudness commands |
+| `help eq` | Show EQ/tone commands |
+| `help sub` | Show subwoofer commands |
+
+### Input / Mic
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `input bt` | Switch to Bluetooth input | |
+| `input aux` | Switch to AUX input | |
+| `input gain <n>` | Set input gain (0-20 dB) | `input gain 5` |
+| `mic sensitivity <n>` | Set microphone sensitivity (0-8) | `mic sensitivity 4` |
 
 ### Speaker Volume
 
@@ -87,39 +101,28 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `vol {n}` | Set speaker volume to level n (0-50) | `vol 30` |
-| `vol up {n}` | Increase speaker volume by n steps | `vol up 3` |
-| `vol down {n}` | Decrease speaker volume by n steps | `vol down 6` |
-| `loud on` | Enable loudness compensation (default) | |
-| `loud off` | Disable loudness compensation | |
-| `loud f0 400` | Set loudness center frequency to 400 Hz | |
-| `loud f0 800` | Set loudness center frequency to 800 Hz (default) | |
-| `loud f0 2400` | Set loudness center frequency to 2400 Hz | |
-| `loud hicut {n}` | Set loudness hi-cut (1, 2, 3, 4) | `loud hicut 2` |
-| `hpvol {n}` | Set headphone volume (0-33, 26≈-6 dB default) | `hpvol 30` |
-
-### Input / Mic
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `input bt` | Switch audio input to Bluetooth | |
-| `input aux` | Switch audio input to AUX jack | |
-| `input gain {n}` | Set input gain (0-20 dB) | `input gain 5` |
-| `mic {n}` | Set microphone sensitivity (0-8) | `mic 4` |
+| `vol <n>` | Set speaker volume to level n (0-50) | `vol 30` |
+| `vol up <n>` | Increase speaker volume by n steps | `vol up 3` |
+| `vol down <n>` | Decrease speaker volume by n steps | `vol down 6` |
+| `loudness on` | Enable Fletcher-Munson loudness compensation (default) | |
+| `loudness off` | Disable Fletcher-Munson loudness compensation | |
+| `loudness frequency {400\|800\|2400}` | Set loudness center frequency in Hz | `loudness frequency 400` |
+| `loudness hicut {1\|2\|3\|4}` | Set loudness hi-cut level | `loudness hicut 2` |
+| `headphone volume <n>` | Set headphone volume (0-33, 26≈-6 dB default) | `headphone volume 30` |
 
 ### EQ / Tone
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `bass gain {n}` | Set bass gain (-14 to +14 dB) | `bass gain 6` |
-| `bass q {val}` | Set bass Q (0.5, 1.0, 1.5, 2.0) | `bass q 1.0` |
-| `bass f0 {val}` | Set bass f0 (60, 80, 100, 120 Hz) | `bass f0 80` |
-| `mid gain {n}` | Set middle gain (-14 to +14 dB) | `mid gain -3` |
-| `mid q {val}` | Set middle Q (0.75, 1.0, 1.25, 1.5) | `mid q 1.0` |
-| `mid f0 {val}` | Set middle f0 (0.5k, 1k, 1.5k, 2.5k Hz) | `mid f0 1k` |
-| `treble gain {n}` | Set treble gain (-14 to +14 dB) | `treble gain 4` |
-| `treble q {val}` | Set treble Q (0.75, 1.25) | `treble q 1.25` |
-| `treble f0 {val}` | Set treble f0 (7.5k, 10k, 12.5k, 15k Hz) | `treble f0 10k` |
+| `bass gain <n>` | Set bass gain (-14 to +14 dB) | `bass gain 6` |
+| `bass q {0.5\|1.0\|1.5\|2.0}` | Set bass Q factor | `bass q 1.0` |
+| `bass frequency {60\|80\|100\|120}` | Set bass center frequency in Hz | `bass frequency 80` |
+| `middle gain <n>` | Set middle gain (-14 to +14 dB) | `middle gain -3` |
+| `middle q {0.75\|1.0\|1.25\|1.5}` | Set middle Q factor | `middle q 1.0` |
+| `middle frequency {0.5\|1\|1.5\|2.5}` | Set middle center frequency (kHz) | `middle frequency 1` |
+| `treble gain <n>` | Set treble gain (-14 to +14 dB) | `treble gain 4` |
+| `treble q {0.75\|1.25}` | Set treble Q factor | `treble q 1.25` |
+| `treble frequency {7.5\|10\|12.5\|15}` | Set treble center frequency (kHz) | `treble frequency 10` |
 
 ### Subwoofer
 
@@ -127,18 +130,11 @@ These commands only affect the sub output (SUB1/SUB2). Front and rear speakers a
 
 | Command | Description |
 |---------|-------------|
-| `sub 55` | Set subwoofer cutoff frequency to 55 Hz |
-| `sub 85` | Set subwoofer cutoff frequency to 85 Hz |
-| `sub 120` | Set subwoofer cutoff frequency to 120 Hz (default) |
-| `sub 160` | Set subwoofer cutoff frequency to 160 Hz |
-| `sub pass` | Subwoofer plays full range audio |
-| `sub phase 0` | Normal subwoofer phase (default) |
-| `sub phase 180` | Inverted subwoofer phase |
-| `sub out lpf` | Subwoofer gets bass only (default) |
-| `sub out front` | Subwoofer plays same audio as front speakers |
-| `sub out rear` | Subwoofer plays same audio as rear speakers |
-| `sub input variable` | Sub level tracks with volume (default) |
-| `sub input fixed` | Sub level stays constant regardless of volume |
+| `sub cutoff {55\|85\|120\|160}` | Set subwoofer LPF cutoff frequency in Hz |
+| `sub pass` | Bypass LPF, send full range to sub |
+| `sub phase {0\|180}` | Set subwoofer phase (0 or 180 degrees) |
+| `sub output {lpf\|front\|rear\|sub}` | Set subwoofer output source |
+| `sub input {variable\|fixed}` | Sub level tracks volume or stays constant |
 
 ### Balance / Fader
 
@@ -150,4 +146,3 @@ Not yet implemented.
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
 - [Github Repository](https://github.com/nollstead/btaudio)
-- [AI Case Study](/btaudio/ai-case-study)
