@@ -145,4 +145,5 @@ Not yet implemented.
 
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
+- [BLE UUID's](https://github.com/nollstead/btaudio/blob/main/docs/ble-uuids.md)
 - [Github Repository](https://github.com/nollstead/btaudio)
