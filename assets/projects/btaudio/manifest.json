@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.3.11",
+      "date": "2026-04-40",
+      "label": "Prototype board v1",
+      "notes": "BLE Proof of concept, not fully implemented.  Some updates to CLI commands and AUX switching logic",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_3_11.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.10",
       "date": "2026-04-29",
       "label": "Prototype board v1",
