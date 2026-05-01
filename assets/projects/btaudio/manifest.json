@@ -3,7 +3,7 @@
   "schema": 1,
   "builds": [
      {
-      "version": "v0.4.1",
+      "version": "v0.5.1",
       "date": "2026-04-01",
       "label": "Prototype board v1",
       "notes": "Completed BLE implementation",
