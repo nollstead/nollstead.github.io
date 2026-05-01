@@ -3,8 +3,8 @@
   "schema": 1,
   "builds": [
      {
-      "version": "v0.5.1",
-      "date": "2026-04-01",
+      "version": "v0.4.1",
+      "date": "2026-05-01",
       "label": "Prototype board v1",
       "notes": "Completed BLE implementation",
       "chipFamily": "ESP32",
