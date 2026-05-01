@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.1",
+      "date": "2026-04-01",
+      "label": "Prototype board v1",
+      "notes": "Completed BLE implementation",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_1.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.3.12",
       "date": "2026-04-30",
       "label": "Prototype board v1",
@@ -50,71 +63,6 @@
       "parts": [
         {
           "path": "BTAudio_0_3_9.bin",
-          "offset": 0
-        }
-      ]
-    },
-    {
-      "version": "v0.3.8",
-      "date": "2026-04-26",
-      "label": "Prototype board v1",
-      "notes": "Added HPdetect logic and updates to nextion API",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_8.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.7",
-      "date": "2026-04-23",
-      "label": "Prototype board v1",
-      "notes": "Added Nextion API",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_7.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.6",
-      "date": "2026-04-22",
-      "label": "Prototype board v1",
-      "notes": "Removed Wifi/Mongoose code, updated console commands, improved bd37033 muting",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_6.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.5",
-      "date": "2026-04-21",
-      "label": "Prototype board v1",
-      "notes": "Qualify updates, HFP/AEC not implemented.  BT only advertised in STA mode",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_5.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.3",
-      "date": "2026-03-23",
-      "label": "",
-      "notes": "Removed ADC stuff, some code refactoring, added menu for AUX testing",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_3.bin",
           "offset": 0
         }
       ]
