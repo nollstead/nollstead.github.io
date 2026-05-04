@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.3",
+      "date": "2026-05-04",
+      "label": "Prototype board v1",
+      "notes": "Added balance and fader support for CLI, Nextion and BLE interfaces",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_3.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.4.2",
       "date": "2026-05-03",
       "label": "Prototype board v1",
