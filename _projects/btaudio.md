@@ -145,5 +145,6 @@ Not yet implemented.
 
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
+- [Android App v1.0 build 2](https://drive.google.com/file/d/151ij22wGW8b2wEcCeCgi5xwKL8b_3Guo/view?usp=sharing)
 - [BLE UUID's](https://github.com/nollstead/btaudio/blob/main/docs/ble-uuids.md)
 - [Github Repository](https://github.com/nollstead/btaudio)
