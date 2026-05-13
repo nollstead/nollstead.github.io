@@ -3,8 +3,8 @@ layout: default
 title: "Nextion Switch"
 description: "Nextion HMI Serial Switch"
 featured: true
-tags: [Audio]
-image: "/assets/projects/es8388/es8388.png"
+tags: [HMI, Arduino, ESP32, Nextion]
+image: "/assets/projects/nextionswitch/front.png"
 weight: 15
 breadcrumb:
   - { title: "Home", url: "/" }
