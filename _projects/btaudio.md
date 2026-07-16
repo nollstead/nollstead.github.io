@@ -142,7 +142,7 @@ Balance shifts the left/right mix between channels. Fader shifts the front/rear 
 
 - [BTAudio Firmware Update Page](/btaudio/update)
 - [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
-- [Android App v1.0 build 4](https://drive.google.com/file/d/176ZrEpMOBysuRFBq1B8vk31tpK_s8N80/view?usp=sharing)
+- [Android App v1.0 Build 5](https://drive.google.com/file/d/176ZrEpMOBysuRFBq1B8vk31tpK_s8N80/view?usp=sharing)
 - [BLE UUID's](https://github.com/nollstead/btaudio/blob/main/docs/ble-uuids.md)
 - [Github Repository - Firmware](https://github.com/nollstead/btaudio)
 - [Github Repository - app](https://github.com/nollstead/btaudio_app)
