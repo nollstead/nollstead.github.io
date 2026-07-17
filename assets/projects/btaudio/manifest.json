@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.4",
+      "date": "2026-07-16",
+      "label": "Prototype board v4",
+      "notes": "Fixed crashing issue when using handsfree, added several additional BLE and CLI commands (handsfree enable, sensors, etc.) and several performance and organizational enhancements.",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_4.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.4.3",
       "date": "2026-05-04",
       "label": "Prototype board v1",
