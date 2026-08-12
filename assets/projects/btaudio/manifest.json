@@ -3,105 +3,14 @@
   "schema": 1,
   "builds": [
      {
-      "version": "v0.4.4",
-      "date": "2026-07-16",
-      "label": "Prototype board v4",
-      "notes": "Fixed crashing issue when using handsfree, added several additional BLE and CLI commands (handsfree enable, sensors, etc.) and several performance and organizational enhancements.",
+      "version": "v0.4.5",
+      "date": "2026-08-12",
+      "label": "Prototype board v5",
+      "notes": "Note swapped L/R on each RCA jack",
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "BTAudio_0_4_4.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.4.3",
-      "date": "2026-05-04",
-      "label": "Prototype board v1",
-      "notes": "Added balance and fader support for CLI, Nextion and BLE interfaces",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_4_3.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.4.2",
-      "date": "2026-05-03",
-      "label": "Prototype board v1",
-      "notes": "Added BLE notifications for all settings",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_4_2.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.4.1",
-      "date": "2026-05-01",
-      "label": "Prototype board v1",
-      "notes": "Completed BLE implementation",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_4_1.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.12",
-      "date": "2026-04-30",
-      "label": "Prototype board v1",
-      "notes": "test, no changes from v0.3.11",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_12.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.11",
-      "date": "2026-04-30",
-      "label": "Prototype board v1",
-      "notes": "BLE Proof of concept, not fully implemented.  Some updates to CLI commands and AUX switching logic",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_11.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.10",
-      "date": "2026-04-29",
-      "label": "Prototype board v1",
-      "notes": "Updates to AUX switching and standardization of CLI commands",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_10.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.3.9",
-      "date": "2026-04-26",
-      "label": "Prototype board v1",
-      "notes": "Fixes to nvram save for mic_sensitivity and variable updates on 'reset defaults' on nextion",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_3_9.bin",
+          "path": "BTAudio_0_4_5.bin",
           "offset": 0
         }
       ]
