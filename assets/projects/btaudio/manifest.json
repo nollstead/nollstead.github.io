@@ -40,32 +40,6 @@
           "offset": 0
         }
       ]
-    },
-     {
-      "version": "v0.4.2",
-      "date": "2026-05-03",
-      "label": "Prototype board v1",
-      "notes": "Added BLE notifications for all settings",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_4_2.bin",
-          "offset": 0
-        }
-      ]
-    },
-     {
-      "version": "v0.4.1",
-      "date": "2026-05-01",
-      "label": "Prototype board v1",
-      "notes": "Completed BLE implementation",
-      "chipFamily": "ESP32",
-      "parts": [
-        {
-          "path": "BTAudio_0_4_1.bin",
-          "offset": 0
-        }
-      ]
     }
   ]
 }
