@@ -5,7 +5,7 @@
      {
       "version": "v0.4.5",
       "date": "2026-08-12",
-      "label": "Prototype board v5",
+      "label": "Prototype board v6",
       "notes": "Note swapped L/R on each RCA jack",
       "chipFamily": "ESP32",
       "parts": [
@@ -14,6 +14,19 @@
           "offset": 0
         }
       ]
-    }
+    },
+     {
+      "version": "v0.4.4",
+      "date": "2026-07-18",
+      "label": "Prototype board v5",
+      "notes": "",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_4.bin",
+          "offset": 0
+        }
+      ]
+    }    
   ]
 }
