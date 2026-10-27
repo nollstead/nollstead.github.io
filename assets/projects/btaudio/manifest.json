@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.7",
+      "date": "2026-10-26",
+      "label": "Prototype board v6",
+      "notes": "Added sensor board detection and GPIO0 tied to battery voltage (for testing)",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_7.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.4.6",
       "date": "2026-10-26",
       "label": "Prototype board v6",
