@@ -44,9 +44,12 @@ BTAudio adds Bluetooth audio streaming to classic cars and older vehicles that d
 | Subwoofer Cutoff Frequency | 120 Hz | 55, 85, 120, 160 Hz, or pass-through |
 | Subwoofer Phase | 0 degrees | 0, 180 degrees |
 | Subwoofer Output | LPF | LPF, front, rear |
-| Subwoofer Input | Variable | Variable (tracks volume), Fixed |
+| Subwoofer Input | Fixed | Fixed (unaffected by Bass Gain), Variable (tracks volume) |
+| Subwoofer Level | 0 dB | -15 to +15 dB; independent of bass |
 | Balance | 0 dB | -15 to +15 dB; positive = right heavier |
 | Fader | 0 dB | -15 to +15 dB; positive = front heavier |
+| Handsfree (phone calls) | off | on, off |
+| Sensor Board | off | on, off; optional expansion board |
 
 ## Console
 
@@ -64,17 +67,19 @@ The prompt `BTAudio>` will appear. Commands are case-insensitive. Type `help` or
 | Command | Description |
 |---------|-------------|
 | `show version` | Show firmware version |
-| `show status` | Show Bluetooth connection status |
-| `show settings` | Show all current settings |
-| `show vol` | Show volume and loudness settings |
+| `show status` | Show Bluetooth connection status and firmware version |
+| `show all` | Show all current settings |
+| `show source` | Show input source settings |
+| `show volume` | Show volume and loudness settings |
 | `show eq` | Show EQ settings |
 | `show sub` | Show subwoofer settings |
 | `show spatial` | Show balance and fader settings |
 | `save` | Save current settings to flash |
-| `reset` | Reset all settings to factory defaults |
+| `reset` | Reset all settings (including Handsfree and Sensor Board) to factory defaults |
 | `reboot` | Reboot the device |
 | `help` | Show top-level commands |
 | `help all` | Show all commands |
+| `help {source\|volume\|eq\|sub\|spatial}` | Show commands for one area |
 
 ### Speaker Volume
 
@@ -93,7 +98,9 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 | `loudness hicut {1\|2\|3\|4}` | Set loudness hi-cut level | `loudness hicut 2` |
 | `headphone volume <n>` | Set headphone volume (0-33, 26≈-6 dB default) | `headphone volume 30` |
 
-### Input / Mic
+### Input / Mic / Options
+
+Handsfree enables phone call audio over Bluetooth (HFP) using the vehicle microphone and speakers. It is off by default; when off, the phone sees BTAudio as a music-only device.
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -101,6 +108,8 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 | `input aux` | Switch to AUX input | |
 | `input gain <n>` | Set input gain (0-20 dB) | `input gain 5` |
 | `mic sensitivity <n>` | Set microphone sensitivity (0-8) | `mic sensitivity 4` |
+| `handsfree on\|off` | Enable or disable phone call handling (default off). No argument shows current state. | `handsfree on` |
+| `sensors on\|off` | Enable or disable the optional sensor board (default off). No argument shows current state. | `sensors on` |
 
 ### EQ / Tone
 
@@ -120,13 +129,16 @@ Loudness compensation is enabled by default. Our ears naturally lose sensitivity
 
 These commands only affect the sub output (SUB1/SUB2). Front and rear speakers always get full-range audio.
 
+Sub Input is Fixed by default, which feeds the sub ahead of the EQ so Bass Gain does not change the sub level; the sub still follows the master volume. Use Sub Level to trim the sub relative to the rest of the system.
+
 | Command | Description |
 |---------|-------------|
 | `sub cutoff {55\|85\|120\|160}` | Set subwoofer LPF cutoff frequency in Hz |
 | `sub pass` | Bypass LPF, send full range to sub |
 | `sub phase {0\|180}` | Set subwoofer phase (0 or 180 degrees) |
 | `sub output {lpf\|front\|rear\|sub}` | Set subwoofer output source |
-| `sub input {variable\|fixed}` | Sub level tracks volume or stays constant |
+| `sub input {variable\|fixed}` | Variable takes the sub feed after the EQ (Bass Gain affects the sub); Fixed takes it before the EQ (default) |
+| `sub level [n]` | Set subwoofer level trim (-15 to +15 dB), independent of bass. No argument shows current value. |
 
 ### Balance / Fader
 
