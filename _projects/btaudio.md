@@ -147,4 +147,6 @@ Balance shifts the left/right mix between channels. Fader shifts the front/rear 
 - [BLE UUID's](https://github.com/nollstead/btaudio/blob/main/docs/ble-uuids.md)
 - [Github Repository - Firmware](https://github.com/nollstead/btaudio)
 - [Github Repository - app](https://github.com/nollstead/btaudio_app)
+- [Privacy Policy](https://nollsteadstudio.com/btaudio/privacy/)
+
 

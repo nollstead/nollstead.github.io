@@ -10,6 +10,8 @@ breadcrumb:
   - { title: "Privacy Policy" }
 ---
 
+# Privacy Policy
+
 **Effective date:** October 28, 2026
 
 This privacy policy explains how the BTAudio companion app for Android (the "App"), published by Nollstead Studio, handles information. The App is a configuration tool for the BTAudio device.
