@@ -38,7 +38,7 @@ These are the values restored by the `reset` command.
 | Input Gain | 0 dB | 0-20 dB |
 | Mic Sensitivity | 0 | 0-8 |
 | Handsfree (phone calls) | off | on, off |
-| Sensor Board | off | on, off; optional expansion board |
+| Low Fuel Threshold | disabled | set from the app or `sensors lowfuel`; sensor board only |
 
 ### Volume
 
@@ -94,7 +94,7 @@ These are the values restored by the `reset` command.
 | `show sub` | Show subwoofer settings |
 | `show spatial` | Show balance and fader settings |
 | `save` | Save current settings to flash |
-| `reset` | Reset all settings (including Handsfree and Sensor Board) to factory defaults |
+| `reset` | Reset all settings (including Handsfree and the Low Fuel threshold) to factory defaults |
 | `reboot` | Reboot the device |
 | `help` | Show top-level commands |
 | `help all` | Show all commands |
@@ -128,7 +128,9 @@ Handsfree enables phone call audio over Bluetooth (HFP) using the vehicle microp
 | `input gain <n>` | Set input gain (0-20 dB) | `input gain 5` |
 | `mic sensitivity <n>` | Set microphone sensitivity (0-8) | `mic sensitivity 4` |
 | `handsfree on\|off` | Enable or disable phone call handling (default off). No argument shows current state. | `handsfree on` |
-| `sensors on\|off` | Enable or disable the optional sensor board (default off). No argument shows current state. | `sensors on` |
+| `sensors` | Show whether the optional sensor board is connected and the current low-fuel threshold | |
+| `sensors lowfuel <ohms> above\|below` | Set the low-fuel point as a sender resistance, and whether low fuel is when the sender reads at or above or at or below it. Saved immediately (no `save` needed). | `sensors lowfuel 65 above` |
+| `sensors lowfuel off` | Disable the low-fuel indicator (default). Saved immediately. | |
 
 ## EQ / Tone {#eq}
 

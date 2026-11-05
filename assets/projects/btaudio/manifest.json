@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.8",
+      "date": "2026-11-05",
+      "label": "v1.0",
+      "notes": "Sensor board is now auto-detected (no enable setting), added a low-fuel indicator on the sensor board, and the spare sensor channel is now 'Extra'",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_8.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.4.7",
       "date": "2026-10-26",
       "label": "Prototype board v6",
