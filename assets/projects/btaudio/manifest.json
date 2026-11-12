@@ -3,9 +3,22 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.9",
+      "date": "2026-11-12",
+      "label": "board v1.0",
+      "notes": "Fixed stutter while the app connects over BLE",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_9.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.4.8",
       "date": "2026-11-05",
-      "label": "v1.0",
+      "label": "board v1.0",
       "notes": "Sensor board is now auto-detected (no enable setting), added a low-fuel indicator on the sensor board, and the spare sensor channel is now 'Extra'",
       "chipFamily": "ESP32",
       "parts": [

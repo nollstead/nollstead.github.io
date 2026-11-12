@@ -45,8 +45,6 @@ Everything else is optional — see the [Settings Reference](/btaudio/settings/)
 ## Downloads
 
 - [BTAudio Firmware Update Page](/btaudio/update)
-- [Android App (sideload)](https://drive.google.com/file/d/176ZrEpMOBysuRFBq1B8vk31tpK_s8N80/view?usp=sharing)
-- [Android App (dev testing)](https://play.google.com/apps/internaltest/4701001063722564628)
 - [Android App (Closed Testing Group)](https://play.google.com/store/apps/details?id=com.nollsteadstudio.btaudio)
 - [Nextion HMI](/assets/projects/btaudio/BTAudio7.HMI)
 - [BTAudio case (Bambu Studio File)](/assets/projects/btaudio/BTAudio2.3mf)
