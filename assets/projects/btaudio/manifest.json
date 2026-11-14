@@ -3,6 +3,19 @@
   "schema": 1,
   "builds": [
      {
+      "version": "v0.4.10",
+      "date": "2026-11-13",
+      "label": "board v1.0",
+      "notes": "added tone option to cli and BLE; balance/fader now fade fully at ends of range",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "BTAudio_0_4_10.bin",
+          "offset": 0
+        }
+      ]
+    },
+     {
       "version": "v0.4.9",
       "date": "2026-11-12",
       "label": "board v1.0",
